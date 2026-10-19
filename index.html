@@ -1,79 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>TRUTH OR DARE PRO MAX ULTIMATE</title>
-<meta name="theme-color" content="#FF0055">
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TRUTH OR DARE ULTIMATE BOTTLE</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;900&display=swap');
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Space Grotesk',system-ui;background:#08080f;color:#fff;min-height:100vh}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(800px at 20% -10%,#FF005555,transparent),radial-gradient(800px at 80% 110%,#00D4FF33,transparent);pointer-events:none}
-.app{max-width:480px;margin:0 auto;min-height:100vh;padding:18px;display:flex;flex-direction:column;position:relative;z-index:1}
-.header{text-align:center;padding:18px 0 10px}
-.logo{font-size:42px;font-weight:900;line-height:.9;letter-spacing:-1px}
-.logo span{background:linear-gradient(90deg,#FF0055,#FFCC00);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.subtitle{font-size:11px;letter-spacing:4px;opacity:.5;margin-top:6px;font-weight:700}
-.levels{display:flex;gap:8px;overflow-x:auto;padding:14px 0;scrollbar-width:none}
-.levels::-webkit-scrollbar{display:none}
-.level{flex:0 0 auto;padding:10px 16px;border-radius:100px;border:1px solid #ffffff18;background:#ffffff0a;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
-.level.active{background:#fff;color:#000;transform:scale(1.05)}
-.level.spicy.active{background:linear-gradient(135deg,#FF0055,#FF7A00);color:#fff}
-.level.adult.active{background:linear-gradient(135deg,#7C3AED,#FF0055);color:#fff}
-.card{background:linear-gradient(180deg,#1c1c32,#141428);border:1px solid #ffffff12;border-radius:28px;padding:22px;box-shadow:0 20px 60px #0008}
-.players-row{display:flex;flex-wrap:wrap;gap:8px;min-height:32px;margin-bottom:14px}
-.chip{display:flex;align-items:center;gap:6px;background:#ffffff0f;border:1px solid #ffffff15;padding:7px 14px;border-radius:100px;font-size:13px;font-weight:600}
-.chip.active{background:linear-gradient(135deg,#FF0055,#FFCC00);color:#000;font-weight:800}
-.input-row{display:flex;gap:10px;margin:14px 0}
-.input-row input{flex:1;background:#00000055;border:1px solid #ffffff18;border-radius:14px;padding:14px;color:#fff;font-size:15px;outline:none}
-.btn{border:0;border-radius:16px;padding:16px;font-weight:900;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.btn-add{background:#fff;color:#000;min-width:76px}
-.btn-truth{flex:1;background:linear-gradient(135deg,#00D4FF,#5B5BFF);color:#fff}
-.btn-dare{flex:1;background:linear-gradient(135deg,#FF0055,#FF3D00);color:#fff}
-.btn-row{display:flex;gap:12px;margin-top:16px}
-.qbox{margin-top:18px;background:#00000066;border-radius:20px;padding:22px;min-height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:1px dashed #ffffff18}
-.qbox .type{font-size:10px;letter-spacing:3px;font-weight:900;opacity:.6;margin-bottom:10px}
-.qbox .text{font-size:19px;font-weight:700;line-height:1.35}
-.qbox .for{font-size:12px;margin-top:12px;background:#ffffff14;padding:5px 12px;border-radius:100px}
-.modal{position:fixed;inset:0;background:#000000cc;backdrop-filter:blur(12px);z-index:10;display:none;align-items:center;justify-content:center;padding:18px}
-.modal.show{display:flex}
-.modal-card{background:#1c1c32;border-radius:24px;padding:24px;max-width:360px;width:100%;text-align:center;border:1px solid #ffffff18}
-.footer{margin-top:auto;padding:18px 0 8px;text-align:center;font-size:10px;opacity:.4}
-</style>
-</head>
-<body>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#08080f;color:#fff;font-family:system-ui;min-height:100vh}
+.app{max-width:480px;margin:0 auto;padding:16px;display:flex;flex-direction:column;min-height:100vh}
+.header{text-align:center;padding:12px 0}.logo{font-size:36px;font-weight:900}.logo span{background:linear-gradient(90deg,#FF0055,#FFCC00);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.levels{display:flex;gap:6px;overflow-x:auto;padding:10px 0}.level{flex:0 0 auto;padding:8px 14px;border-radius:100px;background:#ffffff0a;border:1px solid #ffffff15;font-size:12px;font-weight:700;cursor:pointer}.level.active{background:#fff;color:#000}
+.card{background:linear-gradient(180deg,#1c1c32,#141428);border-radius:28px;padding:20px;border:1px solid #ffffff12}
+.bottle-wrap{position:relative;height:140px;display:flex;align-items:center;justify-content:center;margin:12px 0}
+.bottle{font-size:80px;transition:transform 3s cubic-bezier(.15,.8,.3,1);cursor:pointer;filter:drop-shadow(0 0 20px #FF005588)}
+.bottle.spin{transform:rotate(1800deg)}
+.players{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:10px 0}.chip{background:#ffffff14;padding:6px 12px;border-radius:100px;font-size:12px}.chip.active{background:linear-gradient(135deg,#FF0055,#FFCC00);color:#000;font-weight:800}
+.input{display:flex;gap:8px;margin:10px 0}.input input{flex:1;background:#0005;border:1px solid #ffffff18;border-radius:12px;padding:12px;color:#fff}
+.btn{border:0;border-radius:14px;padding:14px;font-weight:900;cursor:pointer}.btn-add{background:#fff;color:#000}
+.btn-row{display:flex;gap:10px;margin-top:14px}.btn-t{flex:1;background:linear-gradient(135deg,#00D4FF,#5B5BFF);color:#fff}.btn-d{flex:1;background:linear-gradient(135deg,#FF0055,#FF3D00);color:#fff}
+.qbox{background:#0006;border-radius:18px;padding:18px;min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;margin-top:12px;border:1px dashed #ffffff18}
+.music{position:fixed;top:12px;right:12px;background:#ffffff14;border-radius:100px;padding:8px 12px;font-size:12px;cursor:pointer;z-index:5}
+</style></head><body>
+<div class="music" id="musicBtn" onclick="toggleMusic()">🎵 MUSIC OFF</div>
 <div class="app">
-<div class="header"><div class="logo">TRUTH<br><span>OR DARE</span></div><div class="subtitle">PRO MAX ULTIMATE</div></div>
+<div class="header"><div class="logo">TRUTH<br><span>OR DARE</span></div><div style="font-size:10px;letter-spacing:3px;opacity:.5">BOTTLE EDITION • PRO MAX</div></div>
 <div class="levels" id="levels"></div>
 <div class="card">
-<div class="players-row" id="players"></div>
-<div class="input-row"><input id="pname" placeholder="Player name..."><button class="btn btn-add" onclick="addPlayer()">ADD</button></div>
-<div class="qbox" id="qbox"><div class="type">READY?</div><div class="text">Add 2+ players, pick level, start chaos!</div></div>
-<div class="btn-row"><button class="btn btn-truth" onclick="play('truth')">TRUTH 💎</button><button class="btn btn-dare" onclick="play('dare')">DARE 🔥</button></div>
-</div>
-<div class="footer">OFFLINE • NO ADS • 18+ FILTERED • VIRAL EDITION</div>
-</div>
-<div class="modal" id="ageModal"><div class="modal-card"><h2>🔞 ADULT MODE</h2><p style="opacity:.7;margin-top:8px;font-size:14px">18+ spicy content. Are you 18+?</p><div style="display:flex;gap:10px;margin-top:16px"><button class="btn btn-add" style="flex:1" onclick="closeAge(false)">NO, PG</button><button class="btn btn-dare" style="flex:1" onclick="closeAge(true)">YES 18+ 🔥</button></div></div></div>
+<div class="bottle-wrap"><div class="bottle" id="bottle" onclick="spinBottle()">🍾</div></div>
+<div style="text-align:center;font-size:11px;opacity:.5">TAP BOTTLE TO SPIN • WHO IT POINTS TO PLAYS</div>
+<div class="players" id="players"></div>
+<div class="input"><input id="pname" placeholder="Player name"><button class="btn btn-add" onclick="addPlayer()">ADD</button></div>
+<div class="qbox" id="qbox"><div style="font-size:10px;opacity:.5">READY?</div><div style="font-weight:700;margin-top:6px">Add 2+ players, spin bottle!</div></div>
+<div class="btn-row"><button class="btn btn-t" onclick="play('truth')">TRUTH 💎</button><button class="btn btn-d" onclick="play('dare')">DARE 🔥</button></div>
+</div></div>
+<audio id="bg" loop><source src="https://cdn.pixabay.com/download/audio/2022/03/24/audio_2a0d0a2c38.mp3?filename=hip-hop-rock-beats-118000.mp3" type="audio/mpeg"></audio>
 <script>
-const LEVELS=[{id:'soft',label:'😇 SOFT'},{id:'teen',label:'😏 TEEN'},{id:'party',label:'🥳 PARTY'},{id:'spicy',label:'🌶️ SPICY'},{id:'adult',label:'🔞 ADULT'},{id:'savage',label:'💀 SAVAGE'}];
+const LEVELS=['😇 SOFT','😏 TEEN','🥳 PARTY','🌶️ SPICY','🔞 ADULT','💀 SAVAGE'];let curL=0,players=[],current=0,musicOn=false;
 const DATA={
-soft:{truth:["Most embarrassing text?","Hidden talent?","Celebrity crush?","Dumbest belief as kid?","Most useless skill?","Worst gift ever?","If invisible for a day?","Biggest ick?","Guilty pleasure song?","Longest no shower?","Worst fashion phase?","Lie to parents?","Awkward date story?","Super strength or speed?","Weirdest dream?"],dare:["15 jumping jacks loudly","Let someone style hair crazy","Best TikTok dance","No 'a' word for 2 rounds","Group sends emoji to your contact","Plank 40 sec","Imitate 3 animals","Shirt backwards 3 rounds","Evil laugh","Alphabet backwards","Mustache drawn","10 squats shouting crush","Post 'I love pickles'"]},
-teen:{truth:["Who here would you kiss?","Ever stalked crush?","Biggest turn-off?","Liked 2 people same time?","Flirtiest thing done?","Ever friend-zoned?","Love language?","Most attractive here?","Slid in DMs? What said?","Worst kiss story?","Love at first sight?","Crush on teacher?","Your type?"],dare:["Text crush 'you up?'","Read last 3 DMs aloud","Stare eyes 20 sec","Pickup line to someone","Group chooses who you follow","Flirty wink to all","Heart emoji to 3rd recent chat","Camera roll 10 sec"]},
-party:{truth:["Drunkest ever?","Wildest party?","Hooked up at party?","Body count truth?","Blacked out story?","Embarrassing drunk text?","Stolen from party?","Most toxic trait?","Best in bed here?"],dare:["Shot of water dramatic","Water pour on head","Dance on chair 20 sec","Group makes water cocktail","Body shot water off hand","Swap clothing item","Write PARTY on forehead","Chug water 5 sec"]},
-spicy:{truth:["Biggest sexual fantasy?","Ever sexted who?","Favorite kiss spot?","One night stand?","Kinkiest tried?","Top or bottom?","Ever sent nudes?","Hottest dream?","Caught doing it?","Wildest hookup location?"],dare:["Lap dance 15 sec clothed","Whisper dirty in ear","Sexy crawl floor","Fake hickey marker","Grind chair 15 sec","Remove 1 item keep underwear","Best moan group rates","Suck finger 5 sec","Playful spank"]},
-adult:{truth:["When lose virginity how?","Dirtiest secret?","Threesome? Would you?","Favorite position why?","Ever cheated details?","Nastiest thing done?","Watch adult content fav category?","Hooked up ex's friend?","Biggest kink hidden?","Public where?","Open relationship?","Most shameful arousal?","Used toys?","Honest body count?"],dare:["Dirty text ex/crush group writes","Lick cream off neck water","Leave lip mark neck","Describe last time detail","Strip to underwear or extra truth","Search history 10 sec","Moan someone name loudly","Twerk 30 sec","Blindfold touch face seductive","Call crush dreamt sexy voice"]},
-savage:{truth:["Who unfriend immediately why?","Worst said behind someone here?","Stolen money from friends?","Most illegal done?","Who hate secretly?","Meanest to someone who loved you?","Spread rumor ruined someone?","Darkest thought about someone here?","Steal friend partner for $1M?","Faked crying manipulate?"],dare:["Post 'I am liar' IG 10 min","Delete most liked photo","Call someone hate apologize fake","Group roasts you 1 min no reaction","Show bank balance","Read notes app","Group makes safe food mix eat","Shave small hair patch","Light slap consensual","Embarrassing childhood pic profile 1 hr"]}
+0:{truth:["Most embarrassing text?","Hidden talent?","Celeb crush?","Guilty song?"],dare:["15 jumping jacks","TikTok dance","Plank 40s","Evil laugh"]},
+1:{truth:["Who kiss here?","Stalked crush?","Most attractive here?"],dare:["Text crush 'you up?'","Stare eyes 20s","Pickup line"]},
+2:{truth:["Drunkest ever?","Body count?","Best in bed here?"],dare:["Water shot dramatic","Dance chair","Chug water"]},
+3:{truth:["Fantasy?","Sexted who?","Kinkiest tried?"],dare:["Lap dance 15s","Whisper dirty","Grind chair"]},
+4:{truth:["Lose virginity how?","Dirtiest secret?","Threesome?","Fav position?","Body count honest?"],dare:["Dirty text group writes","Leave lip mark","Twerk 30s","Moan name loudly","Call crush sexy voice"]},
+5:{truth:["Who unfriend?","Most illegal?","Steal partner for $1M?"],dare:["Post 'I am liar' 10min","Show bank","Roast 1 min"]}
 };
-let currentLevel='soft',players=[],current=0,adultUnlocked=false,pending='';
-function renderLevels(){let h='';LEVELS.forEach(l=>{h+=`<div class="level ${l.id===currentLevel?'active':''} ${l.id==='spicy'?'spicy':''} ${l.id==='adult'?'adult':''}" onclick="setLevel('${l.id}')">${l.label}</div>`});document.getElementById('levels').innerHTML=h}
-function setLevel(id){if((id==='adult'||id==='savage'||id==='spicy')&&!adultUnlocked&&id!=='soft'){pending=id;document.getElementById('ageModal').classList.add('show');return}currentLevel=id;renderLevels();document.getElementById('qbox').innerHTML=`<div class="type">LEVEL: ${id.toUpperCase()}</div><div class="text">Ready for ${id} mode! 🔥</div>`}
-function closeAge(ok){document.getElementById('ageModal').classList.remove('show');if(ok){adultUnlocked=true;currentLevel=pending;renderLevels()}}
-function addPlayer(){let v=document.getElementById('pname').value.trim();if(!v||players.length>=12)return;players.push(v);document.getElementById('pname').value='';renderPlayers()}
-function renderPlayers(){let h='';players.forEach((p,i)=>{h+=`<div class="chip ${i===current?'active':''}">${p} <span onclick="players.splice(${i},1);renderPlayers()" style="cursor:pointer">×</span></div>`});document.getElementById('players').innerHTML=h}
-function play(type){if(players.length<2){document.getElementById('qbox').innerHTML=`<div class="type">NEED PLAYERS</div><div class="text">Add 2+ players!</div>`;return}let list=DATA[currentLevel][type];let q=list[Math.floor(Math.random()*list.length)];let player=players[current];document.getElementById('qbox').innerHTML=`<div class="type">${currentLevel.toUpperCase()} • ${type.toUpperCase()}</div><div class="text">${q}</div><div class="for">👉 ${player}</div>`;current=(current+1)%players.length;renderPlayers();if(navigator.vibrate)navigator.vibrate(30)}
-document.getElementById('pname').addEventListener('keydown',e=>{if(e.key==='Enter')addPlayer()});
-renderLevels();renderPlayers();
-</script>
-</body>
-</html>
+function renderLevels(){let h='';LEVELS.forEach((l,i)=>{h+=`<div class="level ${i==curL?'active':''}" onclick="curL=${i};renderLevels()">${l}</div>`});document.getElementById('levels').innerHTML=h}
+function addPlayer(){let v=document.getElementById('pname').value.trim();if(!v)return;players.push(v);document.getElementById('pname').value='';renderP();playSound(440)}
+function renderP(){let h='';players.forEach((p,i)=>{h+=`<div class="chip ${i==current?'active':''}">${p}</div>`});document.getElementById('players').innerHTML=h}
+function spinBottle(){if(players.length<2)return;let b=document.getElementById('bottle');let rot=Math.floor(Math.random()*1440)+720;b.style.transform=`rotate(${rot}deg)`;playSound(200,0.8);current=Math.floor(Math.random()*players.length);setTimeout(()=>{renderP();document.getElementById('qbox').innerHTML=`<div style="font-size:12px;opacity:.6">BOTTLE POINTS TO</div><div style="font-size:22px;font-weight:900;margin-top:6px">${players[current]} 👉</div>`;playSound(660,0.5)},2100);if(navigator.vibrate)navigator.vibrate([30,20,30])}
+function play(t){if(players.length<2){document.getElementById('qbox').innerHTML='Need 2 players!';return}let list=DATA[curL][t];let q=list[Math.floor(Math.random()*list.length)];document.getElementById('qbox').innerHTML=`<div style="font-size:10px;opacity:.6">${LEVELS[curL]} • ${t.toUpperCase()}</div><div style="font-size:18px;font-weight:700;margin-top:8px">${q}</div><div style="margin-top:10px;background:#ffffff14;padding:4px 10px;border-radius:99px;font-size:12px">👉 ${players[current]}</div>`;current=(current+1)%players.length;renderP();playSound(t=='truth'?523:110,0.6)}
+function toggleMusic(){let a=document.getElementById('bg');musicOn=!musicOn;if(musicOn){a.play().catch(()=>{});document.getElementById('musicBtn').innerHTML='🔊 MUSIC ON';}else{a.pause();document.getElementById('musicBtn').innerHTML='🎵 MUSIC OFF';}}
+let ctx;function playSound(freq,dur=0.2){try{if(!ctx)ctx=new (window.AudioContext||window.webkitAudioContext)();let o=ctx.createOscillator();let g=ctx.createGain();o.frequency.value=freq;o.connect(g);g.connect(ctx.destination);g.gain.setValueAtTime(0.3,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+dur);o.start();o.stop(ctx.currentTime+dur)}catch(e){}}
+renderLevels();
+</script></body></html>
