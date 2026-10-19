@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-<title>Paul's Truth or Dare - REAL BOTTLE SPIN</title>
+<title>Paul's Truth or Dare - POINTS + CUSTOM</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a14;color:#fff;font-family:system-ui;padding:10px}
@@ -9,124 +9,187 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 .bar{background:#1a1a3e;border:1px solid #FFCC00;border-radius:12px;padding:10px;display:flex;justify-content:space-between;font-size:12px;font-weight:800}
 .live{background:#FF0055;border-radius:99px;padding:8px 14px;display:flex;justify-content:space-between;font-weight:900;font-size:12px}
 .online{background:#111;border:2px solid #FFCC00;border-radius:12px;padding:12px;text-align:center}
-.wheel{width:280px;height:280px;margin:10px auto;border-radius:50%;background:radial-gradient(circle,#1e1e40,#0a0a14);border:8px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px #FF005533}
-.bottle{font-size:70px;cursor:pointer;display:inline-block;transform-origin:center center;will-change:transform}
-.p-dot{position:absolute;font-size:12px;font-weight:900;background:#333;padding:6px 12px;border-radius:99px;transform:translate(-50%,-50%);border:1px solid #FF0055;transition:all 0.3s}
-.p-dot.on{background:#FFCC00;color:#000;border:2px solid #fff;box-shadow:0 0 15px #FFCC00;transform:translate(-50%,-50%) scale(1.2)}
+.wheel{width:280px;height:280px;margin:10px auto;border-radius:50%;background:radial-gradient(circle,#1e1e40,#0a0a14);border:8px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center}
+.bottle{font-size:70px;cursor:pointer;will-change:transform}
+.p-dot{position:absolute;font-size:11px;font-weight:900;background:#333;padding:6px 10px;border-radius:99px;transform:translate(-50%,-50%);text-align:center;line-height:1.1}
+.p-dot.on{background:#FFCC00;color:#000;border:2px solid #fff;box-shadow:0 0 15px #FFCC00}
+.p-dot small{display:block;font-size:9px;color:#FFCC00}.p-dot.on small{color:#000}
 .card{background:#1e1e38;border-radius:16px;padding:12px}
-.qbox{background:#0008;border-radius:12px;padding:14px;min-height:80px;text-align:center}
+.qbox{background:#0008;border-radius:12px;padding:14px;min-height:90px;text-align:center}
+.approve-box{display:none;margin-top:10px;background:#00FF8822;border:2px solid #00FF88;border-radius:12px;padding:10px}
+.approve-box.show{display:block}
 .btns{display:flex;gap:8px;margin-top:8px}
 .btns button{flex:1;border:0;border-radius:12px;padding:13px;font-weight:900;cursor:pointer}
 .t{background:#00D4FF;color:#000}.d{background:#FF0055;color:#fff}
+.approve{background:#00FF88;color:#000}.fail{background:#666;color:#fff}
 .lv{display:flex;gap:5px;overflow-x:auto;padding:5px 0}
 .lv div{flex:0 0 auto;padding:7px 13px;border-radius:99px;background:#222;font-size:11px;font-weight:800;cursor:pointer}
 .lv div.on{background:#fff;color:#000}
-.chat{height:120px;overflow-y:auto;background:#0008;border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:6px}
+.chat{height:110px;overflow-y:auto;background:#0008;border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:6px}
 .m{background:#222;padding:8px 12px;border-radius:12px;font-size:13px}
 .m .sender{font-weight:900;font-size:11px;color:#FFCC00;display:block}
 .cin{display:flex;gap:6px;margin-top:8px}
 .cin input{flex:1;background:#222;border:1px solid #444;border-radius:99px;padding:12px 16px;color:#fff;font-size:16px}
-.top{width:100%;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer;font-size:14px}
+.top{width:100%;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer}
 .players-list{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:8px 0}
-.players-list span{background:#FFCC00;color:#000;padding:5px 12px;border-radius:99px;font-size:12px;font-weight:900}
+.players-list span{background:#1a1a3e;color:#fff;padding:6px 12px;border-radius:99px;font-size:12px;font-weight:900;border:1px solid #FFCC00;display:flex;flex-direction:column;align-items:center;min-width:70px}
+.players-list span b{color:#FFCC00;font-size:14px}
+.leader{background:#FFCC0022;border:2px solid #FFCC00;border-radius:12px;padding:8px;margin-top:8px}
+.leader div{display:flex;justify-content:space-between;padding:4px 0;font-size:12px;font-weight:800;border-bottom:1px solid #333}
+.leader div:first-child{color:#FFCC00}
+.custom-box{background:#00D4FF11;border:1px solid #00D4FF;border-radius:10px;padding:10px;margin-top:8px}
+.custom-box input, .custom-box select{width:100%;background:#000a;border:1px solid #444;border-radius:8px;padding:10px;color:#fff;margin-top:6px;font-size:14px}
+.custom-box button{width:100%;margin-top:6px;background:#00D4FF;color:#000;border:0;border-radius:8px;padding:10px;font-weight:900;cursor:pointer}
 </style></head><body>
 <div class="app">
 <h1>PAUL'S<br>TRUTH <span>OR DARE</span></h1>
-<div style="text-align:center;font-size:11px;opacity:.7">🍾 REAL BOTTLE - FAST THEN SLOW! BY PAUL McRAE</div>
-<div class="bar"><span id="liveTime">🕐 Loading</span><span id="liveDate">--</span><span>EAT</span></div>
-<div class="live"><span>🔴 LIVE</span><span id="watchCount">👁️ 1 watching</span><span id="liveNames">Waiting</span></div>
+<div style="text-align:center;font-size:11px;opacity:.7">🏆 POINTS + CUSTOM QUESTIONS - OFFLINE FUN!</div>
+<div class="bar"><span id="liveTime">🕐 Loading</span><span id="liveDate">--</span><span>🏆 <span id="totalPoints">0 pts</span></span></div>
+<div class="live"><span>🔴 LIVE OFFLINE</span><span id="watchCount">👁️ 1 watching</span><span id="liveNames">Waiting</span></div>
 <div class="online">
-<div id="status" style="font-weight:800">📴 OFFLINE PARTY - REAL SPIN!</div>
+<div id="status" style="font-weight:800">📴 OFFLINE PARTY - POINTS ACTIVE!</div>
 <div id="playersList" class="players-list"></div>
+<div class="leader" id="leaderboard"><div><span>🏆 LEADERBOARD</span><span>PTS</span></div><div style="opacity:.5">Add players to see points!</div></div>
 <div id="viewersList" style="font-size:11px;background:#000a;border-radius:8px;padding:6px;margin-top:6px">👥 ONE WHEEL: Add name!</div>
 </div>
 <div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
-<button class="top" onclick="spin()">🎡 SPIN BOTTLE - REAL PHYSICS - FAST THEN SLOW!</button>
+<button class="top" onclick="spin()">🎡 SPIN - FAST THEN SLOW!</button>
 <div class="lv" id="lv"></div>
+
 <div class="card">
 <div style="display:flex;gap:6px;margin-bottom:8px">
 <input id="pn" placeholder="Your name" style="flex:1;background:#0006;border:1px solid #444;border-radius:10px;padding:12px;color:#fff;font-size:16px">
 <button onclick="addP()" style="background:#fff;color:#000;border:0;border-radius:10px;padding:12px 16px;font-weight:900">ADD ME</button>
 </div>
-<div class="qbox" id="qb"><div>🍾 REAL BOTTLE PHYSICS!<br>Spins 5-7 times FAST then slows down slowly!<br>Add Paul, John → Spin to see!</div></div>
+
+<div class="qbox" id="qb"><div>🏆 POINTS + CUSTOM QUESTIONS!<br>1. Add players → 2. Spin → 3. Answer → 4. Approve +10 pts!<br>Add your own questions below!</div>
+<div class="approve-box" id="approveBox">
+<div style="font-weight:900">Did <span id="approveName">Player</span> answer well?</div>
+<div id="approveQ" style="font-size:11px;opacity:.7;margin:4px 0"></div>
+<div style="display:flex;gap:8px;margin-top:8px">
+<button class="approve" onclick="approveAnswer(true)">✅ APPROVED +10 pts</button>
+<button class="fail" onclick="approveAnswer(false)">❌ FAILED +0</button>
+</div>
+</div>
+</div>
+
 <div style="display:flex;gap:6px;justify-content:center;font-size:24px;margin:8px 0"><span onclick="doReact('😂')">😂</span><span onclick="doReact('🔥')">🔥</span><span onclick="doReact('😳')">😳</span><span onclick="doReact('💀')">💀</span><span onclick="doReact('❤️')">❤️</span><span onclick="doReact('👏')">👏</span></div>
 <div class="btns"><button class="t" onclick="play('truth')">TRUTH 💎</button><button class="d" onclick="play('dare')">DARE 🔥</button></div>
+
+<div class="custom-box">
+<div style="font-weight:900;font-size:12px">➕ ADD YOUR OWN QUESTIONS - CUSTOM!</div>
+<select id="customType"><option value="truth">Truth Question</option><option value="dare">Dare Challenge</option></select>
+<input id="customQ" placeholder="Type your own truth or dare... e.g. Kiss who?">
+<button onclick="addCustomQ()">➕ ADD CUSTOM QUESTION</button>
+<div id="customList" style="font-size:11px;margin-top:6px;opacity:.8"></div>
 </div>
-<div class="card"><div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM</span>🍾 Real bottle physics added! Fast start, slow finish! Try spin!</div></div><div class="cin"><input id="ci" placeholder="Comment..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div></div>
+</div>
+
+<div class="card"><div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM</span>🏆 Points system! Custom questions! Offline fun!</div></div><div class="cin"><input id="ci" placeholder="Comment..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div></div>
 </div>
 <script>
 function updateClock(){try{let n=new Date();document.getElementById('liveTime').textContent='🕐 '+n.toLocaleTimeString();document.getElementById('liveDate').textContent=n.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});}catch(e){}}
 setInterval(updateClock,1000);updateClock();
-let LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'],curL=2,players=[],curr=0,rot=0,isSpinning=false;
+let LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'],curL=2,players=[],curr=0,rot=0,isSpinning=false,lastQ='',lastPlayer='',pendingPlayer='';
+let customTruths=[],customDares=[];
+
 function renderLevels(){let h='';LEVELS.forEach((n,i)=>{h+=`<div class="${i==curL?'on':''}" onclick="curL=${i};renderLevels()">${n}</div>`});document.getElementById('lv').innerHTML=h}
 function renderPlayersList(){
-let el=document.getElementById('playersList');el.innerHTML='';players.forEach(p=>{let s=document.createElement('span');s.textContent=p;el.appendChild(s)});
+let el=document.getElementById('playersList');el.innerHTML='';let total=0;
+players.forEach(p=>{total+=p.points;let s=document.createElement('span');s.innerHTML=`${p.name}<b>${p.points} pts</b>`;if(players.indexOf(p)==curr)s.style.border='2px solid #FFCC00';s.style.background=players.indexOf(p)==curr?'#FFCC00':'#1a1a3e';s.style.color=players.indexOf(p)==curr?'#000':'#fff';el.appendChild(s)});
 document.getElementById('watchCount').textContent=`👁️ ${players.length||1} watching`;
-document.getElementById('liveNames').textContent=players.join(', ')||'Waiting';
-document.getElementById('viewersList').textContent=`👥 ONE WHEEL (${players.length||1}): ${players.join(', ')||'Add name!'} • ${new Date().toLocaleTimeString()}`;
+document.getElementById('liveNames').textContent=players.map(p=>p.name).join(', ')||'Waiting';
+document.getElementById('viewersList').textContent=`👥 ONE WHEEL (${players.length||1}): ${players.map(p=>p.name).join(', ')||'Add name!'} • Total: ${total} pts`;
+document.getElementById('totalPoints').textContent=total+' pts';
+renderLeaderboard();
+}
+function renderLeaderboard(){
+let el=document.getElementById('leaderboard');if(players.length==0){el.innerHTML='<div><span>🏆 LEADERBOARD</span><span>PTS</span></div><div style="opacity:.5">Add players!</div>';return;}
+let sorted=[...players].sort((a,b)=>b.points-a.points);
+let h='<div><span>🏆 LEADERBOARD</span><span>PTS</span></div>';
+sorted.forEach((p,i)=>{let medal=i==0?'🥇':i==1?'🥈':i==2?'🥉':'👤';h+=`<div><span>${medal} ${p.name}</span><span>${p.points} pts</span></div>`});
+el.innerHTML=h;
 }
 let Q={0:{t:["Most embarrassing text?","Hidden talent?"],d:["15 jumping jacks"]},1:{t:["Who would you kiss now?"],d:["Text crush 'you up?'"]},2:{t:["Drunkest ever?","How many body counts? Honest!"],d:["Water shot"]},3:{t:["Biggest fantasy?"],d:["Lap dance 15s"]},4:{t:["How lose virginity?","Dirtiest secret?","How many body counts? Exact!"],d:["Group writes dirty text","Twerk 30s"]},5:{t:["Who unfriend now?"],d:["Post 'I am liar'"]}};
+
 function addP(){
 let v=document.getElementById('pn').value.trim();if(!v){alert('Type name!');return;}
-if(players.includes(v)){alert('Taken!');return;}
+if(players.find(p=>p.name==v)){alert('Taken!');return;}
 if(players.length>=8){alert('Max 8!');return;}
-players.push(v);document.getElementById('pn').value='';drawWheel();renderPlayersList();addSys(v+' joined! Now: '+players.join(', '),'join','SYSTEM');
+players.push({name:v,points:0});document.getElementById('pn').value='';drawWheel();renderPlayersList();addSys(v+' joined! 0 pts','join','SYSTEM');
 }
 function drawWheel(){
 let w=document.getElementById('wheel');w.querySelectorAll('.p-dot').forEach(e=>e.remove());
 if(players.length==0)return;
-players.forEach((p,i)=>{let d=document.createElement('div');d.className='p-dot'+(i==curr?' on':'');d.textContent=p;let a=(360/players.length)*i+90;let r=105;let x=Math.cos(a*Math.PI/180)*r;let y=Math.sin(a*Math.PI/180)*r;d.style.left='50%';d.style.top='50%';d.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px)`;w.appendChild(d)});
+players.forEach((p,i)=>{let d=document.createElement('div');d.className='p-dot'+(i==curr?' on':'');d.innerHTML=`${p.name}<small>${p.points}pts</small>`;let a=(360/players.length)*i+90;let r=105;let x=Math.cos(a*Math.PI/180)*r;let y=Math.sin(a*Math.PI/180)*r;d.style.left='50%';d.style.top='50%';d.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px)`;w.appendChild(d)});
 }
 function spin(){
 if(isSpinning)return;
 if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055">Need 2+ players! Add Paul, John!</div>';return}
-isSpinning=true;
+isSpinning=true;document.getElementById('approveBox').classList.remove('show');
 let bot=document.getElementById('bot');
-// Pick winner first to land exactly on that person
 let picked=Math.floor(Math.random()*players.length);
-let anglePerPlayer=360/players.length;
 let targetAngle=(360/players.length)*picked;
-// Calculate rotation: 5-7 full spins FAST + land on target
-let extraSpins=5+Math.floor(Math.random()*3); // 5,6,7 spins
-let finalRot=rot + extraSpins*360 + (360-targetAngle) + Math.random()*20 -10;
-let duration=3800+Math.random()*1000; // 3.8-4.8 sec
-
-// Apply real physics easing: fast start, slow end
+let extraSpins=5+Math.floor(Math.random()*3);
+let finalRot=rot + extraSpins*360 + (360-targetAngle);
+let duration=3500+Math.random()*800;
 bot.style.transition=`transform ${duration}ms cubic-bezier(0.15, 0.85, 0.25, 1)`;
 bot.style.transform=`rotate(${finalRot}deg)`;
 rot=finalRot;
-
-document.getElementById('qb').innerHTML=`<div style="font-size:18px">🍾 BOTTLE SPINNING FAST! ${extraSpins} rolls!</div><div style="opacity:.7">Slowing down slowly... 🕐 ${new Date().toLocaleTimeString()}</div>`;
-addSys(`🍾 Bottle spinning ${extraSpins} fast rolls then slowing... ONE WHEEL: ${players.join(', ')}`,'question','SYSTEM');
-
-setTimeout(()=>{
-curr=picked;drawWheel();
-document.getElementById('qb').innerHTML=`<div style="font-size:26px;font-weight:900">🎯 ${players[curr]} PICKED!</div><div style="margin-top:6px">Bottle slowed and stopped on ${players[curr]}!<br>ONE WHEEL: ${players.join(', ')}</div>`;
-addSys(`🎯 Bottle stopped! Picked ${players[curr]}!`,'question','SYSTEM');
-isSpinning=false;
-// Small wobble effect
-bot.style.transition='transform 300ms ease';
-setTimeout(()=>{bot.style.transform=`rotate(${finalRot+3}deg)`; setTimeout(()=>{bot.style.transform=`rotate(${finalRot}deg)`;},150);},100);
-},duration);
+document.getElementById('qb').innerHTML=`<div>🍾 SPINNING ${extraSpins} FAST rolls! Slowing...</div>`;
+setTimeout(()=>{curr=picked;drawWheel();document.getElementById('qb').innerHTML=`<div style="font-size:26px;font-weight:900">🎯 ${players[curr].name} PICKED!</div><div>Choose Truth or Dare!</div>`;isSpinning=false;},duration);
 }
 function play(t){
-if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055">Add 2+ players first!</div>';return}
-let list=t=='truth'?Q[curL].t:Q[curL].d;let q=list[Math.floor(Math.random()*list.length)];let player=players[curr];
-document.getElementById('qb').innerHTML=`<div>${LEVELS[curL]} ${t} • ${new Date().toLocaleTimeString()}</div><div style="font-weight:800;font-size:16px;margin-top:6px">${q}</div><div>👉 ${player} must answer!</div>`;
-addSys(`${t.toUpperCase()}: ${q}`,'question',player);curr=(curr+1)%players.length;setTimeout(drawWheel,400);
+if(players.length<2)return;
+let baseList=t=='truth'?Q[curL].t:Q[curL].d;
+let customList=t=='truth'?customTruths:customDares;
+let allList=[...baseList,...customList];
+if(allList.length==0){document.getElementById('qb').innerHTML='<div>No questions! Add custom below!</div>';return;}
+lastQ=allList[Math.floor(Math.random()*allList.length)];
+lastPlayer=players[curr].name;
+pendingPlayer=players[curr].name;
+let isCustom=customList.includes(lastQ);
+document.getElementById('qb').innerHTML=`<div>${LEVELS[curL]} ${t} ${isCustom?'⭐ CUSTOM':''} • ${new Date().toLocaleTimeString()}</div><div style="font-weight:800;font-size:16px;margin-top:6px">${lastQ}</div><div style="margin-top:8px">👉 ${lastPlayer} must answer! Others approve!</div>`;
+document.getElementById('approveBox').classList.add('show');
+document.getElementById('approveName').textContent=lastPlayer;
+document.getElementById('approveQ').textContent=lastQ;
+addSys(`${t.toUpperCase()}: ${lastQ} - ${lastPlayer} must answer!`,'question',lastPlayer);
+}
+function approveAnswer(approved){
+if(!pendingPlayer)return;
+let p=players.find(x=>x.name==pendingPlayer);
+if(!p)return;
+if(approved){p.points+=10;document.getElementById('qb').innerHTML=`<div style="color:#00FF88;font-weight:900;font-size:20px">✅ ${p.name} APPROVED! +10 pts!</div><div>Total: ${p.points} pts! 🎉</div><div style="margin-top:6px">"${lastQ}" answered!</div>`;addSys(`✅ ${p.name} APPROVED! +10 pts! Now ${p.points} pts!`,'reply',p.name);}
+else{document.getElementById('qb').innerHTML=`<div style="color:#FF5555;font-weight:900;font-size:20px">❌ ${p.name} FAILED! +0 pts</div><div>Try again next round!</div>`;addSys(`❌ ${p.name} failed - no points!`,'reply',p.name);}
+document.getElementById('approveBox').classList.remove('show');
+curr=(curr+1)%players.length;setTimeout(()=>{drawWheel();renderPlayersList();},400);
+pendingPlayer='';
+}
+function addCustomQ(){
+let type=document.getElementById('customType').value;
+let q=document.getElementById('customQ').value.trim();
+if(!q){alert('Type question!');return;}
+if(type=='truth'){customTruths.push(q);}else{customDares.push(q);}
+document.getElementById('customQ').value='';
+renderCustomList();
+addSys(`⭐ Custom ${type} added: "${q}"`,'join','SYSTEM');
+}
+function renderCustomList(){
+let el=document.getElementById('customList');
+let all=[...customTruths.map(q=>`💎 ${q}`),...customDares.map(q=>`🔥 ${q}`)];
+if(all.length==0){el.innerHTML='No custom yet - add above!';return;}
+el.innerHTML=`Custom (${all.length}):<br>`+all.slice(-5).join('<br>');
 }
 function doReact(e){addSys(`Reacted ${e}`,'comment','Guest');}
-function sendChat(){
-let v=document.getElementById('ci').value.trim();if(!v)return;
-addSys(v,'comment','Guest');document.getElementById('ci').value='';
-}
+function sendChat(){let v=document.getElementById('ci').value.trim();if(!v)return;addSys(v,'comment','Guest');document.getElementById('ci').value='';}
 function addSys(t,cls,sender){
 let c=document.getElementById('chat');let d=document.createElement('div');d.className='m';
-d.innerHTML=`<span class="sender">${sender||'Guest'} • ${new Date().toLocaleTimeString()}</span>${t}`;
+d.innerHTML=`<span class="sender">${sender} • ${new Date().toLocaleTimeString()}</span>${t}`;
 c.appendChild(d);c.scrollTop=c.scrollHeight;
 }
-renderLevels();renderPlayersList();drawWheel();
+renderLevels();renderPlayersList();drawWheel();renderCustomList();
 document.getElementById('pn').addEventListener('keydown',e=>{if(e.key=='Enter')addP()});
 document.getElementById('ci').addEventListener('keydown',e=>{if(e.key=='Enter')sendChat()});
+document.getElementById('customQ').addEventListener('keydown',e=>{if(e.key=='Enter')addCustomQ()});
 </script>
 </body></html>
