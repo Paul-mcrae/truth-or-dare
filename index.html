@@ -1,92 +1,79 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Paul - CLEAR MEDIUM NO CRUSH</title>
+<title>Paul - ULTRA NO CRUSH</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a14;color:#fff;font-family:system-ui;padding:8px}
-.app{max-width:400px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+body{background:#0a0a14;color:#fff;font-family:system-ui;padding:10px}
+.app{max-width:360px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
 h1{text-align:center;font-size:20px}h1 span{color:#FF0055}
-.wheel{width:240px;height:240px;margin:8px auto;border-radius:50%;background:#1a1a3e;border:6px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.bottle{font-size:55px;cursor:pointer;transition:transform 3.5s cubic-bezier(0.15,0.85,0.25,1)}
-.p{position:absolute;font-size:10px;background:#333;padding:4px 8px;border-radius:99px;transform:translate(-50%,-50%)}
-.p.on{background:#FFCC00;color:#000}
-.card{background:#1e1e38;border-radius:12px;padding:8px}
-.q{background:#0009;border-radius:10px;padding:10px;min-height:90px;text-align:center;font-size:13px;word-wrap:break-word;overflow-wrap:break-word}
+.wheel{width:200px;height:200px;margin:10px auto;border-radius:50%;background:#1a1a3e;border:6px solid #FF0055;display:flex;align-items:center;justify-content:center}
+.bottle{font-size:60px;cursor:pointer;transition:transform 3s}
+.card{background:#1e1e38;border-radius:12px;padding:10px}
+.q{background:#000a;border-radius:10px;padding:10px;min-height:100px;text-align:center;font-size:13px;word-break:break-word;line-height:1.4}
 .dec{display:none;margin-top:8px;background:#111;border:2px solid #FFCC00;border-radius:10px;padding:8px}
 .dec.show{display:block}
-.db{display:flex;gap:5px;margin-top:6px}
-.db button{flex:1;border:0;border-radius:10px;padding:11px;font-weight:900;cursor:pointer;font-size:12px}
+.db{display:flex;gap:6px;margin-top:6px}
+.db button{flex:1;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer}
 .g{background:#00FF88;color:#000}.r{background:#FF3333;color:#fff}
-.btns{display:flex;gap:5px;margin-top:6px}
-.btns button{flex:1;border:0;border-radius:10px;padding:11px;font-weight:900;cursor:pointer;font-size:12px}
+.btns{display:flex;gap:6px;margin-top:6px}
+.btns button{flex:1;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer}
 .t{background:#00D4FF;color:#000}.d{background:#FF0055;color:#fff}
-.rb{background:#FFCC00;color:#000;width:100%;border:0;border-radius:8px;padding:9px;font-weight:900;margin-top:4px;cursor:pointer;font-size:11px}
+.rb{background:#FFCC00;color:#000;width:100%;border:0;border-radius:8px;padding:10px;font-weight:900;margin-top:6px;cursor:pointer}
 .list{display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
-.list span{background:#1a1a3e;padding:4px 8px;border-radius:99px;font-size:11px;border:1px solid #FFCC00}
-.lead{background:#FFCC0022;border:2px solid #FFCC00;border-radius:8px;padding:6px;font-size:11px}
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000c;align-items:center;justify-content:center;padding:12px;z-index:20}
-.modal.show{display:flex}
-.mcard{background:#1a1a3e;border:3px solid #FFCC00;border-radius:14px;padding:12px;width:100%;max-width:340px;text-align:center}
-.chat{height:60px;overflow-y:auto;background:#0008;border-radius:6px;padding:6px;font-size:11px;word-wrap:break-word}
-.lv{display:flex;gap:3px;overflow-x:auto;padding:3px 0}.lv div{flex:0 0 auto;padding:5px 9px;border-radius:99px;background:#222;font-size:10px;font-weight:800;cursor:pointer}.lv div.on{background:#fff;color:#000}
+.list span{background:#1a1a3e;padding:5px 10px;border-radius:99px;font-size:12px;border:1px solid #FFCC00}
+.lead{background:#FFCC0022;border:2px solid #FFCC00;border-radius:8px;padding:8px;font-size:12px}
+.lv{display:flex;gap:4px;overflow-x:auto;padding:4px 0}.lv div{flex:0 0 auto;padding:6px 10px;border-radius:99px;background:#222;font-size:10px;font-weight:800;cursor:pointer}.lv div.on{background:#fff;color:#000}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000c;align-items:center;justify-content:center;padding:12px;z-index:10}.modal.show{display:flex}.mcard{background:#1a1a3e;border:3px solid #FFCC00;border-radius:14px;padding:14px;width:100%;max-width:320px;text-align:center}
 </style></head><body>
 <div class="app">
 <h1>PAUL'S TRUTH <span>OR DARE</span></h1>
-<div style="text-align:center;font-size:10px;opacity:.7">✅ CLEAR QUESTIONS - MEDIUM - NO CRUSH - WRAP FIXED</div>
+<div style="text-align:center;font-size:10px;opacity:.7">✅ ULTRA LIGHT - NO DOTS - NO CRUSH - AWARD WORKS - CLEAR Q</div>
 <div style="background:#1a1a3e;border:1px solid #FFCC00;border-radius:8px;padding:8px;display:flex;justify-content:space-between;font-size:11px;font-weight:800"><span id="clk">--:--</span><span id="pts">0 pts</span></div>
 <div style="background:#111;border:2px solid #FFCC00;border-radius:10px;padding:8px;text-align:center">
 <div class="list" id="plist"></div>
-<div id="board" class="lead">Add players!</div>
-<button class="rb" onclick="showRank()">🏆 RANKING - WINNER</button>
+<div id="board" class="lead">Add 2 players to start! No crush!</div>
+<button class="rb" onclick="showRank()">🏆 RANKING</button>
 </div>
-<div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
-<button class="rb" style="background:#fff;color:#000" onclick="spin()">🎡 SPIN - FAST THEN SLOW</button>
+<div class="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
+<button class="rb" style="background:#fff;color:#000" onclick="spin()">🎡 SPIN BOTTLE</button>
 <div class="lv" id="lv"></div>
 <div class="card">
 <div style="display:flex;gap:4px">
-<input id="pn" placeholder="Your name" style="flex:1;padding:8px;border-radius:6px;border:1px solid #444;background:#0006;color:#fff">
-<button onclick="addP()" style="padding:8px 12px;border-radius:6px;border:0;background:#fff;color:#000;font-weight:900;cursor:pointer">ADD ME</button>
+<input id="pn" placeholder="Your name" style="flex:1;padding:10px;border-radius:6px;border:1px solid #444;background:#0006;color:#fff">
+<button onclick="addP()" style="padding:10px 12px;border-radius:6px;border:0;background:#fff;color:#000;font-weight:900">ADD ME</button>
 </div>
-<div class="q">
-<div id="qm" style="word-wrap:break-word">Add 2+ players → Spin → Truth/Dare → Award! Questions now clear medium length - no crush!</div>
+<div class="q" id="qm">ULTRA LIGHT! Add 2+ players → Spin → Truth/Dare → Award! No dots = No crush! Questions clear!</div>
 <div class="dec" id="dec">
-<div id="dt" style="font-weight:900;font-size:11px">Did player answer well?</div>
-<div id="dq" style="font-size:12px;margin:6px 0;background:#0006;padding:6px;border-radius:6px;word-wrap:break-word;line-height:1.3"></div>
+<div id="dt" style="font-weight:900;font-size:12px">Did player answer well?</div>
+<div id="dq" style="font-size:12px;margin:6px 0;background:#0006;padding:8px;border-radius:6px;word-break:break-word"></div>
 <div class="db">
 <button class="g" onclick="award()">🟢 AWARD +10</button>
 <button class="r" onclick="deduct()">🔴 DEDUCT -5</button>
 </div>
 </div>
-</div>
 <div class="btns">
-<button class="t" onclick="play('truth')">TRUTH +10 💎</button>
-<button class="d" onclick="play('dare')">DARE +5 🔥</button>
+<button class="t" onclick="play('truth')">TRUTH +10</button>
+<button class="d" onclick="play('dare')">DARE +5</button>
 </div>
-<div style="display:flex;gap:4px;margin-top:4px">
-<button class="rb" style="background:#fff;color:#000;flex:1" onclick="showRank()">🏆 RANKING</button>
+<div style="display:flex;gap:4px;margin-top:6px">
+<button class="rb" style="background:#fff;color:#000;flex:1" onclick="showRank()">🏆 RANK</button>
 <button class="rb" style="background:#FF0055;color:#fff;flex:1" onclick="resetG()">🔄 RESET</button>
-<button class="rb" style="background:#25D366;color:#fff;flex:1" onclick="shareW()">📲 SHARE WA</button>
+<button class="rb" style="background:#25D366;color:#fff;flex:1" onclick="shareW()">📲 SHARE</button>
 </div>
 </div>
-<div class="card"><div class="chat" id="chat"><div>SYSTEM: Clear medium questions - no crush - wrap fixed!</div></div></div>
 </div>
-<div class="modal" id="rm"><div class="mcard">
-<h3 style="color:#FFCC00">🏆 RANKING</h3>
-<div id="rc" style="margin-top:8px;text-align:left;font-size:12px;word-wrap:break-word"></div>
-<button onclick="closeR()" style="margin-top:8px;width:100%;padding:8px;border-radius:6px;border:0;background:#333;color:#fff;font-weight:900;cursor:pointer">CLOSE</button>
-</div></div>
+<div class="modal" id="rm"><div class="mcard"><h3 style="color:#FFCC00">RANKING</h3><div id="rc" style="margin-top:10px;text-align:left;font-size:12px"></div><button onclick="closeR()" style="margin-top:10px;width:100%;padding:10px;border-radius:8px;border:0;background:#333;color:#fff;font-weight:900">CLOSE</button></div></div>
 <script>
 var players=[],curr=0,rot=0,pend=-1,pendT='',curL=2;
 var LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'];
 var Q={
-0:{t:["What is the most embarrassing text you ever sent by mistake? Who did you send it to?","Do you have a hidden talent nobody knows? Show us or explain it clearly.","What is the worst lie you told today and why did you tell it?","Whose social media do you stalk the most and why?","What childish thing do you still do even though you are grown up?","What weird food combo do you secretly love to eat?","When did you last cry and what really made you cry? Tell us.","What useless skill do you have but you are still proud of?","What funny nickname did people call you as a child? How did you get it?","What silly fear do you have that others think is funny? Why?"],d:["Do 15 jumping jacks while shouting your name loudly.","Dance for 10 seconds with no music so everyone sees your style.","Imitate one person in the room until everyone laughs.","Speak in cartoon voice for 20 seconds without laughing.","Do 10 pushups in front of everyone counting loudly."]},
-1:{t:["Who would you like to kiss right now in this room if nobody would judge you? Say name.","Do you have a crush on someone in this room? Who is it and why?","Who is the most attractive person here right now and what makes them attractive?","Who was the last person you stalked online and what were you looking for?","Have you ever liked your friend's boyfriend or girlfriend? Tell story honestly.","If you could date someone here for one week, who would you choose and why?","Who was your most attractive teacher and what did you like about them?","Do you have a secret crush you never told anyone? Who and how long?","Who here would you never date even if paid a lot of money? Explain why.","Have you had a crush on your friend's sibling? Who and what happened?"],d:["Text your crush 'you up?' right now and show everyone you sent it.","Let the group write your WhatsApp status for 1 hour, you cannot delete it.","Call your ex and say 'Hi, I was thinking about you' and see reaction.","Send a voice note singing a love song loudly with feeling.","Look into someone's eyes for 10 seconds straight without laughing."]},
-2:{t:["What is your drunkest story ever? Where were you, what did you drink, what happened?","Honestly, what is your body count? Tell truth if you are comfortable.","What is the worst thing you did when drunk that you now regret?","Have you ever blacked out and forgot everything while drinking? What happened?","Have you ever hooked up with someone at a party you just met that night?","What is your craziest party story from start to finish? Tell in detail.","Have you ever taken something small at a party? Be honest about it.","What is the most money you ever spent in one night partying?","Have you kissed two people on same night at same party? How did it happen?","What was your worst hangover ever and what made it so terrible?"],d:["Drink 3 glasses of water very quickly one after another without stopping.","Do a water shot like it is alcohol, drink in one gulp loudly.","Do 20 fast squats while group counts from 1 to 20.","Let group choose any party dare for you, you must do it.","Dance Azonto for 30 seconds non-stop in the middle."]},
-3:{t:["What is your biggest fantasy you never told anyone? Explain clearly.","Who here do you find very hot and what makes them attractive to you?","Who is the hottest person you ever kissed and what made it memorable?","What is the weirdest place you ever kissed someone? Tell full story.","What exactly turns you on or makes you attracted to someone? Explain.","Have you had a dream about someone in this room? Who and what was dream?","What attractive feature do you look for first when you meet someone?","Would you kiss someone here right now if nobody would judge you?","What is your ideal type? Describe looks and personality clearly.","Have you ever had friends with benefits? How did it start and end?"],d:["Give lap dance to a chair for 15 seconds, make it funny and clear.","Twerk for 20 seconds continuously so everyone can see clearly.","Do sexy runway walk from one side of room to other side.","Bite your lip and wink at one person to show you are flirting.","Do pushups with someone sitting on your back, everyone watches."]},
-4:{t:["What is your dirtiest secret you never told anyone before? Be honest now.","Tell how you lost virginity: where, who, how did you feel about it?","What is the weirdest place you ever did it or made out? Explain clearly.","How many people have you kissed in your whole life? Give real number honestly.","What is your biggest sexual regret you wish you could change?","Have you ever been caught while being intimate? Tell what happened in detail.","What would you like to try if there was no judgement from anyone?","What was your most embarrassing moment in bed or kissing? Tell story.","Have you ever lied about your experience? Why did you lie about it?","What did you feel the first time you kissed or were intimate with someone?"],d:["Twerk 30 seconds non-stop while everyone watches you clearly.","Show your last search history for 5 seconds so everyone sees it.","Let someone read your DMs for 10 seconds while you watch.","Do dirty funny dance for 20 seconds in middle while everyone watches.","Act heartbroken and crying dramatically for 20 seconds."]},
-5:{t:["Who would you unfriend right now if you had to choose one? Who and why clearly?","Who is the most fake person here pretending to be nice but not real? Why?","Who talks behind others' backs the most in this group? Give example.","Who would you never trust with your secret because they would tell others?","Who is the most annoying person here right now and what annoys you?","Who lies the most in this group and what lie did you notice they told?","Who would you block on WhatsApp right now and why would you block them?","Who will have difficult future and why do you think that about them?","Who is two-faced acting nice to face but talking badly behind back?","Who would you never lend money to because they would not pay back?"],d:["Post 'I am a liar' on your WhatsApp status for 10 minutes, don't delete.","Give phone to group for 2 minutes, they can look at anything they want.","Let group post anything on your IG story now, you cannot delete for 1 hour.","Do 20 pushups shouting 'I am weak but trying my best' loudly.","Delete 3 contacts from phone right now in front of everyone."]}
+0:{t:["What is the most embarrassing text you ever sent by mistake? Who did you send it to?","Do you have a hidden talent nobody knows? Explain it clearly.","What worst lie did you tell today and why did you tell it?"],d:["Do 15 jumping jacks while shouting your name loudly.","Dance 10 seconds with no music so everyone sees you."]},
+1:{t:["Who would you kiss right now in this room if nobody would judge you? Say the name.","Do you have a crush on someone in this room? Who and why?","Who is most attractive here right now and what makes them attractive?"],d:["Text your crush 'you up?' now and show everyone you sent it.","Let group write your WhatsApp status for 1 hour."]},
+2:{t:["What is your drunkest story ever? Where were you and what happened?","What is your body count honestly? Tell truth if comfortable.","What worst thing did you do when drunk that you regret?"],d:["Drink 3 glasses of water very quickly one after another.","Do water shot like alcohol in one gulp loudly."]},
+3:{t:["What is your biggest fantasy you never told anyone? Explain clearly.","Who here do you find very hot and what makes them attractive?","Who is hottest you ever kissed and what made it memorable?"],d:["Give lap dance to a chair for 15 seconds, make it funny.","Twerk 20 seconds continuously so everyone sees clearly."]},
+4:{t:["What is your dirtiest secret you never told anyone? Be honest now.","How did you lose virginity? Where, who, how did you feel?","How many people have you kissed in life? Give real number honestly."],d:["Twerk 30 seconds non-stop while everyone watches clearly.","Show your last search history for 5 seconds to everyone."]},
+5:{t:["Who would you unfriend right now? Who and why clearly?","Who is most fake here pretending to be nice but not real? Why?","Who talks behind others backs most? Give example."],d:["Post 'I am a liar' on WhatsApp status for 10 minutes.","Give phone to group for 2 minutes, they can look at anything."]}
 };
-
 function tick(){try{document.getElementById('clk').textContent=new Date().toLocaleTimeString();}catch(e){}}
 setInterval(tick,1000);tick();
 function renderLv(){var h='';for(var i=0;i<LEVELS.length;i++){h+='<div class="'+(i==curL?'on':'')+'" onclick="curL='+i+';renderLv()">'+LEVELS[i]+'</div>';}document.getElementById('lv').innerHTML=h;}
@@ -94,38 +81,32 @@ function render(){
 var el=document.getElementById('plist');el.innerHTML='';var tot=0;
 for(var i=0;i<players.length;i++){tot+=players[i].points;var s=document.createElement('span');s.textContent=players[i].name+' '+players[i].points+'pts';if(i==curr){s.style.background='#FFCC00';s.style.color='#000';}el.appendChild(s);}
 document.getElementById('pts').textContent=tot+' pts';
-var b=document.getElementById('board');if(players.length==0){b.textContent='Add players!';return;}
+var b=document.getElementById('board');if(players.length==0){b.textContent='Add players! No crush version!';return;}
 var sorted=players.slice().sort(function(a,b){return b.points-a.points;});
 var h='LEADERBOARD<br>';for(var i=0;i<sorted.length;i++){h+='<div style="display:flex;justify-content:space-between"><span>'+(i+1)+'. '+sorted[i].name+'</span><span>'+sorted[i].points+' pts</span></div>';}
 b.innerHTML=h;
 }
-function drawW(){
-var w=document.getElementById('wheel');var ps=w.querySelectorAll('.p');for(var i=0;i<ps.length;i++)ps[i].remove();
-if(players.length==0)return;
-for(var i=0;i<players.length;i++){var d=document.createElement('div');d.className='p'+(i==curr?' on':'');d.textContent=players[i].name+' '+players[i].points;var a=(360/players.length)*i+90;var r=90;var x=Math.cos(a*Math.PI/180)*r;var y=Math.sin(a*Math.PI/180)*r;d.style.left='50%';d.style.top='50%';d.style.transform='translate(-50%,-50%) translate('+x+'px,'+y+'px)';w.appendChild(d);}
-}
 function addP(){
 var v=document.getElementById('pn').value.trim();if(!v)return;
-players.push({name:v,points:0});document.getElementById('pn').value='';drawW();render();
+players.push({name:v,points:0});document.getElementById('pn').value='';render();
 }
 function spin(){
-if(players.length<2){document.getElementById('qm').textContent='Need 2+ players to spin! Please add more players first.';return;}
+if(players.length<2){document.getElementById('qm').textContent='Need 2+ players to spin! Add more players first!';return;}
 var bot=document.getElementById('bot');var picked=Math.floor(Math.random()*players.length);
 var finalRot=rot+5*360+Math.random()*360;bot.style.transform='rotate('+finalRot+'deg)';rot=finalRot;
-document.getElementById('qm').textContent='Spinning fast then slow... Please wait!';hideDec();
-setTimeout(function(){curr=picked;drawW();document.getElementById('qm').innerHTML='🎯 '+players[curr].name+' PICKED!<br>Choose Truth for 10 points or Dare for 5 points!';},3500);
+document.getElementById('qm').textContent='Spinning fast then slow... Please wait...';document.getElementById('dec').className='dec';
+setTimeout(function(){curr=picked;render();document.getElementById('qm').innerHTML='🎯 '+players[curr].name+' PICKED!<br>Choose Truth +10 or Dare +5!';},3000);
 }
 function play(type){
 if(players.length<2)return;
 var q=Q[curL][type][Math.floor(Math.random()*Q[curL][type].length)];pend=curr;pendT=type;var pts=type=='truth'?10:5;
-document.getElementById('qm').innerHTML='<div style="font-size:11px;opacity:.8">'+LEVELS[curL]+' '+type+' '+pts+'pts - Clear question:</div><div style="font-weight:800;margin-top:6px;line-height:1.4;word-wrap:break-word">'+q+'</div><div style="margin-top:6px">👉 '+players[pend].name+' must answer clearly!</div>';document.getElementById('dt').textContent='Did '+players[pend].name+' answer well?';document.getElementById('dq').textContent=q;document.getElementById('dec').className='dec show';render();
+document.getElementById('qm').innerHTML='<div style="font-size:11px;opacity:.7">'+LEVELS[curL]+' '+type+' '+pts+'pts - Clear:</div><div style="font-weight:800;margin-top:6px;line-height:1.4">'+q+'</div><div style="margin-top:6px">👉 '+players[pend].name+' answer clearly!</div>';document.getElementById('dt').textContent='Did '+players[pend].name+' answer well?';document.getElementById('dq').textContent=q;document.getElementById('dec').className='dec show';render();
 }
-function hideDec(){document.getElementById('dec').className='dec';}
 function award(){
-if(pend<0)return;var pts=pendT=='truth'?10:5;players[pend].points+=pts;document.getElementById('qm').innerHTML='🟢 AWARDED +'+pts+'! Total '+players[pend].points+' pts! Great job!';hideDec();curr=(curr+1)%players.length;drawW();render();pend=-1;
+if(pend<0)return;var pts=pendT=='truth'?10:5;players[pend].points+=pts;document.getElementById('qm').innerHTML='🟢 AWARDED +'+pts+'! Total '+players[pend].points+' pts!';document.getElementById('dec').className='dec';curr=(curr+1)%players.length;render();pend=-1;
 }
 function deduct(){
-if(pend<0)return;players[pend].points+=-5;document.getElementById('qm').innerHTML='🔴 DEDUCTED -5! Total '+players[pend].points+' pts! Penalty!';hideDec();curr=(curr+1)%players.length;drawW();render();pend=-1;
+if(pend<0)return;players[pend].points+=-5;document.getElementById('qm').innerHTML='🔴 DEDUCTED -5! Total '+players[pend].points+' pts!';document.getElementById('dec').className='dec';curr=(curr+1)%players.length;render();pend=-1;
 }
 function showRank(){
 if(players.length==0)return;
@@ -134,12 +115,12 @@ var html='';for(var i=0;i<sorted.length;i++){html+='<div style="padding:6px;back
 document.getElementById('rc').innerHTML=html;document.getElementById('rm').className='modal show';
 }
 function closeR(){document.getElementById('rm').className='modal';}
-function resetG(){for(var i=0;i<players.length;i++)players[i].points=0;drawW();render();document.getElementById('qm').textContent='New game! Points reset!';}
+function resetG(){for(var i=0;i<players.length;i++)players[i].points=0;render();document.getElementById('qm').textContent='New game! Points reset!';}
 function shareW(){
 if(players.length==0)return;
 var txt='🏆 TRUTH OR DARE!%0A';for(var i=0;i<players.length;i++){txt+=(i+1)+'. '+players[i].name+' '+players[i].points+' pts%0A';}
 window.open('https://wa.me/?text='+txt,'_blank');
 }
-renderLv();render();drawW();
+renderLv();render();
 </script>
-</body></html>  
+</body></html>
