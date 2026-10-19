@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Paul's Truth or Dare - STABLE</title>
+<title>Paul's Truth or Dare - UGANDA FIX</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a14;color:#fff;font-family:system-ui;padding:10px}
@@ -9,7 +9,7 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 .bar{background:#1a1a3e;border:1px solid #FFCC00;border-radius:12px;padding:10px;display:flex;justify-content:space-between;font-size:12px;font-weight:800}
 .live{background:#FF0055;border-radius:99px;padding:8px 14px;display:flex;justify-content:space-between;font-weight:900;font-size:12px}
 .online{background:#111;border:2px solid #FFCC00;border-radius:12px;padding:12px;text-align:center}
-.online button{padding:10px 14px;border-radius:8px;border:0;font-weight:900;margin:3px;cursor:pointer}
+.online button{padding:10px 14px;border-radius:8px;border:0;font-weight:900;margin:3px;cursor:pointer;font-size:12px}
 .wheel{width:280px;height:280px;margin:10px auto;border-radius:50%;background:#1a1a3e;border:8px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center}
 .bottle{font-size:70px;cursor:pointer}
 .p-dot{position:absolute;font-size:12px;font-weight:900;background:#333;padding:6px 12px;border-radius:99px;transform:translate(-50%,-50%)}
@@ -32,41 +32,44 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 .cin input{flex:1;background:#222;border:1px solid #444;border-radius:99px;padding:12px 16px;color:#fff;font-size:16px}
 .top{width:100%;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer}
 .players-list{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:8px 0}
-.players-list span{background:#FFCC00;color:#000;padding:5px 12px;border-radius:99px;font-size:12px;font-weight:900}
+.players-list span{background:#FFCC00;color:#000;padding:5px 12px;border-radius:99px;font-size:12px;font-weight:900;border:2px solid #fff}
+.conn-ok{background:#00FF8822;border:2px solid #00FF88;border-radius:10px;padding:10px;margin-top:8px;display:none;font-weight:900;text-align:center}
+.conn-ok.show{display:block}
 .share{background:#00D4FF22;border:1px solid #00D4FF;border-radius:8px;padding:8px;margin-top:8px;display:none}
 .share.show{display:block}
 </style></head><body>
 <div class="app">
 <h1>PAUL'S<br>TRUTH <span>OR DARE</span></h1>
-<div style="text-align:center;font-size:11px;opacity:.7">STABLE - WILL NEVER CRUSH - BY PAUL McRAE KAMPALA</div>
+<div style="text-align:center;font-size:11px;opacity:.7">🌍 UGANDA FIX WITH TURN SERVER - ONE WHEEL!</div>
 <div class="bar"><span id="liveTime">🕐 Loading</span><span id="liveDate">--</span><span>EAT</span></div>
-<div class="live"><span>🔴 LIVE</span><span id="watchCount">👁️ 1 watching</span><span id="liveNames">Waiting</span></div>
+<div class="live"><span id="liveDot">🔴 LIVE</span><span id="watchCount">👁️ 1 watching</span><span id="liveNames">Waiting</span></div>
 <div class="online">
-<div id="status" style="font-weight:800">📴 OFFLINE PARTY - STABLE! Add name!</div>
-<div id="roomInfo" style="font-size:11px;margin-top:6px"></div>
+<div id="status" style="font-weight:800">📴 OFFLINE - Add name! ONE WHEEL FIXED!</div>
+<div id="roomInfo" style="font-size:11px;margin-top:6px;word-break:break-all"></div>
 <div id="playersList" class="players-list"></div>
-<div id="viewersList" style="font-size:11px;background:#000a;border-radius:8px;padding:6px;margin-top:6px">👥 Live: 1 - STABLE - ALL ACTIVE</div>
-<div class="share" id="shareBox"><div id="shareLink" style="font-size:11px;color:#00D4FF;word-break:break-all"></div><div id="shareText" style="font-size:11px;margin-top:4px;word-break:break-word;text-align:left;border:1px dashed #FFCC00;padding:6px"></div><button onclick="copyLink()" style="background:#00D4FF;color:#000;margin-top:6px;width:100%">📋 COPY INVITE</button></div>
+<div id="viewersList" style="font-size:11px;background:#000a;border-radius:8px;padding:6px;margin-top:6px">👥 ONE WHEEL: Add name!</div>
+<div class="conn-ok" id="connOk"></div>
+<div class="share" id="shareBox"><div id="shareLink" style="font-size:11px;color:#00D4FF;word-break:break-all"></div><div id="shareText" style="font-size:11px;margin-top:4px;word-break:break-word;text-align:left;border:1px dashed #FFCC00;padding:6px"></div><button onclick="copyLink()" style="background:#00D4FF;color:#000;margin-top:6px;width:100%">📋 COPY INVITE - Come join XXX's game!</button></div>
 <div style="margin-top:8px">
-<button onclick="hostRoom()" style="background:#00D4FF;color:#000">📱 HOST</button>
+<button onclick="hostRoom()" style="background:#00D4FF;color:#000">📱 HOST - WITH TURN!</button>
 <button onclick="joinRoom()" style="background:#FFCC00;color:#000">👥 JOIN</button>
 <button onclick="offlineMode()" style="background:#333;color:#fff">📴 OFFLINE</button>
 </div>
 </div>
 <div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
-<button class="top" onclick="spin()">🎡 SPIN BOTTLE - ALWAYS ACTIVE</button>
+<button class="top" onclick="spin()">🎡 SPIN - ONE WHEEL FOR ALL!</button>
 <div class="lv" id="lv"></div>
 <div class="card">
 <div style="display:flex;gap:6px;margin-bottom:8px">
-<input id="pn" placeholder="Your name - ACTIVE!" style="flex:1;background:#0006;border:1px solid #444;border-radius:10px;padding:12px;color:#fff;font-size:16px">
+<input id="pn" placeholder="Your name" style="flex:1;background:#0006;border:1px solid #444;border-radius:10px;padding:12px;color:#fff;font-size:16px">
 <button onclick="addP()" style="background:#fff;color:#000;border:0;border-radius:10px;padding:12px 16px;font-weight:900">ADD ME</button>
 </div>
-<div class="qbox" id="qb"><div>✅ STABLE! Will NOT crush!<br>Add Me ACTIVE! Watch ACTIVE!<br>Bottle ACTIVE! Questions ACTIVE!</div></div>
+<div class="qbox" id="qb"><div>✅ UGANDA FIX! TURN server for MTN!<br>ONE WHEEL - Both see same players!<br>Add Me ACTIVE!</div></div>
 <div class="reply-box" id="replyBox"><div>💬 <span id="replyName">Player</span> MUST REPLY:</div><div id="replyQuestion" style="font-size:12px;opacity:.8;margin-top:4px;background:#0005;padding:6px;border-radius:6px"></div><input id="replyInput" placeholder="Answer..."><button onclick="submitReply()" style="width:100%;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;margin-top:6px">SEND ✅</button></div>
 <div style="display:flex;gap:6px;justify-content:center;font-size:24px;margin:8px 0"><span onclick="doReact('😂')">😂</span><span onclick="doReact('🔥')">🔥</span><span onclick="doReact('😳')">😳</span><span onclick="doReact('💀')">💀</span><span onclick="doReact('❤️')">❤️</span><span onclick="doReact('👏')">👏</span></div>
 <div class="btns"><button class="t" onclick="play('truth')">TRUTH 💎</button><button class="d" onclick="play('dare')">DARE 🔥</button></div>
 </div>
-<div class="card"><div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM</span>✅ STABLE VERSION - Will never crush! All active!</div></div><div class="cin"><input id="ci" placeholder="Comment as..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div></div>
+<div class="card"><div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM</span>✅ UGANDA FIX! TURN server added for MTN! ONE WHEEL sync fixed!</div></div><div class="cin"><input id="ci" placeholder="Comment as..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div></div>
 </div>
 <script>
 function updateClock(){try{let n=new Date();document.getElementById('liveTime').textContent='🕐 '+n.toLocaleTimeString();document.getElementById('liveDate').textContent=n.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});}catch(e){}}
@@ -77,36 +80,41 @@ function renderPlayersList(){
 let el=document.getElementById('playersList');el.innerHTML='';players.forEach(p=>{let s=document.createElement('span');s.textContent=p;el.appendChild(s)});
 document.getElementById('watchCount').textContent=`👁️ ${players.length||1} watching`;
 document.getElementById('liveNames').textContent=players.join(', ')||myName;
-document.getElementById('viewersList').textContent=`👥 ONE WHEEL (${players.length||1}): ${players.join(', ')||myName} • ${new Date().toLocaleTimeString()} • ALL ACTIVE - STABLE!`;
+document.getElementById('viewersList').textContent=`👥 ONE WHEEL (${players.length||1}): ${players.join(', ')||myName} • ${new Date().toLocaleTimeString()}`;
+let co=document.getElementById('connOk');
+if(co){
+if(players.length>=2){co.classList.add('show');co.innerHTML=`✅ CONNECTED! 🌍 ONE WHEEL with <b>${players.length}</b>: ${players.join(', ')}! Both see same wheel! Guest number: ${players.length}`;}
+else{co.classList.remove('show');}
 }
-let Q={0:{t:["Most embarrassing text?","Hidden talent?"],d:["15 jumping jacks"]},1:{t:["Who would you kiss now?","Stalked crush?"],d:["Text crush 'you up?'"]},2:{t:["Drunkest ever?","How many body counts? Honest!"],d:["Water shot"]},3:{t:["Biggest fantasy?","Who sexted?"],d:["Lap dance 15s"]},4:{t:["How lose virginity?","Dirtiest secret?","How many body counts? Exact!"],d:["Group writes dirty text","Twerk 30s"]},5:{t:["Who unfriend now?"],d:["Post 'I am liar' 10min"]}};
+}
+let Q={0:{t:["Most embarrassing text?","Hidden talent?"],d:["15 jumping jacks"]},1:{t:["Who would you kiss now?"],d:["Text crush 'you up?'"]},2:{t:["Drunkest ever?","How many body counts? Honest!"],d:["Water shot"]},3:{t:["Biggest fantasy?"],d:["Lap dance 15s"]},4:{t:["How lose virginity?","Dirtiest secret?","How many body counts? Exact!"],d:["Group writes dirty text","Twerk 30s"]},5:{t:["Who unfriend now?"],d:["Post 'I am liar'"]}};
 function addP(){
 let v=document.getElementById('pn').value.trim();if(!v)return alert('Type name!');
 if(players.includes(v))return alert('Taken!');if(players.length>=8)return alert('Max 8!');
-myName=v;players.push(v);document.getElementById('pn').value='';drawWheel();renderPlayersList();addSys(v+' joined!','join','SYSTEM');if(connList.length)syncAll({type:'fullSync',players:players});
+myName=v;players.push(v);document.getElementById('pn').value='';drawWheel();renderPlayersList();addSys(v+' joined ONE WHEEL!','join','SYSTEM');if(connList.length)syncAll({type:'fullSync',players:players});
 }
 function drawWheel(){
 let w=document.getElementById('wheel');w.querySelectorAll('.p-dot').forEach(e=>e.remove());
 players.forEach((p,i)=>{let d=document.createElement('div');d.className='p-dot'+(i==curr?' on':'');d.textContent=p;let a=(360/players.length)*i;let r=100;let x=Math.cos(a*Math.PI/180)*r;let y=Math.sin(a*Math.PI/180)*r;d.style.left='50%';d.style.top='50%';d.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px)`;w.appendChild(d)});
 }
 function spin(){
-if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055">Need 2+ players!</div>';return}
+if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055">Need 2+ on ONE WHEEL! Invite friend!</div>';return}
 rot+=Math.floor(Math.random()*900+700);document.getElementById('bot').style.transform=`rotate(${rot}deg)`;
 document.getElementById('replyBox').classList.remove('show');
-document.getElementById('qb').innerHTML='🎡 SPINNING...';
-addSys('Spinning...','question','SYSTEM');
+document.getElementById('qb').innerHTML='🎡 SPINNING ONE WHEEL...';
+addSys('Spinning ONE WHEEL '+players.join(', '),'question','SYSTEM');
 let picked=Math.floor(Math.random()*players.length);
-setTimeout(()=>{curr=picked;drawWheel();document.getElementById('qb').innerHTML=`<div style="font-size:24px;font-weight:900">${players[curr]} 🎯 PICKED!</div>`;addSys(`Picked ${players[curr]}!`,'question','SYSTEM');if(connList.length)syncAll({type:'fullSync',players:players,curr:curr,forcePick:curr})},2200);
+setTimeout(()=>{curr=picked;drawWheel();document.getElementById('qb').innerHTML=`<div style="font-size:24px;font-weight:900">${players[curr]} 🎯 PICKED ON ONE WHEEL!</div><div>${players.join(', ')}</div>`;addSys(`Picked ${players[curr]} on ONE WHEEL!`,'question','SYSTEM');if(connList.length)syncAll({type:'fullSync',players:players,curr:curr,forcePick:curr,qb:document.getElementById('qb').innerHTML})},2200);
 }
 function play(t){
-if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055">Add 2+ players!</div>';return}
+if(players.length<2)return;
 let list=t=='truth'?Q[curL].t:Q[curL].d;lastQ=list[Math.floor(Math.random()*list.length)];lastPlayer=players[curr];
-document.getElementById('qb').innerHTML=`<div>${LEVELS[curL]} ${t}</div><div style="font-weight:800;font-size:16px;margin-top:6px">${lastQ}</div><div>👉 ${lastPlayer} must answer!</div>`;
+document.getElementById('qb').innerHTML=`<div>${LEVELS[curL]} ${t} • ${new Date().toLocaleTimeString()}</div><div style="font-weight:800;font-size:16px;margin-top:6px">${lastQ}</div><div>👉 ${lastPlayer} must answer on ONE WHEEL!</div>`;
 addSys(`${t.toUpperCase()}: ${lastQ}`,'question',lastPlayer);document.getElementById('replyBox').classList.add('show');document.getElementById('replyName').textContent=lastPlayer;document.getElementById('replyQuestion').textContent=lastQ;curr=(curr+1)%players.length;setTimeout(drawWheel,400);if(connList.length)syncAll({type:'fullSync',players:players,curr:curr,lastQ:lastQ,lastPlayer:lastPlayer,qb:document.getElementById('qb').innerHTML});
 }
 function submitReply(){
 let ans=document.getElementById('replyInput').value.trim();if(!ans)return;
-addSys(`ANSWERED: "${ans}"`,'reply',lastPlayer);
+addSys(`ANSWERED: "${ans}" on ONE WHEEL!`,'reply',lastPlayer);
 document.getElementById('qb').innerHTML=`<div style="color:#00FF88;font-weight:900">✅ ${lastPlayer} REPLIED!</div><div>"${ans}"</div>`;
 document.getElementById('replyInput').value='';document.getElementById('replyBox').classList.remove('show');if(connList.length)syncAll({type:'fullSync',players:players,qb:document.getElementById('qb').innerHTML,chat:document.getElementById('chat').innerHTML});
 }
@@ -123,21 +131,22 @@ d.innerHTML=`<span class="sender">${sName} • ${new Date().toLocaleTimeString()
 c.appendChild(d);c.scrollTop=c.scrollHeight;
 }
 let peer=null,connList=[];
+const iceConfig={iceServers:[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun1.l.google.com:19302'},{urls:'turn:openrelay.metered.ca:80',username:'openrelayproject',credential:'openrelayproject'},{urls:'turn:openrelay.metered.ca:443',username:'openrelayproject',credential:'openrelayproject'},{urls:'turn:openrelay.metered.ca:443?transport=tcp',username:'openrelayproject',credential:'openrelayproject'}]};
 function loadPeer(cb){
 if(window.Peer){cb();return}
 let s=document.createElement('script');s.src='https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js';s.onload=cb;document.head.appendChild(s);
 }
 function hostRoom(){
-if(!myName||myName=='Guest'){let n=prompt('Host name? For personalized invite');if(!n)return;myName=n.trim();if(!players.includes(myName)){players.push(myName);drawWheel();renderPlayersList()}}
+if(!myName||myName=='Guest'){let n=prompt('Host name? For invite Come join XXX');if(!n)return;myName=n.trim();if(!players.includes(myName)){players.push(myName);drawWheel();renderPlayersList()}}
 loadPeer(()=>{
 let roomId='PAUL-'+Math.floor(Math.random()*9000+1000);
-document.getElementById('status').textContent='⏳ Hosting '+roomId+' as '+myName+'...';
-peer=new Peer(roomId,{config:{iceServers:[{urls:'stun:stun.l.google.com:19302'}]}});
+document.getElementById('status').textContent='⏳ Creating ONE WHEEL '+roomId+' as '+myName+'... WITH TURN FOR MTN! Keep screen ON!';
+peer=new Peer(roomId,{config:iceConfig});
 peer.on('open',id=>{
-document.getElementById('status').textContent='✅ HOSTING: '+id+' as '+myName+'!';
-let shareUrl=location.origin+location.pathname+'?join='+id;
-let inviteText=`🌍🔥 Come and Join ${myName.toUpperCase()}'S Truth or Dare! 🎡\nCome and join ${myName}'s LIVE party in Kampala! 🎉\nOne wheel for all!\n👉 ${shareUrl}`;
-document.getElementById('roomInfo').innerHTML='🔴 CODE: <b style="color:#00D4FF">'+id+'</b> as '+myName;
+document.getElementById('status').textContent='✅ HOSTING ONE WHEEL: '+id+' as '+myName+'! WITH TURN! Guest number will update when friend joins!';
+let shareUrl=location.origin+location.pathname+'?join='+id+'&host='+encodeURIComponent(myName);
+let inviteText=`🌍🔥 Come and Join ${myName.toUpperCase()}'S Truth or Dare! 🎡\nCome and join ${myName}'s LIVE Posi Posi party in Kampala! 🎉\nOne wheel for all players!\n👉 ${shareUrl}`;
+document.getElementById('roomInfo').innerHTML='🔴 ONE WHEEL CODE: <b style="color:#00D4FF;font-size:20px">'+id+'</b> as '+myName+'<br>WITH TURN SERVER FOR UGANDA!';
 document.getElementById('shareLink').textContent=shareUrl;
 document.getElementById('shareText').textContent=inviteText;
 document.getElementById('shareBox').classList.add('show');
@@ -145,49 +154,94 @@ renderPlayersList();
 });
 peer.on('connection',c=>{
 connList.push(c);
-c.on('open',()=>{c.send({type:'fullSync',players:players});});
-c.on('data',d=>{if(d.players && d.players.length>players.length){players=d.players;drawWheel();renderPlayersList();addSys('New player! Now: '+players.join(', '),'join','SYSTEM');connList.forEach(conn=>{try{if(conn!=c&&conn.open)conn.send({type:'fullSync',players:players})}catch(e){}});}});
+c.on('open',()=>{
+console.log('Peer connected!');
+addSys('✅ FELLOW CONNECTED! Syncing ONE WHEEL...','join','SYSTEM');
+c.send({type:'fullSync',players:players,qb:document.getElementById('qb').innerHTML,chat:document.getElementById('chat').innerHTML,curr:curr});
+renderPlayersList();
 });
+c.on('data',d=>{
+console.log('Host received',d);
+if(d.type=='fullSync' && d.players){
+let newNames=d.players.filter(n=>!players.includes(n));
+if(newNames.length>0){
+newNames.forEach(n=>players.push(n));
+drawWheel();renderPlayersList();
+addSys('🌍 ONE WHEEL UPDATED! Now: '+players.join(', ')+'! Guest number: '+players.length,'join','SYSTEM');
+connList.forEach(conn=>{try{if(conn.open)conn.send({type:'fullSync',players:players,qb:document.getElementById('qb').innerHTML,chat:document.getElementById('chat').innerHTML});}catch(e){}});
+}
+}
+if(d.chat){document.getElementById('chat').innerHTML=d.chat;}
+});
+c.on('close',()=>{addSys('Fellow disconnected','join','SYSTEM');});
+});
+peer.on('error',e=>{console.log(e);document.getElementById('status').textContent='❌ Error: '+e.type+' - Try again! Keep screen ON!';});
 });
 }
 function joinRoom(){
-let code=prompt('Enter code:');if(!code)return;
-let name=prompt('Your name?');if(!name)return;myName=name.trim();
+let code=prompt('Enter HOST code PAUL-XXXX:');if(!code)return;
+let name=prompt('Your name? Will show on ONE WHEEL');if(!name)return;myName=name.trim();
 doJoin(code.trim());
 }
 function doJoin(code){
-document.getElementById('status').textContent='⏳ Joining '+code+' as '+myName+'...';
+document.getElementById('status').textContent='⏳ Joining ONE WHEEL '+code+' as '+myName+'... WITH TURN FOR MTN UGANDA! Keep screen ON!';
 loadPeer(()=>{
-peer=new Peer({config:{iceServers:[{urls:'stun:stun.l.google.com:19302'}]}});
+peer=new Peer({config:iceConfig});
 peer.on('open',()=>{
 let conn=peer.connect(code,{reliable:true});
+let timeout=setTimeout(()=>{document.getElementById('status').textContent='❌ Timeout - Host must keep screen ON! Host tap HOST again!';},15000);
 conn.on('open',()=>{
-document.getElementById('status').textContent='✅ JOINED '+code+' as '+myName+'!';
+clearTimeout(timeout);
+document.getElementById('status').textContent='✅ CONNECTED TO ONE WHEEL '+code+' as '+myName+'! Guest number will update!';
 if(!players.includes(myName))players.push(myName);
-connList=[conn];conn.send({type:'fullSync',players:players});addSys('Joined as '+myName,'join','SYSTEM');drawWheel();renderPlayersList();
+connList=[conn];
+conn.send({type:'fullSync',players:players});
+addSys('✅ You JOINED ONE WHEEL as '+myName+'! Syncing...','join','SYSTEM');
+drawWheel();renderPlayersList();
+setTimeout(()=>{conn.send({type:'fullSync',players:players});},1000);
 });
-conn.on('data',d=>{if(d.players){players=d.players;drawWheel();renderPlayersList()} if(d.qb)document.getElementById('qb').innerHTML=d.qb; if(d.chat)document.getElementById('chat').innerHTML=d.chat;});
+conn.on('data',d=>{
+console.log('Joiner received',d);
+if(d.type=='fullSync'){
+if(d.players && d.players.length>0){
+if(d.players.length>=players.length){players=d.players;drawWheel();renderPlayersList();}
+}
+if(d.qb)document.getElementById('qb').innerHTML=d.qb;
+if(d.chat)document.getElementById('chat').innerHTML=d.chat;
+if(d.curr!==undefined)curr=d.curr;
+if(d.forcePick!==undefined){curr=d.forcePick;drawWheel()}
+if(d.lastQ)lastQ=d.lastQ;if(d.lastPlayer)lastPlayer=d.lastPlayer;
+}
 });
-peer.on('error',e=>{if(e.type=='peer-unavailable')document.getElementById('status').textContent='❌ Code not found - Host keep screen ON!';});
+conn.on('close',()=>{document.getElementById('status').textContent='❌ Disconnected - Host screen OFF?';});
+conn.on('error',e=>{document.getElementById('status').textContent='❌ Connection failed: '+e;});
+});
+peer.on('error',e=>{
+clearTimeout(timeout);
+if(e.type=='peer-unavailable')document.getElementById('status').textContent='❌ Code not found - Host must HOST first and keep screen ON! MTN needs TURN!';
+else document.getElementById('status').textContent='❌ Error: '+e.type;
+});
 });
 }
 function offlineMode(){
 try{if(peer)peer.destroy()}catch(e){}
 connList=[];peer=null;
 document.getElementById('shareBox').classList.remove('show');
-document.getElementById('status').textContent='📴 OFFLINE - '+players.length+' players • STABLE • ALL ACTIVE!';
+let co=document.getElementById('connOk');if(co)co.classList.remove('show');
+document.getElementById('status').textContent='📴 OFFLINE - '+players.length+' on ONE WHEEL • ALL ACTIVE • Guest: '+players.length;
 renderPlayersList();
 }
 function syncAll(data){connList.forEach(c=>{try{if(c.open)c.send(data)}catch(e){}});}
 function copyLink(){
 let t=document.getElementById('shareText').textContent;
-if(!t){alert('Host first!');return;}
-navigator.clipboard?navigator.clipboard.writeText(t).then(()=>alert('✅ Copied!\n\n'+t)):prompt('Copy:',t);
+if(!t){alert('Host first to create personalized invite!');return;}
+if(navigator.clipboard){navigator.clipboard.writeText(t).then(()=>alert('✅ Copied personalized invite!\n\n'+t+'\n\nPaste on WhatsApp - Shows Come and Join '+myName+'\\'s game! 🌍'));}else{prompt('Copy:',t);}
 }
 renderLevels();renderPlayersList();
 let params=new URLSearchParams(location.search);
 let j=params.get('join');
-if(j){setTimeout(()=>{let n=prompt(`🌍 ${params.get('host')||'Paul'} invites you to Truth or Dare! Your name?`);if(n){myName=n.trim();doJoin(j);}},800);}
+let h=params.get('host');
+if(j){setTimeout(()=>{let n=prompt(`🌍🔥 ${h||'Paul'} invites you! Come and Join ${h||'Paul'}'s Posi Posi Truth or Dare! 🎡 ONE WHEEL for all! Your name?`);if(n){myName=n.trim();doJoin(j);}},800);}
 document.getElementById('pn').addEventListener('keydown',e=>{if(e.key=='Enter')addP()});
 document.getElementById('ci').addEventListener('keydown',e=>{if(e.key=='Enter')sendChat()});
 document.getElementById('replyInput').addEventListener('keydown',e=>{if(e.key=='Enter')submitReply()});
