@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PAUL'S TRUTH OR DARE - ALL WHEELS SYNC</title>
+<title>PAUL'S TRUTH OR DARE - LIVE WATCH</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a14;color:#fff;font-family:system-ui;padding:10px}
 .app{max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
 h1{text-align:center;font-size:26px;line-height:.9}h1 span{color:#FF0055}
+.live-bar{background:linear-gradient(90deg,#FF0055,#FF0000);border-radius:99px;padding:8px 14px;display:flex;justify-content:space-between;align-items:center;font-weight:900;font-size:12px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 #FF0055aa}50%{box-shadow:0 0 0 8px #FF005500}}
 .online{background:#111;border:2px solid #FFCC00;border-radius:12px;padding:12px;text-align:center}
 .online button{padding:10px 14px;border-radius:8px;border:0;font-weight:900;margin:3px;cursor:pointer;font-size:12px}
-.wheel{width:280px;height:280px;margin:10px auto;border-radius:50%;background:radial-gradient(circle,#1a1a3e,#0a0a14);border:8px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px #FF0055aa}
-.bottle{font-size:70px;cursor:pointer;transition:transform 2.2s cubic-bezier(.2,.8,.2,1);z-index:10}
-.p-dot{position:absolute;font-size:12px;font-weight:900;background:#333;padding:6px 12px;border-radius:99px;transform:translate(-50%,-50%);border:2px solid transparent;transition:all .3s}
-.p-dot.on{background:#FFCC00;color:#000;transform:translate(-50%,-50%) scale(1.2);border-color:#fff;box-shadow:0 0 15px #FFCC00}
+.wheel{width:280px;height:280px;margin:10px auto;border-radius:50%;background:radial-gradient(circle,#1a1a3e,#0a0a14);border:8px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center}
+.bottle{font-size:70px;cursor:pointer;transition:transform 2.2s ease;z-index:10}
+.p-dot{position:absolute;font-size:12px;font-weight:900;background:#333;padding:6px 12px;border-radius:99px;transform:translate(-50%,-50%);transition:all .3s}
+.p-dot.on{background:#FFCC00;color:#000;transform:translate(-50%,-50%) scale(1.2);box-shadow:0 0 15px #FFCC00}
 .card{background:#1e1e38;border-radius:16px;padding:12px}
 .qbox{background:#0008;border-radius:12px;padding:14px;min-height:90px;text-align:center;display:flex;flex-direction:column;justify-content:center}
 .reply-box{background:linear-gradient(135deg,#FF005533,#FFCC0033);border:2px solid #FF0055;border-radius:12px;padding:12px;margin-top:10px;display:none}
-.reply-box.show{display:block;animation:pop .3s ease}
-@keyframes pop{0%{transform:scale(.8)}100%{transform:scale(1)}}
+.reply-box.show{display:block}
 .reply-box input{width:100%;background:#000a;border:1px solid #FF0055;border-radius:8px;padding:12px;color:#fff;margin:8px 0}
 .btns{display:flex;gap:8px;margin-top:8px}
 .btns button{flex:1;border:0;border-radius:12px;padding:13px;font-weight:900;cursor:pointer}
@@ -23,243 +24,42 @@ h1{text-align:center;font-size:26px;line-height:.9}h1 span{color:#FF0055}
 .lv{display:flex;gap:5px;overflow-x:auto;padding:5px 0}
 .lv div{flex:0 0 auto;padding:7px 13px;border-radius:99px;background:#222;font-size:11px;font-weight:800;cursor:pointer}
 .lv div.on{background:#fff;color:#000}
-.chat{height:110px;overflow-y:auto;background:#0005;border-radius:10px;padding:6px;display:flex;flex-direction:column;gap:5px}
-.m{background:#222;padding:7px 10px;border-radius:10px;font-size:12px;max-width:90%}
-.m.me{align-self:flex-end;background:#fff;color:#000}.m.reply{border-left:3px solid #00D4FF}.m.question{border-left:3px solid #FF0055}.m.join{border-left:3px solid #FFCC00;background:#FFCC0022}
-.cin{display:flex;gap:6px;margin-top:6px}
-.cin input{flex:1;background:#222;border:1px solid #444;border-radius:99px;padding:10px 14px;color:#fff}
+.chat{height:160px;overflow-y:auto;background:#0008;border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:6px;border:1px solid #ffffff15}
+.m{background:#222;padding:8px 12px;border-radius:12px;font-size:13px;max-width:95%;line-height:1.3;position:relative}
+.m.me{align-self:flex-end;background:linear-gradient(135deg,#fff,#ddd);color:#000;font-weight:700}
+.m.reply{border-left:3px solid #00D4FF;background:#00D4FF15}
+.m.question{border-left:3px solid #FF0055;background:#FF005515}
+.m.join{border-left:3px solid #FFCC00;background:#FFCC0015}
+.m .sender{font-weight:900;font-size:11px;color:#FFCC00;display:block;margin-bottom:2px}
+.m.me .sender{color:#FF0055}
+.m.comment{border-left:3px solid #00FF88;background:#00FF8810}
+.cin{display:flex;gap:6px;margin-top:8px}
+.cin input{flex:1;background:#222;border:1px solid #444;border-radius:99px;padding:12px 16px;color:#fff;font-size:13px}
 .top{width:100%;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer}
 .players-list{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:8px 0}
-.players-list span{background:#FF005522;border:1px solid #FF0055;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:700}
-.log{font-size:10px;background:#0008;border-radius:6px;padding:6px;margin-top:6px;max-height:60px;overflow-y:auto;text-align:left}
+.players-list span{background:#FF005522;border:1px solid #FF0055;padding:5px 12px;border-radius:99px;font-size:11px;font-weight:700}
+.viewers{background:#000a;border-radius:8px;padding:6px;margin-top:6px;font-size:11px;text-align:left;max-height:50px;overflow-y:auto}
 </style></head><body>
 <div class="app">
 <h1>PAUL'S<br>TRUTH <span>OR DARE</span></h1>
 <div style="text-align:center;font-size:11px;letter-spacing:3px;opacity:.7">BY PAUL McRAE • KAMPALA</div>
-<div style="text-align:center;font-size:9px;opacity:.5">WOW EDITION - ALL WHEELS SHOW ALL PLAYERS!</div>
+
+<div class="live-bar">
+<span id="liveDot">🔴 LIVE</span>
+<span id="watchCount">👁️ 1 watching</span>
+<span id="liveNames">Paul</span>
+</div>
 
 <div class="online">
-<div id="status" style="font-weight:800;font-size:13px">📴 OFFLINE - Add players below!</div>
+<div id="status" style="font-weight:800;font-size:13px">📴 Add your name below to join!</div>
 <div id="roomInfo" style="font-size:11px;margin-top:6px;word-break:break-all"></div>
 <div id="playersList" class="players-list"></div>
+<div class="viewers" id="viewersList">Viewers: Waiting...</div>
 <div style="margin-top:8px">
 <button onclick="hostRoom()" style="background:#00D4FF;color:#000">📱 HOST ROOM</button>
 <button onclick="joinRoom()" style="background:#FFCC00;color:#000">👥 JOIN ROOM</button>
 <button onclick="offlineMode()" style="background:#333;color:#fff">📴 OFFLINE</button>
 </div>
-<div class="log" id="log">Log: Ready! Bottle ALWAYS active!</div>
 </div>
 
-<div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
-<button class="top" onclick="spin()">🎡 SPIN BOTTLE - EVERYONE SEES!</button>
-
-<div class="lv" id="lv"></div>
-
-<div class="card">
-<div style="display:flex;gap:6px;margin-bottom:8px">
-<input id="pn" placeholder="Your name - e.g. Paul" style="flex:1;background:#0006;border:1px solid #444;border-radius:10px;padding:12px;color:#fff">
-<button onclick="addP()" style="background:#fff;color:#000;border:0;border-radius:10px;padding:12px 16px;font-weight:900">ADD ME</button>
-</div>
-<div class="qbox" id="qb"><div>1. Host creates room<br>2. Friends join with code<br>3. All names appear on ALL wheels!<br>4. Spin - everyone enjoys!</div></div>
-
-<div class="reply-box" id="replyBox">
-<div style="font-weight:900">💬 <span id="replyName">Player</span> MUST REPLY:</div>
-<div id="replyQuestion" style="font-size:12px;opacity:.8;margin-top:4px;background:#0005;padding:6px;border-radius:6px"></div>
-<input id="replyInput" placeholder="Honest answer...">
-<button onclick="submitReply()" style="width:100%;background:linear-gradient(135deg,#FFCC00,#FF0055);color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;margin-top:6px">SEND ANSWER ✅</button>
-</div>
-
-<div style="display:flex;gap:6px;justify-content:center;font-size:24px;margin:8px 0">
-<span onclick="doReact('😂')">😂</span><span onclick="doReact('🔥')">🔥</span><span onclick="doReact('😳')">😳</span><span onclick="doReact('💀')">💀</span><span onclick="doReact('❤️')">❤️</span><span onclick="doReact('👏')">👏</span>
-</div>
-<div class="btns"><button class="t" onclick="play('truth')">TRUTH 💎</button><button class="d" onclick="play('dare')">DARE 🔥</button></div>
-</div>
-
-<div class="card">
-<div style="font-weight:800;font-size:12px">💬 CHAT - All Answers Live</div>
-<div class="chat" id="chat"><div class="m">Welcome to Paul's WOW Game! All wheels will sync!</div></div>
-<div class="cin"><input id="ci" placeholder="Chat..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:40px;height:40px;color:#fff">➤</button></div>
-</div>
-</div>
-
-<script>
-let LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'],curL=2,players=[],curr=0,rot=0,lastQ='',lastPlayer='',myName='';
-let Q={
-0:{t:["Most embarrassing text you ever sent and who?","Hidden talent?"],d:["15 jumping jacks"]},
-1:{t:["Who in group would you kiss now?","Stalked crush online? Who?"],d:["Text crush 'you up?'"]},
-2:{t:["Drunkest ever? What happened?","How many body counts have you got? Total number! Be honest!","Who best in bed here?"],d:["Water shot"]},
-3:{t:["Biggest sexual fantasy? Detail!","Who sexted and what said?"],d:["Lap dance 15s"]},
-4:{t:["How/when lose virginity? Story!","Dirtiest secret?","How many body counts? Total! Exact number!","Favorite position why?"],d:["Group writes dirty text to ex","Twerk 30s"]},
-5:{t:["Who unfriend now and why?"],d:["Post 'I am liar' 10min"]}
-};
-function log(t){let l=document.getElementById('log');l.innerHTML+='<br>'+new Date().toLocaleTimeString()+': '+t;l.scrollTop=l.scrollHeight}
-function renderLevels(){let h='';LEVELS.forEach((n,i)=>{h+=`<div class="${i==curL?'on':''}" onclick="curL=${i};renderLevels()">${n}</div>`});document.getElementById('lv').innerHTML=h}
-function renderPlayersList(){
-let el=document.getElementById('playersList');el.innerHTML='';
-players.forEach(p=>{let s=document.createElement('span');s.textContent=p;el.appendChild(s)});
-document.getElementById('status').textContent=players.length>0?`👥 ${players.length} PLAYERS - All wheels synced!`:`📴 Add players!`;
-}
-function addP(){
-let v=document.getElementById('pn').value.trim();
-if(!v)return alert('Type your name!');if(players.includes(v))return alert('Name taken!');
-if(players.length>=8)return alert('Max 8!');
-myName=v;
-players.push(v);
-document.getElementById('pn').value='';
-drawWheel();renderPlayersList();addSys(v+' joined! 🎉','join');log(v+' added locally');
-syncAll();
-if(connList.length>0){
-connList.forEach(c=>{try{c.send({type:'addPlayer',name:v})}catch(e){}});
-}
-}
-function drawWheel(){
-let w=document.getElementById('wheel');w.querySelectorAll('.p-dot').forEach(e=>e.remove());
-if(players.length==0)return;
-players.forEach((p,i)=>{
-let d=document.createElement('div');d.className='p-dot'+(i==curr?' on':'');d.textContent=p;
-let a=(360/players.length)*i;let r=100;let x=Math.cos(a*Math.PI/180)*r;let y=Math.sin(a*Math.PI/180)*r;
-d.style.left='50%';d.style.top='50%';d.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px)`;
-w.appendChild(d);
-});
-}
-function spin(){
-if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055;font-weight:800">Need 2+ players! Host + friend join!</div>';return}
-rot+=Math.floor(Math.random()*900+700);
-document.getElementById('bot').style.transform=`rotate(${rot}deg)`;
-document.getElementById('replyBox').classList.remove('show');
-document.getElementById('qb').innerHTML='🎡 SPINNING... ALL WHEELS SPINNING! 🎡';
-addSys('Spinning bottle... Everyone watch! 🍾');
-log('Spinning...');
-let pickedIndex=Math.floor(Math.random()*players.length);
-setTimeout(()=>{
-curr=pickedIndex;
-drawWheel();
-document.getElementById('qb').innerHTML=`<div style="font-size:24px;font-weight:900">${players[curr]} 🎯 PICKED!</div><div style="margin-top:6px">Everyone sees ${players[curr]} picked! Now Truth or Dare!</div>`;
-addSys('🎯 Bottle picked '+players[curr]+'! 🔥 Everyone cheers!','question');
-syncAll({forcePick:curr});
-},2200);
-}
-function play(t){
-if(players.length<2)return;
-let list=t=='truth'?Q[curL].t:Q[curL].d;
-lastQ=list[Math.floor(Math.random()*list.length)];
-lastPlayer=players[curr];
-document.getElementById('qb').innerHTML=`<div style="opacity:.6;font-size:10px">${LEVELS[curL]} ${t}</div><div style="font-weight:800;margin-top:6px;font-size:16px">${lastQ}</div><div style="margin-top:8px">👉 ${lastPlayer} must answer! Everyone sees!</div>`;
-addSys(`${lastPlayer} - ${t.toUpperCase()}: ${lastQ}`,'question');
-showReplyBox();
-curr=(curr+1)%players.length;setTimeout(drawWheel,400);
-syncAll();
-}
-function showReplyBox(){document.getElementById('replyBox').classList.add('show');document.getElementById('replyName').textContent=lastPlayer;document.getElementById('replyQuestion').textContent=lastQ}
-function submitReply(){
-let inp=document.getElementById('replyInput');let ans=inp.value.trim();if(!ans)return alert('Type answer!');
-addSys(`${lastPlayer} ANSWERED: "${ans}" to "${lastQ}"`,'reply');
-document.getElementById('qb').innerHTML=`<div style="color:#00FF88;font-weight:900">✅ ${lastPlayer} REPLIED!</div><div style="margin-top:6px">"${ans}"</div><div style="font-size:11px;opacity:.6;margin-top:6px">All players saw answer! Spin again!</div>`;
-document.getElementById('replyBox').classList.remove('show');inp.value='';doReact('👏');syncAll();
-}
-function doReact(e){addSys('Reacted '+e);syncAll()}
-function sendChat(){let i=document.getElementById('ci');let v=i.value.trim();if(!v)return;addSys(myName+': '+v,'me');i.value='';syncAll()}
-function addSys(t,cls){let c=document.getElementById('chat');let d=document.createElement('div');d.className='m '+(cls||'');d.textContent=t;c.appendChild(d);c.scrollTop=c.scrollHeight}
-
-let peer=null,connList=[],isHost=false;
-function loadPeer(cb){
-if(window.Peer){cb();return}
-log('Loading PeerJS...');
-let s=document.createElement('script');s.src='https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js';
-s.onload=()=>{log('PeerJS loaded!');cb()};s.onerror=()=>{log('PeerJS fail');document.getElementById('status').textContent='❌ Online fail - use same WiFi or OFFLINE';};
-document.head.appendChild(s);
-}
-function hostRoom(){
-loadPeer(()=>{
-try{
-let roomId='PAUL-'+Math.floor(Math.random()*9000+1000);
-log('Hosting '+roomId);
-document.getElementById('status').textContent='⏳ Hosting '+roomId+'... Keep screen ON!';
-peer=new Peer(roomId,{config:{iceServers:[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun1.l.google.com:19302'}]}});
-peer.on('open',id=>{
-log('HOST OPEN '+id);
-document.getElementById('status').textContent='✅ HOSTING: '+id;
-document.getElementById('roomInfo').innerHTML='CODE: <b style="font-size:22px;color:#00D4FF">'+id+'</b><br>Send to friends via WhatsApp NOW!<br>Keep screen ON! Waiting...';
-isHost=true;
-if(myName && !players.includes(myName)){players.push(myName);drawWheel();renderPlayersList()}
-});
-peer.on('connection',c=>{
-log('Fellow connecting '+c.peer);
-connList.push(c);
-c.on('open',()=>{
-log('Fellow CONNECTED '+c.peer);
-addSys('Fellow connected: '+c.peer+' 🎉','join');
-c.send({type:'fullSync',players,qb:document.getElementById('qb').innerHTML,chat:document.getElementById('chat').innerHTML,curr,lastQ,lastPlayer});
-});
-c.on('data',d=>handleData(d,c));
-});
-peer.on('error',e=>{log('Host error '+e.type);document.getElementById('status').textContent='❌ Host error '+e.type;});
-}catch(e){log('Host ex '+e.message);}
-});
-}
-function joinRoom(){
-let code=prompt('Enter HOST code (PAUL-1234):');
-if(!code)return;
-let name=prompt('Your name? (e.g. John)');
-if(!name)return alert('Need name!');
-myName=name.trim();
-loadPeer(()=>{
-try{
-log('Joining '+code+' as '+myName);
-document.getElementById('status').textContent='⏳ Joining '+code+'...';
-peer=new Peer({config:{iceServers:[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun1.l.google.com:19302'}]}});
-peer.on('open',()=>{
-let conn=peer.connect(code.trim(),{reliable:true});
-let to=setTimeout(()=>{log('Join timeout - try same WiFi!');document.getElementById('status').textContent='❌ Timeout - Host offline or MTN blocked - Try same WiFi!';},15000);
-conn.on('open',()=>{
-clearTimeout(to);
-log('JOINED SUCCESS to host!');
-document.getElementById('status').textContent='✅ JOINED '+code+' as '+myName+' - WOW! Wheels synced!';
-document.getElementById('roomInfo').textContent='Connected! Sending your name to all wheels...';
-connList=[conn];
-conn.send({type:'addPlayer',name:myName});
-addSys('You joined as '+myName+'! 🎉','join');
-});
-conn.on('data',d=>handleData(d,conn));
-});
-peer.on('error',e=>{log('Join err '+e.type);if(e.type=='peer-unavailable')document.getElementById('status').textContent='❌ Code not found - Host must HOST first!';});
-}catch(e){log('Join ex '+e.message);}
-});
-}
-function offlineMode(){
-try{if(peer)peer.destroy()}catch(e){}
-connList=[];peer=null;isHost=false;
-document.getElementById('status').textContent='📴 OFFLINE PARTY MODE - All players on one wheel!';
-document.getElementById('roomInfo').textContent='Add all friends names below - pass phone around - BEST!';log('Offline');
-}
-function syncAll(extra={}){
-let data={type:'fullSync',players,curr,qb:document.getElementById('qb').innerHTML,chat:document.getElementById('chat').innerHTML,lastQ,lastPlayer,...extra};
-connList.forEach(c=>{try{if(c.open)c.send(data)}catch(e){}});
-}
-function handleData(d,fromConn){
-log('Data '+d.type);
-if(d.type=='addPlayer'){
-let name=d.name;
-if(!players.includes(name)){
-players.push(name);
-drawWheel();renderPlayersList();addSys(name+' joined via online! 🎉 All wheels now show '+name+'!','join');
-log(name+' added to wheel, syncing to all...');
-syncAll();
-}
-}else if(d.type=='fullSync'){
-if(d.players){players=d.players;drawWheel();renderPlayersList()}
-if(d.qb)document.getElementById('qb').innerHTML=d.qb;
-if(d.chat)document.getElementById('chat').innerHTML=d.chat;
-if(d.curr!==undefined)curr=d.curr;
-if(d.forcePick!==undefined){curr=d.forcePick;drawWheel()}
-if(d.lastQ)lastQ=d.lastQ;
-if(d.lastPlayer)lastPlayer=d.lastPlayer;
-log('Synced - wheels now show '+players.length+' players!');
-}
-}
-renderLevels();renderPlayersList();
-document.getElementById('pn').addEventListener('keydown',e=>{if(e.key=='Enter')addP()});
-document.getElementById('ci').addEventListener('keydown',e=>{if(e.key=='Enter')sendChat()});
-document.getElementById('replyInput').addEventListener('keydown',e=>{if(e.key=='Enter')submitReply()});
-</script>
-</body></html>
+<div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin
