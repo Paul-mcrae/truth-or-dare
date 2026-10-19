@@ -1,159 +1,184 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-<title>Paul's Truth or Dare - SOUND VIBRATION MANY Q</title>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paul - LIGHT NO CRUSH + SOUND + MANY Q</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a14;color:#fff;font-family:system-ui;padding:10px}
-.app{max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
-h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
-.bar{background:#1a1a3e;border:1px solid #FFCC00;border-radius:12px;padding:10px;display:flex;justify-content:space-between;font-size:12px;font-weight:800}
-.live{background:#FF0055;border-radius:99px;padding:8px 14px;display:flex;justify-content:space-between;font-weight:900;font-size:12px}
-.online{background:#111;border:2px solid #FFCC00;border-radius:12px;padding:12px;text-align:center}
-.wheel{width:280px;height:280px;margin:10px auto;border-radius:50%;background:#1a1a3e;border:8px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center}
-.bottle{font-size:70px;cursor:pointer;will-change:transform}
-.p-dot{position:absolute;font-size:11px;font-weight:900;background:#333;padding:6px 10px;border-radius:99px;transform:translate(-50%,-50%);text-align:center;min-width:60px}
-.p-dot.on{background:#FFCC00;color:#000;border:2px solid #fff;box-shadow:0 0 10px #FFCC00}
-.p-dot small{display:block;font-size:9px;color:#FFCC00}.p-dot.on small{color:#000}
-.card{background:#1e1e38;border-radius:16px;padding:12px}
-.qbox{background:#0008;border-radius:12px;padding:14px;min-height:120px;text-align:center}
-.decision-area{display:none;margin-top:12px;padding:12px;background:#111;border:3px solid #FFCC00;border-radius:14px}
-.decision-area.show{display:block}
-.decision-btns{display:flex;gap:12px;margin-top:10px}
-.decision-btns button{flex:1;border:0;border-radius:14px;padding:20px 10px;font-weight:900;cursor:pointer;font-size:15px}
-.btn-award{background:#00FF88;color:#000;border:3px solid #00FF88;box-shadow:0 0 20px #00FF8844}
-.btn-deduct{background:#FF3333;color:#fff;border:3px solid #FF3333;box-shadow:0 0 20px #FF333344}
-.btns{display:flex;gap:8px;margin-top:8px}
-.btns button{flex:1;border:0;border-radius:12px;padding:13px;font-weight:900;cursor:pointer}
+body{background:#0a0a14;color:#fff;font-family:system-ui;padding:8px}
+.app{max-width:400px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+h1{text-align:center;font-size:20px}h1 span{color:#FF0055}
+.wheel{width:240px;height:240px;margin:8px auto;border-radius:50%;background:#1a1a3e;border:6px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center}
+.bottle{font-size:55px;cursor:pointer;transition:transform 3.5s cubic-bezier(0.15,0.85,0.25,1)}
+.p{position:absolute;font-size:10px;background:#333;padding:4px 8px;border-radius:99px;transform:translate(-50%,-50%)}
+.p.on{background:#FFCC00;color:#000}
+.card{background:#1e1e38;border-radius:12px;padding:8px}
+.q{background:#0009;border-radius:10px;padding:10px;min-height:90px;text-align:center;font-size:13px}
+.dec{display:none;margin-top:8px;background:#111;border:2px solid #FFCC00;border-radius:10px;padding:8px}
+.dec.show{display:block}
+.db{display:flex;gap:5px;margin-top:6px}
+.db button{flex:1;border:0;border-radius:10px;padding:11px;font-weight:900;cursor:pointer;font-size:12px}
+.g{background:#00FF88;color:#000}.r{background:#FF3333;color:#fff}.s{background:#666;color:#fff}.bl{background:#00D4FF;color:#000}
+.btns{display:flex;gap:5px;margin-top:6px}
+.btns button{flex:1;border:0;border-radius:10px;padding:11px;font-weight:900;cursor:pointer;font-size:12px}
 .t{background:#00D4FF;color:#000}.d{background:#FF0055;color:#fff}
-.ranking-btn{background:#FFCC00;color:#000;width:100%;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer;margin-top:8px}
-.lv{display:flex;gap:5px;overflow-x:auto;padding:5px 0}
-.lv div{flex:0 0 auto;padding:7px 13px;border-radius:99px;background:#222;font-size:11px;font-weight:800;cursor:pointer}
-.lv div.on{background:#fff;color:#000}
-.chat{height:80px;overflow-y:auto;background:#0008;border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:6px}
-.m{background:#222;padding:8px 12px;border-radius:12px;font-size:13px}
-.m .sender{font-weight:900;font-size:11px;color:#FFCC00;display:block}
-.players-list{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:8px 0}
-.players-list span{background:#1a1a3e;color:#fff;padding:6px 12px;border-radius:99px;font-size:12px;font-weight:900;border:1px solid #FFCC00;display:flex;flex-direction:column;align-items:center;min-width:70px}
-.players-list span b{color:#FFCC00;font-size:15px}
-.leader{background:#FFCC0022;border:2px solid #FFCC00;border-radius:12px;padding:8px;margin-top:8px}
-.leader div{display:flex;justify-content:space-between;padding:4px 0;font-size:12px;font-weight:800;border-bottom:1px solid #333}
-.ranking-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000e;z-index:99;align-items:center;justify-content:center;padding:20px}
-.ranking-modal.show{display:flex}
-.ranking-card{background:#1a1a3e;border:3px solid #FFCC00;border-radius:20px;padding:20px;max-width:380px;width:100%;text-align:center}
-.custom-box{background:#00D4FF11;border:1px solid #00D4FF;border-radius:10px;padding:10px;margin-top:8px}
-.custom-box input,.custom-box select{width:100%;background:#000a;border:1px solid #444;border-radius:8px;padding:10px;color:#fff;margin-top:6px;font-size:14px}
-.custom-box button{width:100%;margin-top:6px;background:#00D4FF;color:#000;border:0;border-radius:8px;padding:10px;font-weight:900;cursor:pointer}
-.top{width:100%;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer}
-.cin{display:flex;gap:6px;margin-top:8px}
-.cin input{flex:1;background:#222;border:1px solid #444;border-radius:99px;padding:12px 16px;color:#fff;font-size:16px}
-.timer{font-size:18px;font-weight:900;color:#FFCC00;margin-top:6px;display:none}.timer.show{display:block}.timer.bad{color:#FF3333}
-.conf{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:50;display:none}.conf.show{display:block}
+.rb{background:#FFCC00;color:#000;width:100%;border:0;border-radius:8px;padding:9px;font-weight:900;margin-top:4px;cursor:pointer;font-size:11px}
+.list{display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
+.list span{background:#1a1a3e;padding:4px 8px;border-radius:99px;font-size:11px;border:1px solid #FFCC00}
+.lead{background:#FFCC0022;border:2px solid #FFCC00;border-radius:8px;padding:6px;font-size:11px}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000c;align-items:center;justify-content:center;padding:12px;z-index:20}
+.modal.show{display:flex}
+.mcard{background:#1a1a3e;border:3px solid #FFCC00;border-radius:14px;padding:12px;width:100%;max-width:340px;text-align:center}
+.chat{height:60px;overflow-y:auto;background:#0008;border-radius:6px;padding:6px;font-size:11px}
+.timer{font-size:18px;font-weight:900;color:#FFCC00;display:none}.timer.show{display:block}.timer.bad{color:#FF3333}
+.conf{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:30;display:none}.conf.show{display:block}
+.lv{display:flex;gap:3px;overflow-x:auto;padding:3px 0}.lv div{flex:0 0 auto;padding:5px 9px;border-radius:99px;background:#222;font-size:10px;font-weight:800;cursor:pointer}.lv div.on{background:#fff;color:#000}
 </style></head><body>
 <div class="app">
-<h1>PAUL'S<br>TRUTH <span>OR DARE</span></h1>
-<div style="text-align:center;font-size:11px">✅ SOUND + VIBRATION + MANY Q + NO REPEAT - ADDED!</div>
-<div class="bar"><span id="liveTime">🕐 Loading</span><span id="liveDate">--</span><span>🏆 <span id="totalPoints">0 pts</span></span></div>
-<div class="live"><span>🔴 OFFLINE - SOUND ON 🔊</span><span id="watchCount">👁️ 1 watching</span><span id="liveNames">Waiting</span></div>
-<div class="online">
-<div id="status">📴 OFFLINE - MANY QUESTIONS - NO REPEAT!</div>
-<div id="playersList" class="players-list"></div>
-<div class="leader" id="leaderboard"><div><span>🏆 LEADERBOARD</span><span>PTS</span></div><div style="opacity:.5">Add players!</div></div>
-<button class="ranking-btn" onclick="showRanking()">🏆 RANKING - SHOW WINNER!</button>
-<div id="viewersList" style="font-size:11px;background:#000a;border-radius:8px;padding:6px;margin-top:6px">👥 Add name! • Questions no repeat! • Sound on!</div>
+<h1>PAUL'S TRUTH <span>OR DARE</span></h1>
+<div style="text-align:center;font-size:10px;opacity:.7">✅ LIGHT - NO CRUSH - SOUND + VIBRATION + MANY Q + NO REPEAT</div>
+<div style="background:#1a1a3e;border:1px solid #FFCC00;border-radius:8px;padding:8px;display:flex;justify-content:space-between;font-size:11px;font-weight:800"><span id="clk">--:--</span><span id="pts">0 pts</span><span id="asked">Asked 0 no repeat</span></div>
+<div class="online" style="background:#111;border:2px solid #FFCC00;border-radius:10px;padding:8px;text-align:center">
+<div class="list" id="plist"></div>
+<div id="board" class="lead">Add players!</div>
+<button class="rb" onclick="showRank()">🏆 RANKING - WINNER + PUNISHMENT</button>
 </div>
 <div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
-<button class="top" onclick="spin()">🎡 SPIN BOTTLE!</button>
+<button class="rb" style="background:#fff;color:#000" onclick="spin()">🎡 SPIN - FAST THEN SLOW 🔊</button>
 <div class="lv" id="lv"></div>
 <div class="card">
-<div style="display:flex;gap:6px;margin-bottom:8px">
-<input id="pn" placeholder="Your name" style="flex:1;background:#0006;border:1px solid #444;border-radius:10px;padding:12px;color:#fff;font-size:16px">
-<button onclick="addP()" style="background:#fff;color:#000;border:0;border-radius:10px;padding:12px 16px;font-weight:900">ADD ME</button>
+<div style="display:flex;gap:4px">
+<input id="pn" placeholder="Your name" style="flex:1;padding:8px;border-radius:6px;border:1px solid #444;background:#0006;color:#fff">
+<button onclick="addP()" style="padding:8px 12px;border-radius:6px;border:0;background:#fff;color:#000;font-weight:900;cursor:pointer">ADD ME 🔊</button>
 </div>
-<div class="qbox" id="qb">
-<div id="qMain">Add 2+ players → Spin → Truth/Dare → Sound + Vibrate + Many Q no repeat!</div>
-<div class="timer" id="timer">⏱️ 30s</div>
-<div class="decision-area" id="decisionArea">
-<div style="font-weight:900" id="decisionTitle">Did Player answer?</div>
-<div id="decisionQ" style="font-size:11px;opacity:.7;margin:6px 0;background:#0008;padding:8px;border-radius:8px"></div>
-<div id="decisionPoints" style="font-size:13px;font-weight:900;margin:8px 0"></div>
-<div class="decision-btns">
-<button class="btn-award" id="btnAward" onclick="awardPoints()">🟢 AWARD<br><span id="awardLabel">+10 pts</span></button>
-<button class="btn-deduct" onclick="deductPoints()">🔴 DEDUCT<br>-5 pts</button>
+<div class="q">
+<div id="qm">Light version! Add 2+ players → Spin 🔊 → Truth/Dare 🔊 → Award 🔊🎉 + No repeat!</div>
+<div class="timer" id="tm">⏱️ 30s</div>
+<div class="dec" id="dec">
+<div id="dt" style="font-weight:900;font-size:11px">Did player answer?</div>
+<div id="dq" style="font-size:11px;margin:4px 0;background:#0006;padding:5px;border-radius:5px"></div>
+<div class="db">
+<button class="g" onclick="award()">🟢 AWARD +10 🔊</button>
+<button class="r" onclick="deduct()">🔴 DEDUCT -5 🔊</button>
 </div>
-</div>
-</div>
-<div class="btns"><button class="t" onclick="play('truth')">TRUTH 💎 +10pts</button><button class="d" onclick="play('dare')">DARE 🔥 +5pts</button></div>
-<div style="display:flex;gap:6px;margin-top:8px">
-<button class="ranking-btn" style="background:#fff;color:#000;flex:1" onclick="showRanking()">🏆 RANKING</button>
-<button class="ranking-btn" style="background:#FF0055;color:#fff;flex:1" onclick="resetGame()">🔄 RESET</button>
-</div>
-<div class="custom-box">
-<div style="font-weight:900;font-size:12px">➕ CUSTOM QUESTIONS - SAVED + NO REPEAT</div>
-<select id="customType"><option value="truth">Truth (+10 / -5)</option><option value="dare">Dare (+5 / -5)</option></select>
-<input id="customQ" placeholder="Type question...">
-<button onclick="addCustomQ()">➕ ADD CUSTOM</button>
-<div id="customList" style="font-size:11px;margin-top:6px;opacity:.8"></div>
-</div>
-</div>
-<div class="card"><div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM</span>Sound + Vibration + Many Questions + No Repeat added!</div></div><div class="cin"><input id="ci" placeholder="Comment..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div></div>
-</div>
-
-<div class="ranking-modal" id="rankingModal" onclick="if(event.target==this)closeRanking()">
-<div class="ranking-card">
-<div style="font-size:60px">🏆</div>
-<h2 style="color:#FFCC00">FINAL RANKING</h2>
-<div id="rankingContent" style="margin-top:12px;text-align:left"></div>
-<div id="punishBox" style="margin-top:10px;background:#FF333322;border:2px solid #FF3333;border-radius:10px;padding:10px;font-size:12px"></div>
-<div style="margin-top:14px;display:flex;gap:8px">
-<button onclick="closeRanking()" style="flex:1;background:#333;color:#fff;border:0;border-radius:10px;padding:12px;font-weight:900">CLOSE</button>
-<button onclick="resetGame();closeRanking()" style="flex:1;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900">NEW GAME</button>
+<div class="db">
+<button class="s" onclick="skip()">⏭️ SKIP -3</button>
+<button class="bl" onclick="photo()">📸 PROOF</button>
 </div>
 </div>
 </div>
+<div class="btns">
+<button class="t" onclick="play('truth')">TRUTH +10 💎</button>
+<button class="d" onclick="play('dare')">DARE +5 🔥</button>
+</div>
+<div style="display:flex;gap:4px;margin-top:4px">
+<button class="rb" style="background:#fff;color:#000;flex:1" onclick="showRank()">🏆 RANKING</button>
+<button class="rb" style="background:#FF0055;color:#fff;flex:1" onclick="resetG()">🔄 RESET</button>
+<button class="rb" style="background:#25D366;color:#fff;flex:1" onclick="shareW()">📲 SHARE WA</button>
+</div>
+</div>
+<div class="card"><div class="chat" id="chat"><div>SYSTEM: Light - no crush - sound + many Q + no repeat!</div></div></div>
+<input type="file" id="f" accept="image/*" style="display:none">
+</div>
+<div class="modal" id="rm"><div class="mcard">
+<h3 style="color:#FFCC00">🏆 RANKING</h3>
+<div id="rc" style="margin-top:8px;text-align:left;font-size:12px"></div>
+<div id="pun" style="margin-top:8px;background:#FF333322;border:2px solid #FF3333;border-radius:8px;padding:8px;font-size:11px"></div>
+<button onclick="closeR()" style="margin-top:8px;width:100%;padding:8px;border-radius:6px;border:0;background:#333;color:#fff;font-weight:900;cursor:pointer">CLOSE</button>
+</div></div>
 <div class="conf" id="conf"></div>
-
 <script>
-let LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'],curL=2,players=[],curr=0,rot=0,isSpinning=false,pendingIdx=-1,pendingType='',customTruths=[],customDares=[],asked=new Set(),timer=null,tLeft=0;
-let punList=["Buys Rolex for all! 🌯","20 pushups shouting winner!","Post 'I lost Posi Posi!' on Status!","Dance Azonto 30s!","Call crush say 'I love you'!","Drink 3 glasses water!"];
+var players=[],curr=0,rot=0,pend=-1,pendT='',asked=[],tmr=null,tl=0,curL=2;
+var LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'];
+var Q={
+0:{t:["Embarrassing text?","Hidden talent?","Worst lie today?","Who you stalk?","Childish thing you do?","Weird food combo?","Last time you cried why?","Useless skill?","Funny nickname?","Silly fear?","Invisible 1 day what?","Embarrassing song love?","Worst haircut?","Swap life with who here?","Superpower want?","Last dream?","Awkward date?","Change your name to what?","If animal which?","Cheesiest pickup line?"],d:["15 jumping jacks!","Dance 10 sec!","Imitate someone!","Cartoon voice 20 sec!","10 pushups!","Sing birthday!","Model walk!","Funny face till laugh!"]},
+1:{t:["Who kiss now in room?","Crush in room?","Most attractive here?","Last stalked who?","Liked friend's ex?","Date 1 week who?","Attractive teacher?","Secret crush?","Who not date even paid?","Crush on friend's sibling?","Marry who here?","Last flirty DM?","Call at 2am who?","Most romantic you did?","Miss who now?","Liked 2 same time?","Wingman who?","Worst text to crush?","Island with who?","Ghosted who why?"],d:["Text crush 'you up?'","Group write your status 1h!","Call ex say hi!","Voice note love song!","10 sec eye contact!","Read last 3 chats!","Post 'I have crush' no name!","Heart hands to someone!"]},
+2:{t:["Drunkest ever story?","Body count honest?","Worst thing drunk?","Blacked out ever?","Hooked up at party?","Craziest party story?","Stolen at party?","Most spent one night?","Kissed 2 same night?","Worst hangover?","Thrown up public?","Kicked out where?","Embarrassing drunk text?","Danced on table?","Lost phone at party?"],d:["Drink 3 water fast!","Water shot!","20 squats!","Group dare party!","Azonto 30 sec!","Imitate drunk!","Twerk 10 sec!","Party song loud!"]},
+3:{t:["Biggest fantasy?","Who hot here?","Hottest kissed?","Weirdest place kissed?","What turns you on?","Dream about someone here?","Attractive feature?","Kiss here if no judge?","Your type?","Friends with benefits ever?","Love language?","Most flirty you did?","Sent spicy pic?","Cuddle who?","What makes hot?"],d:["Lap dance 15 sec chair!","Twerk 20 sec!","Sexy walk!","Bite lip wink!","Pushups with someone back!","Whisper spicy!","Lap dance 15 sec!","Body roll 10 sec!"]},
+4:{t:["Dirtiest secret?","How lose virginity?","Weirdest place did it?","How many kissed?","Biggest sexual regret?","Been caught ever?","Try if no judgement what?","Embarrassing moment bed?","Lied about experience?","First time thoughts?","Craziest search?","One night ever?","Body count real?","Crush on teacher?","Most liked someone?"],d:["Twerk 30 sec!","Show search history 5 sec!","Read DMs 10 sec!","Dirty dance 20 sec!","Heartbroken dramatic!","Socks off with teeth!","Lick elbow try!","Seductive dance 10 sec!"]},
+5:{t:["Who unfriend now?","Most fake here?","Talks behind back who?","Not trust with secret who?","Most annoying here?","Lies most who?","Block who?","Fail in life who?","Two-faced who?","Not lend money who?","Gossips most who?","Most jealous who?","Argue with who?","Thinks hates you who?","Not want as partner who?"],d:["Post 'I am liar' status 10 min!","Phone to group 2 min!","Group post on IG story!","20 pushups 'I am weak'!","Delete 3 contacts!","Slap face softly!","Chicken dance public!","Sing loudly outside!"]}
+};
+var PUN=["Buys Rolex for all!","20 pushups shouting winner!","Post 'I lost Posi Posi!'","Dance Azonto 30s!","Call crush say 'I love you'!","Drink 3 water!"];
+var audioCtx=null;
+function getCtx(){try{if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();return audioCtx;}catch(e){return null;}}
+function beep(f,d){try{var ctx=getCtx();if(!ctx)return;var o=ctx.createOscillator();var g=ctx.createGain();o.frequency.value=f;o.connect(g);g.connect(ctx.destination);g.gain.setValueAtTime(0.15,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+d);o.start();o.stop(ctx.currentTime+d);}catch(e){}}
+function vib(p){try{if(navigator.vibrate)navigator.vibrate(p);}catch(e){}}
+function confetti(){var el=document.getElementById('conf');el.innerHTML='';el.className='conf show';for(var i=0;i<12;i++){var d=document.createElement('div');d.style.position='absolute';d.style.left=Math.random()*100+'%';d.style.top='-10px';d.style.fontSize='18px';d.textContent=['🎉','🎊','⭐'][i%3];d.style.transition='transform 2s linear';d.style.transform='translateY(100vh)';el.appendChild(d);}setTimeout(function(){el.className='conf';el.innerHTML='';},2000);}
 
-// SOUND + VIBRATION ADDED!
-function beep(freq,dur,vol=0.2){try{let ctx=new (window.AudioContext||window.webkitAudioContext)();let o=ctx.createOscillator();let g=ctx.createGain();o.frequency.value=freq;o.connect(g);g.connect(ctx.destination);g.gain.setValueAtTime(vol,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+dur);o.start();o.stop(ctx.currentTime+dur);}catch(e){}}
-function vib(pat){try{if(navigator.vibrate)navigator.vibrate(pat);}catch(e){}}
-function confetti(){let el=document.getElementById('conf');el.innerHTML='';el.className='conf show';for(let i=0;i<30;i++){let d=document.createElement('div');d.style.position='absolute';d.style.left=Math.random()*100+'%';d.style.top='-10px';d.style.fontSize='20px';d.textContent=['🎉','🎊','⭐','💛'][Math.floor(Math.random()*4)];d.style.animation='fall '+(2+Math.random()*2)+'s linear';el.appendChild(d);}setTimeout(()=>{el.className='conf';},2500);}
-let st=document.createElement('style');st.textContent='@keyframes fall{0%{transform:translateY(-10px) rotate(0deg)}100%{transform:translateY(100vh) rotate(600deg)}} @keyframes shake{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}';document.head.appendChild(st);
-
-function updateClock(){try{let n=new Date();document.getElementById('liveTime').textContent='🕐 '+n.toLocaleTimeString();document.getElementById('liveDate').textContent=n.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});}catch(e){}}
-setInterval(updateClock,1000);updateClock();
-function renderLevels(){let h='';LEVELS.forEach((n,i)=>{h+=`<div class="${i==curL?'on':''}" onclick="curL=${i};renderLevels();beep(500,0.1)">${n}</div>`});document.getElementById('lv').innerHTML=h}
-function renderPlayersList(){
-let el=document.getElementById('playersList');el.innerHTML='';let total=0;
-players.forEach((p,i)=>{total+=p.points;let s=document.createElement('span');s.innerHTML=`${p.name}<b style="color:${p.points<0?'#FF3333':'#FFCC00'}">${p.points} pts</b>`;if(i==curr){s.style.background='#FFCC00';s.style.color='#000';s.style.border='2px solid #fff';}el.appendChild(s);});
-document.getElementById('watchCount').textContent=`👁️ ${players.length||1} watching`;
-document.getElementById('liveNames').textContent=players.map(p=>p.name).join(', ')||'Waiting';
-document.getElementById('viewersList').textContent=`👥 ${players.length} players • Asked ${asked.size} questions no repeat • Total: ${total} pts • Sound 🔊`;
-document.getElementById('totalPoints').textContent=total+' pts';
-renderLeaderboard();
+function tick(){try{document.getElementById('clk').textContent=new Date().toLocaleTimeString();}catch(e){}}
+setInterval(tick,1000);tick();
+function renderLv(){var h='';for(var i=0;i<LEVELS.length;i++){h+='<div class="'+(i==curL?'on':'')+'" onclick="curL='+i+';renderLv();beep(500,0.1)">'+LEVELS[i]+'</div>';}document.getElementById('lv').innerHTML=h;}
+function render(){
+var el=document.getElementById('plist');el.innerHTML='';var tot=0;
+for(var i=0;i<players.length;i++){tot+=players[i].points;var s=document.createElement('span');s.textContent=players[i].name+' '+players[i].points+'pts';if(i==curr)s.style.background='#FFCC00',s.style.color='#000';s.onclick=function(){var idx=players.indexOf(players.find(p=>p.name==this.textContent.split(' ')[0]));if(idx>-1){players.splice(idx,1);drawW();render();}};el.appendChild(s);}
+document.getElementById('pts').textContent=tot+' pts';
+document.getElementById('asked').textContent='Asked '+asked.length+' no repeat';
+var b=document.getElementById('board');if(players.length==0){b.textContent='Add players!';return;}
+var sorted=players.slice().sort(function(a,b){return b.points-a.points;});
+var h='LEADERBOARD<br>';for(var i=0;i<sorted.length;i++){h+='<div style="display:flex;justify-content:space-between"><span>'+(i+1)+'. '+sorted[i].name+'</span><span>'+sorted[i].points+' pts</span></div>';}
+b.innerHTML=h;
 }
-function renderLeaderboard(){
-let el=document.getElementById('leaderboard');
-if(players.length==0){el.innerHTML='<div><span>🏆 LEADERBOARD</span><span>PTS</span></div><div style="opacity:.5">Add players!</div>';return;}
-let sorted=[...players].sort((a,b)=>b.points-a.points);
-let h='<div><span>🏆 LEADERBOARD</span><span>PTS</span></div>';
-sorted.forEach((p,i)=>{let medal=i==0?'🥇':i==1?'🥈':i==2?'🥉':'👤';h+=`<div><span>${medal} ${p.name}</span><span style="color:${p.points<0?'#FF3333':'#FFCC00'}">${p.points} pts</span></div>`});
-el.innerHTML=h;
+function drawW(){
+var w=document.getElementById('wheel');var ps=w.querySelectorAll('.p');for(var i=0;i<ps.length;i++)ps[i].remove();
+if(players.length==0)return;
+for(var i=0;i<players.length;i++){var d=document.createElement('div');d.className='p'+(i==curr?' on':'');d.textContent=players[i].name+' '+players[i].points;var a=(360/players.length)*i+90;var r=90;var x=Math.cos(a*Math.PI/180)*r;var y=Math.sin(a*Math.PI/180)*r;d.style.left='50%';d.style.top='50%';d.style.transform='translate(-50%,-50%) translate('+x+'px,'+y+'px)';w.appendChild(d);}
 }
-
-// MANY QUESTIONS - NO REPEAT - 25 PER LEVEL!
-let Q={
-0:{t:["Most embarrassing text ever sent?","Hidden talent no one knows?","Worst lie you told today?","Who you stalk on IG?","Most childish thing you still do?","Weirdest food combo you love?","Last time you cried and why?","Most useless skill you have?","Funniest nickname you had?","Biggest fear that is silly?","What would you do if invisible 1 day?","Most embarrassing song you love?","Worst haircut ever?","Who in room you would swap life with 1 day?","What superpower you want?","Last dream you remember?","Most awkward date ever?","What you would change about your name?","If you were animal which?","Cheesiest pick up line you know?","Who you text most?","Most used emoji and why?","Worst gift you ever gave?","What age you feel right now?","What you would do with 1M UGX?"],
-d:["Do 15 jumping jacks shouting your name!","Dance 10 sec no music!","Imitate someone in room!","Speak in cartoon voice 20 sec!","Do 10 pushups!","Sing happy birthday loudly!","Walk like a model across room!","Make funny face until someone laughs!","Say alphabet backwards!","Do chicken dance 15 sec!","Balance book on head 20 sec!","Do robot dance 20 sec!","Act like monkey 10 sec!","Try to lick your elbow!","Do 5 squats with hands up!"]},
-1:{t:["Who would you kiss right now in room?","Crush in this room?","Who is most attractive here?","Last person you stalked?","Ever liked friend's ex?","Who you would date for 1 week?","Most attractive teacher you had?","Secret crush you never told?","Who you would not date even if paid?","Ever had crush on friend's sibling?","Who in room you would marry?","Last DM that was flirty?","Who you would call at 2am?","Most romantic thing you did?","Who you miss right now?","Ever liked 2 people same time?","Who you would want as wingman?","Worst text to crush?","Who you would take to island?","Ever ghosted someone why?","Who you think likes you?","Most jealous you ever been?","Who you would kiss, marry, kill in room?","Last time you got butterflies?","Who you would not want to see your search history?"],
-d:["Text your crush 'you up?'","Let group write your status for 1 hour!","Call ex and say hi!","Send voice note singing love song!","Do 10 sec eye contact with someone!","Let someone read your last 3 chats!","Post 'I have crush' on status no name!","Do heart with hands to someone!","Say 3 nice things about someone in room!","Dance slowly with chair!","Let someone style your hair funny!","Do 5 compliments to different people!","Act like you propose to someone!","Give someone shoulder massage 20 sec!","Write love letter in 30 sec!"]},
-2:{t:["Drunkest you ever been story?","Body count honest?","Worst thing you did drunk?","Ever blacked out?","Ever hooked up at party?","Craziest party story?","Ever stolen something at party?","Most you ever spent in one night?","Ever kissed 2 people same night?","Worst hangover ever?","Ever thrown up in public?","Ever been kicked out of place?","Most embarrassing drunk text?","Ever danced on table?","Ever lost phone at party?","Who in room party hardest?","Ever lied about where you were at night?","Ever snuck out?","Craziest dare you ever did?","Ever been caught lying about party?","What's your go-to drink?","Ever cried at party?","Most you ever stayed up?","Ever fell asleep at party?","Who you would party with for 24h?"],
-d:["Drink 3 glasses water quickly!","Do water shot!","Do 20 squats!","Let group dare you anything party!","Dance Azonto 30 sec!","Imitate drunk person!","Do 10 sec twerk!","Sing party song loudly!","Call someone and shout 'Party!'","Do shot of lemon juice!","Spin 10 times then walk straight!","Do 15 jumping jacks fast!","Balance bottle on head!","Act like DJ for 20 sec!","Let someone tickle you 10 sec!"]},
-3:{t:["Biggest fantasy?","Who here you find hot?","Hottest person you ever kissed?","Where weirdest place you kissed?","What turns you on?","Ever had dream about someone in room?","Most attractive feature in someone?","Would you kiss someone here if no one judges?","What's your type?","Ever had friends with benefits?","What is your love language?","Most flirty thing you did?","Ever sent spicy pic?","Who you would want to cuddle?","What makes someone hot?","Ever liked someone older?","Would you date someone in this room?","Most romantic place you want kiss?","What's your biggest turn off?","Ever had crush on celebrity who?","What you notice first in someone?","Ever been caught flirting?","Would you kiss on first date?","How you like to be kissed?","Who you think is most flirty here?"],
-d:["Give lap dance 15 sec to chair!","Twerk 20 sec!","Do sexy walk across room!","Bite lip and wink at someone!","Do pushups with someone on back!","Whisper something spicy to someone!","Let someone give you lap dance 15 sec!","Do body roll 10 sec!","Dance with someone close 20 sec!","Act like you are in slow motion sexy!","Do 10 sec eye contact + wink!","Let someone sit on your lap 10 sec!","Do catwalk sexy!","Make kiss face to camera!","Do hip dance 15 sec!"]},
-4:{t:["Dirtiest secret no one knows?","How you lose virginity story?","Weirdest place you did it?","How many people you kissed?","Biggest sexual regret?","Ever been caught?","What you would try if no judgement?","Most embarrassing moment in bed?","Ever lied about experience?","What you think about first time?","Craziest thing you searched?","Ever had one night?","What is your body count real?","Ever had crush on teacher?","Most you ever liked someone?","Ever been heartbroken how?","What you look for in partner?","Ever cheated?","Ever been cheated on?","What you would do for love?","Most you ever did for crush?","Ever sent nudes?","What turns you off instantly?","Ever had toxic relationship?","What you will never do again?"],
-d:["Twerk 30 sec nonstop!","Show your last search history 5 sec!","Let someone read your DMs 10 sec!","Do 20 sec dirty dance!","Act like you are heartbroken dramatically!","Take off socks with teeth!","Lick elbow or try!","Do 10 sec seductive dance!","Let group write dirty caption for your photo!","Show your most used emoji!","Do plank 30 sec!","Let someone draw on your face!","Do 15 sec animal dance!","Act like baby for 20 sec!"]},
-5:{t:["Who would you unfriend right now?","Who is most fake here?","Who talks behind back?","Who you would not trust with secret?","Who is most annoying here?","Who you think lies most?","Who would you block?","Who you think will fail in life?","Who is two-faced?","Who you would not lend money?","Who gossips most?","Who is most jealous?","Who you would argue with?","Who you think hates you?","Who you would not want as partner?","Who you think is player?","Who you think will get married first?","Who you think is most selfish?","Who would you not want to be stuck with on island?","Who you think talks about you?","Who is most dramatic?","Who you think is lying right now?","Who would you expose?","Who you think is most stubborn?","Who you would not want to work with?"],
-d:["Post 'I am a liar' on WhatsApp status 10 min!","Give your phone to group for 2 min!","Let group post anything on your IG story!","Do 20 pushups shouting 'I am weak'!","Delete 3 contacts!","Let someone slap your face softly!","Do chicken dance in public area!","Sing loudly outside!","Let someone change your profile pic 1 hour!","Do 10 squats shoutin
+function addP(){
+var v=document.getElementById('pn').value.trim();if(!v){beep(200,0.4);return;}
+players.push({name:v,points:0});document.getElementById('pn').value='';drawW();render();beep(700,0.2);vib(30);confetti();
+}
+function spin(){
+if(players.length<2){document.getElementById('qm').textContent='Need 2+ players!';beep(200,0.3);return;}
+var bot=document.getElementById('bot');var picked=Math.floor(Math.random()*players.length);
+var finalRot=rot+5*360+Math.random()*360;bot.style.transform='rotate('+finalRot+'deg)';rot=finalRot;
+document.getElementById('qm').textContent='SPINNING... 🔊';beep(400,0.1);vib(20);hideDec();stopT();
+setTimeout(function(){curr=picked;drawW();document.getElementById('qm').innerHTML='🎯 '+players[curr].name+' PICKED! 🔊';beep(900,0.25);vib([60,30,60]);},3500);
+}
+function getQ(list){
+var av=[];for(var i=0;i<list.length;i++){if(asked.indexOf(list[i])==-1)av.push(list[i]);}
+if(av.length==0){asked=[];av=list.slice();}
+var q=av[Math.floor(Math.random()*av.length)];asked.push(q);if(asked.length>200)asked.shift();return q;
+}
+function play(type){
+if(players.length<2)return;
+var all=Q[curL][type];var q=getQ(all);pend=curr;pendT=type;var pts=type=='truth'?10:5;
+document.getElementById('qm').innerHTML=LEVELS[curL]+' '+type+' '+pts+'pts<br><b>'+q+'</b><br>'+players[pend].name+' must answer! No repeat!';document.getElementById('dt').textContent='Did '+players[pend].name+' answer?';document.getElementById('dq').textContent=q;document.getElementById('dec').className='dec show';beep(600,0.15);vib(20);startT(type=='dare'?30:45);render();
+}
+function hideDec(){document.getElementById('dec').className='dec';}
+function startT(s){stopT();tl=s;var el=document.getElementById('tm');el.className='timer show';el.textContent='⏱️ '+tl+'s';tmr=setInterval(function(){tl--;el.textContent='⏱️ '+tl+'s';if(tl<=10){el.className='timer show bad';beep(700,0.05);vib(10);}if(tl<=0){stopT();el.textContent='⏱️ TIME UP!';beep(200,0.5);vib([150,80,150]);}},1000);}
+function stopT(){if(tmr){clearInterval(tmr);tmr=null;}document.getElementById('tm').className='timer';}
+function award(){
+if(pend<0)return;stopT();var pts=pendT=='truth'?10:5;players[pend].points+=pts;document.getElementById('qm').innerHTML='🟢 AWARDED +'+pts+'! Total '+players[pend].points+' 🔊🎉';hideDec();beep(1000,0.3);vib(70);confetti();curr=(curr+1)%players.length;drawW();render();pend=-1;
+}
+function deduct(){
+if(pend<0)return;stopT();players[pend].points+=-5;document.getElementById('qm').innerHTML='🔴 DEDUCTED -5! Total '+players[pend].points+' 🔊';hideDec();beep(250,0.4);vib([120,60,120]);curr=(curr+1)%players.length;drawW();render();pend=-1;
+}
+function skip(){
+if(pend<0)return;stopT();players[pend].points+=-3;document.getElementById('qm').innerHTML='⏭️ SKIPPED -3!';hideDec();curr=(curr+1)%players.length;drawW();render();pend=-1;
+}
+function photo(){
+var inp=document.getElementById('f');
+inp.onchange=function(e){
+var file=e.target.files[0];if(!file)return;
+var r=new FileReader();
+r.onload=function(ev){var c=document.getElementById('chat');c.innerHTML+='<div>📸 PROOF <img src="'+ev.target.result+'" style="max-width:100%"></div>';beep(800,0.2);};
+r.readAsDataURL(file);
+};
+inp.click();
+}
+function showRank(){
+if(players.length==0)return;
+var sorted=players.slice().sort(function(a,b){return b.points-a.points;});
+var html='';for(var i=0;i<sorted.length;i++){html+='<div style="padding:6px;background:'+(i==0?'#FFCC00;color:#000':'#222')+';border-radius:6px;margin:3px 0;display:flex;justify-content:space-between"><span>'+(i+1)+'. '+sorted[i].name+'</span><span>'+sorted[i].points+' pts</span></div>';}
+document.getElementById('rc').innerHTML=html;
+document.getElementById('pun').innerHTML='😈 LOSER: '+sorted[sorted.length-1].name+' - '+PUN[Math.floor(Math.random()*PUN.length)];
+document.getElementById('rm').className='modal show';beep(1200,0.3);confetti();
+}
+function closeR(){document.getElementById('rm').className='modal';}
+function resetG(){for(var i=0;i<players.length;i++)players[i].points=0;asked=[];drawW();render();document.getElementById('qm').textContent='Reset! No repeat cleared!';}
+function shareW(){
+if(players.length==0)return;
+var txt='🏆 TRUTH OR DARE!%0A';for(var i=0;i<players.length;i++){txt+=(i+1)+'. '+players[i].name+' '+players[i].points+' pts%0A';}
+window.open('https://wa.me/?text='+txt,'_blank');
+}
+renderLv();render();drawW();
+</script>
+</body></html>
