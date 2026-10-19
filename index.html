@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>PAUL'S TRUTH OR DARE - SIMPLE & WORKING</title>
+<title>🔥 Come Join Paul's Posi Posi Truth or Dare - LIVE!</title>
+<meta property="og:title" content="🔥 Come and Join Posi Posi! Paul's Truth or Dare LIVE! 🎡">
+<meta property="og:description" content="🌍💋 Come and join Paul McRae's LIVE Truth or Dare party in Kampala! Spin the bottle LIVE! One wheel for all players! 8 players max! Click link to join instantly - no typing code! 🎉🔥">
+<meta property="og:image" content="https://paul-mcrae.github.io/truth-or-dare/preview.jpg">
+<meta property="og:url" content="https://paul-mcrae.github.io/truth-or-dare/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}html{-webkit-text-size-adjust:100%;touch-action:manipulation}
 body{background:#0a0a14;color:#fff;font-family:system-ui;padding:10px}
@@ -12,7 +18,7 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 .online button{padding:10px 14px;border-radius:8px;border:0;font-weight:900;margin:3px;cursor:pointer}
 .wheel{width:280px;height:280px;margin:10px auto;border-radius:50%;background:radial-gradient(circle,#1a1a3e,#0a0a14);border:8px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center}
 .bottle{font-size:70px;cursor:pointer;transition:transform 2.2s ease}
-.p-dot{position:absolute;font-size:12px;font-weight:900;background:#333;padding:6px 12px;border-radius:99px;transform:translate(-50%,-50%)}
+.p-dot{position:absolute;font-size:12px;font-weight:900;background:#333;padding:6px 12px;border-radius:99px;transform:translate(-50%,-50%);border:1px solid #FF0055}
 .p-dot.on{background:#FFCC00;color:#000;border:2px solid #fff}
 .card{background:#1e1e38;border-radius:16px;padding:12px}
 .qbox{background:#0008;border-radius:12px;padding:14px;min-height:80px;text-align:center;display:flex;flex-direction:column;justify-content:center}
@@ -32,36 +38,40 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 .cin input{flex:1;background:#222;border:1px solid #444;border-radius:99px;padding:12px 16px;color:#fff;font-size:16px}
 .top{width:100%;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer}
 .players-list{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:8px 0}
-.players-list span{background:#FF005522;border:1px solid #FF0055;padding:5px 12px;border-radius:99px;font-size:11px;font-weight:700}
+.players-list span{background:#FFCC00;color:#000;padding:5px 12px;border-radius:99px;font-size:12px;font-weight:900;border:2px solid #fff}
+.connection-ok{background:#00FF8822;border:2px solid #00FF88;border-radius:10px;padding:10px;margin-top:8px;display:none;font-weight:900;text-align:center}
+.connection-ok.show{display:block}
 .share-box{background:#00D4FF22;border:1px solid #00D4FF;border-radius:8px;padding:8px;margin-top:8px;display:none}
 .share-box.show{display:block}
 </style></head><body>
 <div class="app">
 <h1>PAUL'S<br>TRUTH <span>OR DARE</span></h1>
-<div style="text-align:center;font-size:11px;letter-spacing:3px;opacity:.7">BY PAUL McRAE • KAMPALA • SIMPLE WORKING</div>
+<div style="text-align:center;font-size:11px;letter-spacing:3px;opacity:.7">🌍 BY PAUL McRAE • KAMPALA • ONE WHEEL FOR ALL!</div>
 
 <div class="time-bar"><span id="liveTime">🕐 Loading...</span><span id="liveDate">--</span><span id="timeZone">EAT</span></div>
-<div class="live-bar"><span>🔴 LIVE</span><span id="watchCount">👁️ 1 watching</span><span id="liveNames">Waiting...</span></div>
+<div class="live-bar"><span id="liveDot">🔴 LIVE</span><span id="watchCount">👁️ 1 watching</span><span id="liveNames">Waiting...</span></div>
 
 <div class="online">
-<div id="status" style="font-weight:800;font-size:13px">📴 Add your name!</div>
+<div id="status" style="font-weight:800;font-size:13px">📴 Add your name below!</div>
 <div id="roomInfo" style="font-size:11px;margin-top:6px;word-break:break-all"></div>
 <div id="playersList" class="players-list"></div>
-<div id="viewersList" style="font-size:11px;background:#000a;border-radius:8px;padding:6px;margin-top:6px">👥 Live: Waiting...</div>
+<div id="viewersList" style="font-size:11px;background:#000a;border-radius:8px;padding:6px;margin-top:6px">👥 Live: Add name to start - One wheel for all!</div>
+<div class="connection-ok" id="connOk">✅ CONNECTED! One wheel with <span id="connCount">0</span> players!</div>
 <div class="share-box" id="shareBox">
-<div style="font-size:11px;font-weight:800">🔗 Share this link - friend clicks, NO TYPING CODE!</div>
+<div style="font-size:12px;font-weight:900">🌍🔥 Attractive Link - Shows Posi Posi preview on WhatsApp!</div>
 <div id="shareLink" style="font-size:11px;background:#000a;padding:6px;border-radius:6px;margin-top:4px;word-break:break-all;color:#00D4FF"></div>
-<button onclick="copyLink()" style="background:#00D4FF;color:#000;margin-top:6px">📋 COPY LINK FOR WHATSAPP</button>
+<button onclick="copyLink()" style="background:#00D4FF;color:#000;margin-top:6px">📋 COPY LINK - Shows "Come and Join Posi Posi!"</button>
+<div style="font-size:10px;margin-top:4px;opacity:.7">When you paste on WhatsApp, it will show 🌍 Posi Posi preview!</div>
 </div>
 <div style="margin-top:8px">
-<button onclick="hostRoom()" style="background:#00D4FF;color:#000">📱 HOST - SHARE LINK</button>
-<button onclick="joinRoom()" style="background:#FFCC00;color:#000">👥 JOIN WITH CODE</button>
-<button onclick="offlineMode()" style="background:#333;color:#fff">📴 OFFLINE PARTY</button>
+<button onclick="hostRoom()" style="background:#00D4FF;color:#000">📱 HOST - ONE WHEEL!</button>
+<button onclick="joinRoom()" style="background:#FFCC00;color:#000">👥 JOIN</button>
+<button onclick="offlineMode()" style="background:#333;color:#fff">📴 OFFLINE</button>
 </div>
 </div>
 
 <div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
-<button class="top" onclick="spin()">🎡 SPIN BOTTLE - ALWAYS ACTIVE!</button>
+<button class="top" onclick="spin()">🎡 SPIN BOTTLE - ONE WHEEL FOR ALL!</button>
 <div class="lv" id="lv"></div>
 
 <div class="card">
@@ -69,7 +79,7 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 <input id="pn" placeholder="Your name" style="flex:1;background:#0006;border:1px solid #444;border-radius:10px;padding:12px;color:#fff">
 <button onclick="addP()" style="background:#fff;color:#000;border:0;border-radius:10px;padding:12px 16px;font-weight:900">ADD ME</button>
 </div>
-<div class="qbox" id="qb"><div>✅ SIMPLE & WORKING!<br>Live time + Live watch ACTIVE<br>All wheels show all players<br>No fast lapse - Share LINK!</div></div>
+<div class="qbox" id="qb"><div>✅ ONE WHEEL FOR ALL!<br>When friend joins, wheel shows BOTH names!<br>🌍 Attractive link: Come and join Posi Posi!<br>Live connection proof!</div></div>
 <div class="reply-box" id="replyBox">
 <div style="font-weight:900">💬 <span id="replyName">Player</span> MUST REPLY:</div>
 <div id="replyQuestion" style="font-size:12px;opacity:.8;margin-top:4px;background:#0005;padding:6px;border-radius:6px"></div>
@@ -84,9 +94,9 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 
 <div class="card">
 <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-<span style="font-weight:800;font-size:12px">💬 LIVE CHAT - Name + Time</span><span style="font-size:10px;background:#FF0000;padding:2px 8px;border-radius:99px">🔴 LIVE</span>
+<span style="font-weight:800;font-size:12px">💬 LIVE CHAT - One wheel proof</span><span style="font-size:10px;background:#FF0000;padding:2px 8px;border-radius:99px">🔴 LIVE</span>
 </div>
-<div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM</span>Simple working version! Live watch ACTIVE! Time ACTIVE!</div></div>
+<div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM • ONE WHEEL</span>When friend joins, wheel shows BOTH names! Proof you connected!</div></div>
 <div class="cin"><input id="ci" placeholder="Comment as..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div>
 </div>
 </div>
@@ -95,13 +105,14 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 function updateClock(){let now=new Date();try{document.getElementById('liveTime').textContent='🕐 '+now.toLocaleTimeString();document.getElementById('liveDate').textContent=now.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});document.getElementById('timeZone').textContent=Intl.DateTimeFormat().resolvedOptions().timeZone.split('/').pop()+' • EAT';}catch(e){}}
 setInterval(updateClock,1000);updateClock();
 
-let LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'],curL=2,players=[],curr=0,rot=0,lastQ='',lastPlayer='',myName='Guest',currentRoomId='';
+let LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'],curL=2,players=[],curr=0,rot=0,lastQ='',lastPlayer='',myName='Guest';
 function renderLevels(){let h='';LEVELS.forEach((n,i)=>{h+=`<div class="${i==curL?'on':''}" onclick="curL=${i};renderLevels()">${n}</div>`});document.getElementById('lv').innerHTML=h}
 function renderPlayersList(){
 let el=document.getElementById('playersList');el.innerHTML='';players.forEach(p=>{let s=document.createElement('span');s.textContent=p;el.appendChild(s)});
 document.getElementById('watchCount').textContent=`👁️ ${players.length||1} watching`;
 document.getElementById('liveNames').textContent=players.slice(0,3).join(', ')+(players.length>3?' +'+(players.length-3):'')||myName;
-document.getElementById('viewersList').textContent=`👥 Live (${players.length||1}): ${players.join(', ')||myName} • ${new Date().toLocaleTimeString()} • LIVE WATCH ACTIVE!`;
+document.getElementById('viewersList').textContent=`👥 ONE WHEEL (${players.length||1}): ${players.join(', ')||myName} • ${new Date().toLocaleTimeString()} • ALL SEE SAME WHEEL!`;
+let connOk=document.getElementById('connOk');if(players.length>=2){connOk.classList.add('show');document.getElementById('connCount').textContent=players.length;connOk.innerHTML=`✅ CONNECTED! 🌍 One wheel with <b>${players.length} players</b>: ${players.join(', ')}! Everyone sees same wheel!`; }else if(players.length==1){connOk.classList.remove('show');}
 }
 let Q={
 0:{t:["Most embarrassing text ever sent?","Hidden talent?"],d:["15 jumping jacks"]},
@@ -113,40 +124,40 @@ let Q={
 };
 function addP(){
 let v=document.getElementById('pn').value.trim();if(!v)return;if(players.includes(v))return alert('Taken!');if(players.length>=8)return alert('Max 8!');
-myName=v;players.push(v);document.getElementById('pn').value='';drawWheel();renderPlayersList();addSys(v+' joined!','join','SYSTEM');syncAll({type:'addPlayer',name:v});
+myName=v;players.push(v);document.getElementById('pn').value='';drawWheel();renderPlayersList();addSys(v+' joined! Now ONE WHEEL shows '+players.join(', ')+'!','join','SYSTEM');syncAll({type:'fullSync',players:players});
 }
 function drawWheel(){
 let w=document.getElementById('wheel');w.querySelectorAll('.p-dot').forEach(e=>e.remove());
-if(players.length==0)return;
+if(players.length==0){document.getElementById('viewersList').textContent='👥 No players yet - Add name!';return;}
 players.forEach((p,i)=>{let d=document.createElement('div');d.className='p-dot'+(i==curr?' on':'');d.textContent=p;let a=(360/players.length)*i;let r=100;let x=Math.cos(a*Math.PI/180)*r;let y=Math.sin(a*Math.PI/180)*r;d.style.left='50%';d.style.top='50%';d.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px)`;w.appendChild(d)});
 }
 function spin(){
-if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055">Need 2+ players!</div>';return}
+if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055">Need 2+ players on ONE WHEEL! Invite friend!</div>';return}
 rot+=Math.floor(Math.random()*900+700);document.getElementById('bot').style.transform=`rotate(${rot}deg)`;
 document.getElementById('replyBox').classList.remove('show');
-document.getElementById('qb').innerHTML='🎡 SPINNING LIVE... 🕐 '+new Date().toLocaleTimeString();
-addSys('Spinning... 🔴 LIVE','question','SYSTEM');
+document.getElementById('qb').innerHTML='🎡 SPINNING ONE WHEEL FOR ALL... 🕐 '+new Date().toLocaleTimeString();
+addSys('Spinning ONE WHEEL with '+players.length+' players...','question','SYSTEM');
 let picked=Math.floor(Math.random()*players.length);
-setTimeout(()=>{curr=picked;drawWheel();document.getElementById('qb').innerHTML=`<div style="font-size:24px;font-weight:900">${players[curr]} 🎯 PICKED!</div>`;addSys(`🎯 Picked ${players[curr]}!`,'question','SYSTEM');syncAll({forcePick:curr})},2200);
+setTimeout(()=>{curr=picked;drawWheel();document.getElementById('qb').innerHTML=`<div style="font-size:24px;font-weight:900">${players[curr]} 🎯 PICKED ON ONE WHEEL!</div><div>All ${players.length} see: ${players.join(', ')} at ${new Date().toLocaleTimeString()}</div>`;addSys(`🎯 ONE WHEEL picked ${players[curr]}! Everyone sees!`,'question','SYSTEM');syncAll({type:'fullSync',players:players,curr:curr,forcePick:curr})},2200);
 }
 function play(t){
 if(players.length<2)return;
 let list=t=='truth'?Q[curL].t:Q[curL].d;lastQ=list[Math.floor(Math.random()*list.length)];lastPlayer=players[curr];
-document.getElementById('qb').innerHTML=`<div style="opacity:.6;font-size:10px">${LEVELS[curL]} ${t} • ${new Date().toLocaleTimeString()} • LIVE WATCH</div><div style="font-weight:800;margin-top:6px;font-size:16px">${lastQ}</div><div>👉 ${lastPlayer} must answer!</div>`;
-addSys(`${t.toUpperCase()}: ${lastQ}`,'question',lastPlayer);showReplyBox();curr=(curr+1)%players.length;setTimeout(drawWheel,400);syncAll();
+document.getElementById('qb').innerHTML=`<div style="opacity:.6;font-size:10px">${LEVELS[curL]} ${t} • ONE WHEEL • ${new Date().toLocaleTimeString()}</div><div style="font-weight:800;margin-top:6px;font-size:16px">${lastQ}</div><div>👉 ${lastPlayer} on ONE WHEEL must answer!</div>`;
+addSys(`${t.toUpperCase()}: ${lastQ}`,'question',lastPlayer);showReplyBox();curr=(curr+1)%players.length;setTimeout(drawWheel,400);syncAll({type:'fullSync',players:players,curr:curr,lastQ:lastQ,lastPlayer:lastPlayer,qb:document.getElementById('qb').innerHTML});
 }
 function showReplyBox(){document.getElementById('replyBox').classList.add('show');document.getElementById('replyName').textContent=lastPlayer;document.getElementById('replyQuestion').textContent=lastQ}
 function submitReply(){
 let ans=document.getElementById('replyInput').value.trim();if(!ans)return;
-addSys(`ANSWERED: "${ans}"`,'reply',lastPlayer);
-document.getElementById('qb').innerHTML=`<div style="color:#00FF88;font-weight:900">✅ ${lastPlayer} REPLIED!</div><div>"${ans}"</div>`;
-document.getElementById('replyInput').value='';document.getElementById('replyBox').classList.remove('show');syncAll();
+addSys(`ANSWERED: "${ans}" on ONE WHEEL!`,'reply',lastPlayer);
+document.getElementById('qb').innerHTML=`<div style="color:#00FF88;font-weight:900">✅ ${lastPlayer} REPLIED ON ONE WHEEL!</div><div>"${ans}"</div><div style="font-size:11px;opacity:.6">All ${players.length} players saw: ${players.join(', ')}</div>`;
+document.getElementById('replyInput').value='';document.getElementById('replyBox').classList.remove('show');syncAll({type:'fullSync',players:players,qb:document.getElementById('qb').innerHTML,chat:document.getElementById('chat').innerHTML});
 }
-function doReact(e){addSys(`Reacted ${e}`,'comment',myName);syncAll()}
+function doReact(e){addSys(`Reacted ${e} on ONE WHEEL!`,'comment',myName);syncAll({type:'fullSync',players:players,chat:document.getElementById('chat').innerHTML})}
 function sendChat(){
 let v=document.getElementById('ci').value.trim();if(!v)return;
 if(!myName||myName=='Guest'){let n=prompt('Your name?');if(n)myName=n.trim();else return}
-addSys(v,'comment',myName);document.getElementById('ci').value='';syncAll();
+addSys(v,'comment',myName);document.getElementById('ci').value='';syncAll({type:'fullSync',players:players,chat:document.getElementById('chat').innerHTML});
 }
 function addSys(t,cls,sender){
 let c=document.getElementById('chat');let d=document.createElement('div');d.className='m';
@@ -156,8 +167,8 @@ c.appendChild(d);c.scrollTop=c.scrollHeight;
 }
 function copyLink(){
 let link=document.getElementById('shareLink').textContent;
-if(navigator.clipboard){navigator.clipboard.writeText(link).then(()=>{alert('Link copied! Share on WhatsApp! Friend clicks, no typing! ✅')});}
-else{prompt('Copy this link for WhatsApp:',link);}
+if(navigator.clipboard){navigator.clipboard.writeText(link).then(()=>{alert('🌍 Link copied! On WhatsApp it will show: Come and Join Posi Posi! 🎡🔥')});}
+else{prompt('Copy this Posi Posi link:',link);}
 }
 
 let peer=null,connList=[],isHost=false;
@@ -166,16 +177,16 @@ if(window.Peer){cb();return}
 let s=document.createElement('script');s.src='https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js';s.onload=cb;document.head.appendChild(s);
 }
 function hostRoom(){
-if(!myName||myName=='Guest'){let n=prompt('Host name?');if(!n)return;myName=n.trim();if(!players.includes(myName))players.push(myName);drawWheel();renderPlayersList()}
+if(!myName||myName=='Guest'){let n=prompt('Host name? For ONE WHEEL');if(!n)return;myName=n.trim();if(!players.includes(myName))players.push(myName);drawWheel();renderPlayersList()}
 loadPeer(()=>{
-let roomId='PAUL-'+Math.floor(Math.random()*9000+1000);currentRoomId=roomId;
-document.getElementById('status').textContent='⏳ Hosting '+roomId+'... Keep screen ON!';
+let roomId='PAUL-'+Math.floor(Math.random()*9000+1000);
+document.getElementById('status').textContent='⏳ Creating ONE WHEEL '+roomId+'... Keep screen ON! 🌍';
 peer=new Peer(roomId,{config:{iceServers:[{urls:'stun:stun.l.google.com:19302'}]}});
 peer.on('open',id=>{
-document.getElementById('status').textContent='✅ HOSTING: '+id;
+document.getElementById('status').textContent='✅ HOSTING ONE WHEEL: '+id;
 let baseUrl=location.origin+location.pathname;
 let shareUrl=baseUrl+'?join='+id;
-document.getElementById('roomInfo').innerHTML='🔴 LIVE CODE: <b style="font-size:20px;color:#00D4FF">'+id+'</b><br>OR share link (no typing!)';
+document.getElementById('roomInfo').innerHTML='🔴 ONE WHEEL CODE: <b style="font-size:20px;color:#00D4FF">'+id+'</b><br>🌍 ONE WHEEL for all players!';
 document.getElementById('shareLink').textContent=shareUrl;
 document.getElementById('shareBox').classList.add('show');
 isHost=true;renderPlayersList();
@@ -183,73 +194,79 @@ isHost=true;renderPlayersList();
 peer.on('connection',c=>{
 connList.push(c);
 c.on('open',()=>{
-addSys('Fellow connected LIVE!','join','SYSTEM');
-c.send({type:'fullSync',players,qb:document.getElementById('qb').innerHTML,chat:document.getElementById('chat').innerHTML,curr,lastQ,lastPlayer});
+// Send current ONE WHEEL to new joiner
+c.send({type:'fullSync',players:players,qb:document.getElementById('qb').innerHTML,chat:document.getElementById('chat').innerHTML,curr:curr,lastQ:lastQ,lastPlayer:lastPlayer});
 renderPlayersList();
 });
-c.on('data',d=>handleData(d));
+c.on('data',d=>{
+if(d.type=='fullSync' && d.players){
+// New player joined - update ONE WHEEL for all!
+players=d.players;
+drawWheel();renderPlayersList();addSys('🌍 ONE WHEEL updated! Now: '+players.join(', ')+'!','join','SYSTEM');
+// Broadcast updated ONE WHEEL to all other connections
+connList.forEach(conn=>{try{if(conn.open && conn!=c)conn.send({type:'fullSync',players:players});}catch(e){}});
+if(d.chat){document.getElementById('chat').innerHTML=d.chat;}
+}
+});
 });
 });
 }
 function joinRoom(){
 let code=prompt('Enter HOST code (PAUL-1234):');if(!code)return;
-let name=prompt('Your name?');if(!name)return;myName=name.trim();
+let name=prompt('Your name? You will join ONE WHEEL!');if(!name)return;myName=name.trim();
 doJoin(code.trim());
 }
 function doJoin(code){
-document.getElementById('status').textContent='⏳ Joining '+code+' as '+myName+'...';
+document.getElementById('status').textContent='⏳ Joining ONE WHEEL '+code+' as '+myName+'... 🌍';
 loadPeer(()=>{
 peer=new Peer({config:{iceServers:[{urls:'stun:stun.l.google.com:19302'}]}});
 peer.on('open',()=>{
 let conn=peer.connect(code,{reliable:true});
 conn.on('open',()=>{
-document.getElementById('status').textContent='✅ LIVE JOINED '+code+' as '+myName+'! LIVE WATCH ACTIVE!';
-document.getElementById('roomInfo').textContent='🔴 LIVE! Wheels synced!';
-connList=[conn];conn.send({type:'addPlayer',name:myName});addSys('You joined LIVE as '+myName+'!','join','SYSTEM');
+document.getElementById('status').textContent='✅ JOINED ONE WHEEL '+code+' as '+myName+'!';
+// Add self to players and sync ONE WHEEL to host
+if(!players.includes(myName))players.push(myName);
+connList=[conn];
+conn.send({type:'fullSync',players:players});
+addSys('You joined ONE WHEEL as '+myName+'! Waiting for host ONE WHEEL sync...','join','SYSTEM');
+drawWheel();renderPlayersList();
+setTimeout(()=>{conn.send({type:'fullSync',players:players});},500);
 });
-conn.on('data',d=>handleData(d));
-conn.on('error',()=>{document.getElementById('status').textContent='❌ Join failed - Host keep screen ON!';});
-});
-peer.on('error',e=>{if(e.type=='peer-unavailable')document.getElementById('status').textContent='❌ Code not found - Host must HOST first!';});
-});
-}
-function offlineMode(){
-try{if(peer)peer.destroy()}catch(e){}
-connList=[];peer=null;isHost=false;
-document.getElementById('shareBox').classList.remove('show');
-document.getElementById('status').textContent='📴 OFFLINE - '+players.length+' players • LIVE WATCH ACTIVE!';
-renderPlayersList();
-}
-function syncAll(extra=null){
-let data={type:'fullSync',players,curr,qb:document.getElementById('qb').innerHTML,chat:document.getElementById('chat').innerHTML,lastQ,lastPlayer,myName};
-if(extra&&extra.type=='addPlayer')data=extra;
-else if(extra&&extra.forcePick!==undefined)data.forcePick=extra.forcePick;
-connList.forEach(c=>{try{if(c.open)c.send(data)}catch(e){}});
-}
-function handleData(d){
-if(d.type=='addPlayer'){
-let name=d.name;if(!players.includes(name)){players.push(name);drawWheel();renderPlayersList();addSys(name+' joined LIVE! All wheels show!','join','SYSTEM');syncAll();}
-}else if(d.type=='fullSync'){
-if(d.players){players=d.players;drawWheel();renderPlayersList()}
+conn.on('data',d=>{
+if(d.type=='fullSync'){
+if(d.players && d.players.length>=players.length){players=d.players;drawWheel();renderPlayersList();}
 if(d.qb)document.getElementById('qb').innerHTML=d.qb;
 if(d.chat)document.getElementById('chat').innerHTML=d.chat;
 if(d.curr!==undefined)curr=d.curr;
 if(d.forcePick!==undefined){curr=d.forcePick;drawWheel()}
 if(d.lastQ)lastQ=d.lastQ;if(d.lastPlayer)lastPlayer=d.lastPlayer;
 }
+});
+});
+peer.on('error',e=>{if(e.type=='peer-unavailable')document.getElementById('status').textContent='❌ Code not found - Host must keep screen ON! 🌍';});
+});
+}
+function offlineMode(){
+try{if(peer)peer.destroy()}catch(e){}
+connList=[];peer=null;isHost=false;
+document.getElementById('shareBox').classList.remove('show');
+let connOk=document.getElementById('connOk');if(connOk)connOk.classList.remove('show');
+document.getElementById('status').textContent='📴 OFFLINE - '+players.length+' on ONE WHEEL';
+renderPlayersList();
+}
+function syncAll(data){
+connList.forEach(c=>{try{if(c.open)c.send(data)}catch(e){}});
 }
 renderLevels();renderPlayersList();
-// Auto-join from link ?join=PAUL-1234 - NO TYPING NEEDED!
+// Auto-join from attractive link ?join=PAUL-2489
 let params=new URLSearchParams(location.search);
 let autoJoin=params.get('join');
 if(autoJoin){
 setTimeout(()=>{
-let name=prompt('You were invited to join LIVE game '+autoJoin+'! Your name? (No need to type code, you clicked link!)');
+let name=prompt('🌍🔥 Come and Join Posi Posi! Paul invites you to ONE WHEEL Truth or Dare LIVE! 🎡 Your name to join ONE WHEEL with Paul?');
 if(name){myName=name.trim();doJoin(autoJoin);}
 },800);
 }
 document.getElementById('pn').addEventListener('keydown',e=>{if(e.key=='Enter')addP()});
 document.getElementById('ci').addEventListener('keydown',e=>{if(e.key=='Enter')sendChat()});
-document.getElementById('replyInput').addEventListener('keydown',e=>{if(e.key=='Enter')submitReply()});
-</script>
-</body></html>
+document.getElementById('replyInput').addEventListener('keydown',e=>{if(e.key=='En
