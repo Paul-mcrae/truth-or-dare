@@ -1,126 +1,228 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Paul - ULTRA NO CRUSH</title>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>Paul's Truth or Dare - AWARD FIXED</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a14;color:#fff;font-family:system-ui;padding:10px}
-.app{max-width:360px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
-h1{text-align:center;font-size:20px}h1 span{color:#FF0055}
-.wheel{width:200px;height:200px;margin:10px auto;border-radius:50%;background:#1a1a3e;border:6px solid #FF0055;display:flex;align-items:center;justify-content:center}
-.bottle{font-size:60px;cursor:pointer;transition:transform 3s}
-.card{background:#1e1e38;border-radius:12px;padding:10px}
-.q{background:#000a;border-radius:10px;padding:10px;min-height:100px;text-align:center;font-size:13px;word-break:break-word;line-height:1.4}
-.dec{display:none;margin-top:8px;background:#111;border:2px solid #FFCC00;border-radius:10px;padding:8px}
-.dec.show{display:block}
-.db{display:flex;gap:6px;margin-top:6px}
-.db button{flex:1;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer}
-.g{background:#00FF88;color:#000}.r{background:#FF3333;color:#fff}
-.btns{display:flex;gap:6px;margin-top:6px}
-.btns button{flex:1;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer}
+.app{max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
+.bar{background:#1a1a3e;border:1px solid #FFCC00;border-radius:12px;padding:10px;display:flex;justify-content:space-between;font-size:12px;font-weight:800}
+.live{background:#FF0055;border-radius:99px;padding:8px 14px;display:flex;justify-content:space-between;font-weight:900;font-size:12px}
+.online{background:#111;border:2px solid #FFCC00;border-radius:12px;padding:12px;text-align:center}
+.wheel{width:280px;height:280px;margin:10px auto;border-radius:50%;background:#1a1a3e;border:8px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center}
+.bottle{font-size:70px;cursor:pointer;will-change:transform}
+.p-dot{position:absolute;font-size:11px;font-weight:900;background:#333;padding:6px 10px;border-radius:99px;transform:translate(-50%,-50%);text-align:center}
+.p-dot.on{background:#FFCC00;color:#000;border:2px solid #fff}
+.p-dot small{display:block;font-size:9px;color:#FFCC00}.p-dot.on small{color:#000}
+.card{background:#1e1e38;border-radius:16px;padding:12px}
+.qbox{background:#0008;border-radius:12px;padding:14px;min-height:120px;text-align:center}
+.decision-area{display:none;margin-top:12px;padding:12px;background:#111;border:3px solid #FFCC00;border-radius:14px}
+.decision-area.show{display:block}
+.decision-btns{display:flex;gap:12px;margin-top:10px}
+.decision-btns button{flex:1;border:0;border-radius:14px;padding:20px 10px;font-weight:900;cursor:pointer;font-size:15px}
+.btn-award{background:#00FF88;color:#000;border:3px solid #00FF88;box-shadow:0 0 20px #00FF8844}
+.btn-deduct{background:#FF3333;color:#fff;border:3px solid #FF3333;box-shadow:0 0 20px #FF333344}
+.btns{display:flex;gap:8px;margin-top:8px}
+.btns button{flex:1;border:0;border-radius:12px;padding:13px;font-weight:900;cursor:pointer}
 .t{background:#00D4FF;color:#000}.d{background:#FF0055;color:#fff}
-.rb{background:#FFCC00;color:#000;width:100%;border:0;border-radius:8px;padding:10px;font-weight:900;margin-top:6px;cursor:pointer}
-.list{display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
-.list span{background:#1a1a3e;padding:5px 10px;border-radius:99px;font-size:12px;border:1px solid #FFCC00}
-.lead{background:#FFCC0022;border:2px solid #FFCC00;border-radius:8px;padding:8px;font-size:12px}
-.lv{display:flex;gap:4px;overflow-x:auto;padding:4px 0}.lv div{flex:0 0 auto;padding:6px 10px;border-radius:99px;background:#222;font-size:10px;font-weight:800;cursor:pointer}.lv div.on{background:#fff;color:#000}
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000c;align-items:center;justify-content:center;padding:12px;z-index:10}.modal.show{display:flex}.mcard{background:#1a1a3e;border:3px solid #FFCC00;border-radius:14px;padding:14px;width:100%;max-width:320px;text-align:center}
+.ranking-btn{background:#FFCC00;color:#000;width:100%;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer;margin-top:8px}
+.lv{display:flex;gap:5px;overflow-x:auto;padding:5px 0}
+.lv div{flex:0 0 auto;padding:7px 13px;border-radius:99px;background:#222;font-size:11px;font-weight:800;cursor:pointer}
+.lv div.on{background:#fff;color:#000}
+.chat{height:80px;overflow-y:auto;background:#0008;border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:6px}
+.m{background:#222;padding:8px 12px;border-radius:12px;font-size:13px}
+.m .sender{font-weight:900;font-size:11px;color:#FFCC00;display:block}
+.players-list{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:8px 0}
+.players-list span{background:#1a1a3e;color:#fff;padding:6px 12px;border-radius:99px;font-size:12px;font-weight:900;border:1px solid #FFCC00;display:flex;flex-direction:column;align-items:center;min-width:70px}
+.players-list span b{color:#FFCC00;font-size:15px}
+.leader{background:#FFCC0022;border:2px solid #FFCC00;border-radius:12px;padding:8px;margin-top:8px}
+.leader div{display:flex;justify-content:space-between;padding:4px 0;font-size:12px;font-weight:800;border-bottom:1px solid #333}
+.ranking-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000e;z-index:99;align-items:center;justify-content:center;padding:20px}
+.ranking-modal.show{display:flex}
+.ranking-card{background:#1a1a3e;border:3px solid #FFCC00;border-radius:20px;padding:20px;max-width:380px;width:100%;text-align:center}
+.custom-box{background:#00D4FF11;border:1px solid #00D4FF;border-radius:10px;padding:10px;margin-top:8px}
+.custom-box input,.custom-box select{width:100%;background:#000a;border:1px solid #444;border-radius:8px;padding:10px;color:#fff;margin-top:6px;font-size:14px}
+.custom-box button{width:100%;margin-top:6px;background:#00D4FF;color:#000;border:0;border-radius:8px;padding:10px;font-weight:900;cursor:pointer}
+.top{width:100%;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer}
+.cin{display:flex;gap:6px;margin-top:8px}
+.cin input{flex:1;background:#222;border:1px solid #444;border-radius:99px;padding:12px 16px;color:#fff;font-size:16px}
 </style></head><body>
 <div class="app">
-<h1>PAUL'S TRUTH <span>OR DARE</span></h1>
-<div style="text-align:center;font-size:10px;opacity:.7">✅ ULTRA LIGHT - NO DOTS - NO CRUSH - AWARD WORKS - CLEAR Q</div>
-<div style="background:#1a1a3e;border:1px solid #FFCC00;border-radius:8px;padding:8px;display:flex;justify-content:space-between;font-size:11px;font-weight:800"><span id="clk">--:--</span><span id="pts">0 pts</span></div>
-<div style="background:#111;border:2px solid #FFCC00;border-radius:10px;padding:8px;text-align:center">
-<div class="list" id="plist"></div>
-<div id="board" class="lead">Add 2 players to start! No crush!</div>
-<button class="rb" onclick="showRank()">🏆 RANKING</button>
+<h1>PAUL'S<br>TRUTH <span>OR DARE</span></h1>
+<div style="text-align:center;font-size:11px">🏆 AWARD BUTTONS FIXED - POINTS WORK NOW!</div>
+<div class="bar"><span id="liveTime">🕐 Loading</span><span id="liveDate">--</span><span>🏆 <span id="totalPoints">0 pts</span></span></div>
+<div class="live"><span>🔴 OFFLINE</span><span id="watchCount">👁️ 1 watching</span><span id="liveNames">Waiting</span></div>
+<div class="online">
+<div id="status">📴 OFFLINE - POINTS WORKING!</div>
+<div id="playersList" class="players-list"></div>
+<div class="leader" id="leaderboard"><div><span>🏆 LEADERBOARD</span><span>PTS</span></div><div style="opacity:.5">Add players!</div></div>
+<button class="ranking-btn" onclick="showRanking()">🏆 RANKING BUTTON - SHOW WINNER!</button>
+<div id="viewersList" style="font-size:11px;background:#000a;border-radius:8px;padding:6px;margin-top:6px">👥 Add name!</div>
 </div>
-<div class="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
-<button class="rb" style="background:#fff;color:#000" onclick="spin()">🎡 SPIN BOTTLE</button>
+<div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
+<button class="top" onclick="spin()">🎡 SPIN BOTTLE!</button>
 <div class="lv" id="lv"></div>
 <div class="card">
-<div style="display:flex;gap:4px">
-<input id="pn" placeholder="Your name" style="flex:1;padding:10px;border-radius:6px;border:1px solid #444;background:#0006;color:#fff">
-<button onclick="addP()" style="padding:10px 12px;border-radius:6px;border:0;background:#fff;color:#000;font-weight:900">ADD ME</button>
+<div style="display:flex;gap:6px;margin-bottom:8px">
+<input id="pn" placeholder="Your name" style="flex:1;background:#0006;border:1px solid #444;border-radius:10px;padding:12px;color:#fff;font-size:16px">
+<button onclick="addP()" style="background:#fff;color:#000;border:0;border-radius:10px;padding:12px 16px;font-weight:900">ADD ME</button>
 </div>
-<div class="q" id="qm">ULTRA LIGHT! Add 2+ players → Spin → Truth/Dare → Award! No dots = No crush! Questions clear!</div>
-<div class="dec" id="dec">
-<div id="dt" style="font-weight:900;font-size:12px">Did player answer well?</div>
-<div id="dq" style="font-size:12px;margin:6px 0;background:#0006;padding:8px;border-radius:6px;word-break:break-word"></div>
-<div class="db">
-<button class="g" onclick="award()">🟢 AWARD +10</button>
-<button class="r" onclick="deduct()">🔴 DEDUCT -5</button>
-</div>
-</div>
-<div class="btns">
-<button class="t" onclick="play('truth')">TRUTH +10</button>
-<button class="d" onclick="play('dare')">DARE +5</button>
-</div>
-<div style="display:flex;gap:4px;margin-top:6px">
-<button class="rb" style="background:#fff;color:#000;flex:1" onclick="showRank()">🏆 RANK</button>
-<button class="rb" style="background:#FF0055;color:#fff;flex:1" onclick="resetG()">🔄 RESET</button>
-<button class="rb" style="background:#25D366;color:#fff;flex:1" onclick="shareW()">📲 SHARE</button>
+<div class="qbox" id="qb">
+<div id="qMain">Add 2+ players → Spin → Truth/Dare → Then use GREEN and RED buttons to award!</div>
+<div class="decision-area" id="decisionArea">
+<div style="font-weight:900" id="decisionTitle">Did Player answer?</div>
+<div id="decisionQ" style="font-size:11px;opacity:.7;margin:6px 0;background:#0008;padding:8px;border-radius:8px"></div>
+<div id="decisionPoints" style="font-size:13px;font-weight:900;margin:8px 0"></div>
+<div class="decision-btns">
+<button class="btn-award" id="btnAward" onclick="awardPoints()">🟢 AWARD<br><span id="awardLabel">+10 pts</span></button>
+<button class="btn-deduct" onclick="deductPoints()">🔴 DEDUCT<br>-5 pts</button>
 </div>
 </div>
 </div>
-<div class="modal" id="rm"><div class="mcard"><h3 style="color:#FFCC00">RANKING</h3><div id="rc" style="margin-top:10px;text-align:left;font-size:12px"></div><button onclick="closeR()" style="margin-top:10px;width:100%;padding:10px;border-radius:8px;border:0;background:#333;color:#fff;font-weight:900">CLOSE</button></div></div>
+<div class="btns"><button class="t" onclick="play('truth')">TRUTH 💎 +10pts</button><button class="d" onclick="play('dare')">DARE 🔥 +5pts</button></div>
+<div style="display:flex;gap:6px;margin-top:8px">
+<button class="ranking-btn" style="background:#fff;color:#000;flex:1" onclick="showRanking()">🏆 RANKING</button>
+<button class="ranking-btn" style="background:#FF0055;color:#fff;flex:1" onclick="resetGame()">🔄 RESET</button>
+</div>
+<div class="custom-box">
+<div style="font-weight:900;font-size:12px">➕ CUSTOM QUESTIONS</div>
+<select id="customType"><option value="truth">Truth (+10 / -5)</option><option value="dare">Dare (+5 / -5)</option></select>
+<input id="customQ" placeholder="Type question...">
+<button onclick="addCustomQ()">➕ ADD</button>
+<div id="customList" style="font-size:11px;margin-top:6px;opacity:.8"></div>
+</div>
+</div>
+<div class="card"><div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM</span>Points fixed! Award buttons work!</div></div><div class="cin"><input id="ci" placeholder="Comment..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div></div>
+</div>
+
+<div class="ranking-modal" id="rankingModal" onclick="if(event.target==this)closeRanking()">
+<div class="ranking-card">
+<div style="font-size:60px">🏆</div>
+<h2 style="color:#FFCC00">FINAL RANKING</h2>
+<div id="rankingContent" style="margin-top:12px;text-align:left"></div>
+<div style="margin-top:14px;display:flex;gap:8px">
+<button onclick="closeRanking()" style="flex:1;background:#333;color:#fff;border:0;border-radius:10px;padding:12px;font-weight:900">CLOSE</button>
+<button onclick="resetGame();closeRanking()" style="flex:1;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900">NEW GAME</button>
+</div>
+</div>
+</div>
+
 <script>
-var players=[],curr=0,rot=0,pend=-1,pendT='',curL=2;
-var LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'];
-var Q={
-0:{t:["What is the most embarrassing text you ever sent by mistake? Who did you send it to?","Do you have a hidden talent nobody knows? Explain it clearly.","What worst lie did you tell today and why did you tell it?"],d:["Do 15 jumping jacks while shouting your name loudly.","Dance 10 seconds with no music so everyone sees you."]},
-1:{t:["Who would you kiss right now in this room if nobody would judge you? Say the name.","Do you have a crush on someone in this room? Who and why?","Who is most attractive here right now and what makes them attractive?"],d:["Text your crush 'you up?' now and show everyone you sent it.","Let group write your WhatsApp status for 1 hour."]},
-2:{t:["What is your drunkest story ever? Where were you and what happened?","What is your body count honestly? Tell truth if comfortable.","What worst thing did you do when drunk that you regret?"],d:["Drink 3 glasses of water very quickly one after another.","Do water shot like alcohol in one gulp loudly."]},
-3:{t:["What is your biggest fantasy you never told anyone? Explain clearly.","Who here do you find very hot and what makes them attractive?","Who is hottest you ever kissed and what made it memorable?"],d:["Give lap dance to a chair for 15 seconds, make it funny.","Twerk 20 seconds continuously so everyone sees clearly."]},
-4:{t:["What is your dirtiest secret you never told anyone? Be honest now.","How did you lose virginity? Where, who, how did you feel?","How many people have you kissed in life? Give real number honestly."],d:["Twerk 30 seconds non-stop while everyone watches clearly.","Show your last search history for 5 seconds to everyone."]},
-5:{t:["Who would you unfriend right now? Who and why clearly?","Who is most fake here pretending to be nice but not real? Why?","Who talks behind others backs most? Give example."],d:["Post 'I am a liar' on WhatsApp status for 10 minutes.","Give phone to group for 2 minutes, they can look at anything."]}
-};
-function tick(){try{document.getElementById('clk').textContent=new Date().toLocaleTimeString();}catch(e){}}
-setInterval(tick,1000);tick();
-function renderLv(){var h='';for(var i=0;i<LEVELS.length;i++){h+='<div class="'+(i==curL?'on':'')+'" onclick="curL='+i+';renderLv()">'+LEVELS[i]+'</div>';}document.getElementById('lv').innerHTML=h;}
-function render(){
-var el=document.getElementById('plist');el.innerHTML='';var tot=0;
-for(var i=0;i<players.length;i++){tot+=players[i].points;var s=document.createElement('span');s.textContent=players[i].name+' '+players[i].points+'pts';if(i==curr){s.style.background='#FFCC00';s.style.color='#000';}el.appendChild(s);}
-document.getElementById('pts').textContent=tot+' pts';
-var b=document.getElementById('board');if(players.length==0){b.textContent='Add players! No crush version!';return;}
-var sorted=players.slice().sort(function(a,b){return b.points-a.points;});
-var h='LEADERBOARD<br>';for(var i=0;i<sorted.length;i++){h+='<div style="display:flex;justify-content:space-between"><span>'+(i+1)+'. '+sorted[i].name+'</span><span>'+sorted[i].points+' pts</span></div>';}
-b.innerHTML=h;
+let LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'],curL=2,players=[],curr=0,rot=0,isSpinning=false,pendingIdx=-1,pendingType='',customTruths=[],customDares=[];
+function updateClock(){try{let n=new Date();document.getElementById('liveTime').textContent='🕐 '+n.toLocaleTimeString();document.getElementById('liveDate').textContent=n.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});}catch(e){}}
+setInterval(updateClock,1000);updateClock();
+function renderLevels(){let h='';LEVELS.forEach((n,i)=>{h+=`<div class="${i==curL?'on':''}" onclick="curL=${i};renderLevels()">${n}</div>`});document.getElementById('lv').innerHTML=h}
+function renderPlayersList(){
+let el=document.getElementById('playersList');el.innerHTML='';let total=0;
+players.forEach((p,i)=>{total+=p.points;let s=document.createElement('span');s.innerHTML=`${p.name}<b style="color:${p.points<0?'#FF3333':'#FFCC00'}">${p.points} pts</b>`;if(i==curr){s.style.background='#FFCC00';s.style.color='#000';s.style.border='2px solid #fff';}el.appendChild(s);});
+document.getElementById('watchCount').textContent=`👁️ ${players.length||1} watching`;
+document.getElementById('liveNames').textContent=players.map(p=>p.name).join(', ')||'Waiting';
+document.getElementById('viewersList').textContent=`👥 ONE WHEEL (${players.length||1}): ${players.map(p=>p.name).join(', ')||'Add name!'} • Total: ${total} pts`;
+document.getElementById('totalPoints').textContent=total+' pts';
+renderLeaderboard();
 }
+function renderLeaderboard(){
+let el=document.getElementById('leaderboard');
+if(players.length==0){el.innerHTML='<div><span>🏆 LEADERBOARD</span><span>PTS</span></div><div style="opacity:.5">Add players!</div>';return;}
+let sorted=[...players].sort((a,b)=>b.points-a.points);
+let h='<div><span>🏆 LEADERBOARD</span><span>PTS</span></div>';
+sorted.forEach((p,i)=>{let medal=i==0?'🥇':i==1?'🥈':i==2?'🥉':'👤';h+=`<div><span>${medal} ${p.name}</span><span style="color:${p.points<0?'#FF3333':'#FFCC00'}">${p.points} pts</span></div>`});
+el.innerHTML=h;
+}
+let Q={0:{t:["Most embarrassing text?"],d:["15 jumping jacks"]},1:{t:["Who would you kiss now?"],d:["Text crush 'you up?'"]},2:{t:["Drunkest ever?","Body counts? Honest!"],d:["Water shot"]},3:{t:["Biggest fantasy?"],d:["Lap dance 15s"]},4:{t:["Dirtiest secret?","How lose virginity?"],d:["Twerk 30s"]},5:{t:["Who unfriend now?"],d:["Post 'I am liar'"]}};
 function addP(){
-var v=document.getElementById('pn').value.trim();if(!v)return;
-players.push({name:v,points:0});document.getElementById('pn').value='';render();
+let v=document.getElementById('pn').value.trim();if(!v){alert('Type name!');return;}
+if(players.find(p=>p.name==v)){alert('Taken!');return;}
+if(players.length>=8){alert('Max 8!');return;}
+players.push({name:v,points:0});document.getElementById('pn').value='';drawWheel();renderPlayersList();addSys(v+' joined! 0 pts','SYSTEM');
+}
+function drawWheel(){
+let w=document.getElementById('wheel');w.querySelectorAll('.p-dot').forEach(e=>e.remove());
+if(players.length==0)return;
+players.forEach((p,i)=>{let d=document.createElement('div');d.className='p-dot'+(i==curr?' on':'');d.innerHTML=`${p.name}<small>${p.points}pts</small>`;let a=(360/players.length)*i+90;let r=105;let x=Math.cos(a*Math.PI/180)*r;let y=Math.sin(a*Math.PI/180)*r;d.style.left='50%';d.style.top='50%';d.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px)`;w.appendChild(d)});
 }
 function spin(){
-if(players.length<2){document.getElementById('qm').textContent='Need 2+ players to spin! Add more players first!';return;}
-var bot=document.getElementById('bot');var picked=Math.floor(Math.random()*players.length);
-var finalRot=rot+5*360+Math.random()*360;bot.style.transform='rotate('+finalRot+'deg)';rot=finalRot;
-document.getElementById('qm').textContent='Spinning fast then slow... Please wait...';document.getElementById('dec').className='dec';
-setTimeout(function(){curr=picked;render();document.getElementById('qm').innerHTML='🎯 '+players[curr].name+' PICKED!<br>Choose Truth +10 or Dare +5!';},3000);
+if(isSpinning)return;
+if(players.length<2){document.getElementById('qMain').innerHTML='<div style="color:#FF5555">Need 2+ players!</div>';return}
+isSpinning=true;document.getElementById('decisionArea').classList.remove('show');
+let bot=document.getElementById('bot');
+let picked=Math.floor(Math.random()*players.length);
+let targetAngle=(360/players.length)*picked;
+let extraSpins=5+Math.floor(Math.random()*3);
+let finalRot=rot + extraSpins*360 + (360-targetAngle);
+let duration=3800;
+bot.style.transition=`transform ${duration}ms cubic-bezier(0.15, 0.85, 0.25, 1)`;
+bot.style.transform=`rotate(${finalRot}deg)`;
+rot=finalRot;
+document.getElementById('qMain').innerHTML=`<div>🍾 SPINNING ${extraSpins} rolls fast then slow...</div>`;
+setTimeout(()=>{curr=picked;drawWheel();document.getElementById('qMain').innerHTML=`<div style="font-size:26px;font-weight:900">🎯 ${players[curr].name} PICKED!</div><div>Choose TRUTH (+10) or DARE (+5)!</div>`;isSpinning=false;},duration);
 }
-function play(type){
+function play(t){
 if(players.length<2)return;
-var q=Q[curL][type][Math.floor(Math.random()*Q[curL][type].length)];pend=curr;pendT=type;var pts=type=='truth'?10:5;
-document.getElementById('qm').innerHTML='<div style="font-size:11px;opacity:.7">'+LEVELS[curL]+' '+type+' '+pts+'pts - Clear:</div><div style="font-weight:800;margin-top:6px;line-height:1.4">'+q+'</div><div style="margin-top:6px">👉 '+players[pend].name+' answer clearly!</div>';document.getElementById('dt').textContent='Did '+players[pend].name+' answer well?';document.getElementById('dq').textContent=q;document.getElementById('dec').className='dec show';render();
+let baseList=t=='truth'?Q[curL].t:Q[curL].d;
+let customList=t=='truth'?customTruths:customDares;
+let allList=[...baseList,...customList];
+let q=allList[Math.floor(Math.random()*allList.length)];
+pendingIdx=curr;
+pendingType=t;
+let pts=t=='truth'?10:5;
+document.getElementById('qMain').innerHTML=`<div>${LEVELS[curL]} ${t.toUpperCase()} • ${pts} pts if award</div><div style="font-weight:800;font-size:16px;margin-top:6px">${q}</div><div style="margin-top:8px">👉 ${players[pendingIdx].name} must answer! Use buttons below!</div>`;
+document.getElementById('decisionTitle').textContent=`Did ${players[pendingIdx].name} answer well?`;
+document.getElementById('decisionQ').textContent=q;
+document.getElementById('decisionPoints').innerHTML=`<span style="color:#00FF88">🟢 AWARD +${pts} pts</span> | <span style="color:#FF3333">🔴 DEDUCT -5 pts penalty</span>`;
+document.getElementById('awardLabel').textContent=`+${pts} pts`;
+document.getElementById('decisionArea').classList.add('show');
+addSys(`${t.toUpperCase()} (${pts}pts): ${q} - ${players[pendingIdx].name} must answer!`,'SYSTEM');
 }
-function award(){
-if(pend<0)return;var pts=pendT=='truth'?10:5;players[pend].points+=pts;document.getElementById('qm').innerHTML='🟢 AWARDED +'+pts+'! Total '+players[pend].points+' pts!';document.getElementById('dec').className='dec';curr=(curr+1)%players.length;render();pend=-1;
+function awardPoints(){
+if(pendingIdx<0)return;
+let pts=pendingType=='truth'?10:5;
+players[pendingIdx].points+=pts;
+let name=players[pendingIdx].name;
+document.getElementById('qMain').innerHTML=`<div style="color:#00FF88;font-weight:900;font-size:24px">🟢 ${name} AWARDED +${pts}!</div><div>Total: ${players[pendingIdx].points} pts! 🎉</div>`;
+document.getElementById('decisionArea').classList.remove('show');
+addSys(`🟢 ${name} AWARDED +${pts} pts for ${pendingType}! Now ${players[pendingIdx].points} pts!`,'SYSTEM');
+curr=(curr+1)%players.length;
+drawWheel();renderPlayersList();
+pendingIdx=-1;pendingType='';
 }
-function deduct(){
-if(pend<0)return;players[pend].points+=-5;document.getElementById('qm').innerHTML='🔴 DEDUCTED -5! Total '+players[pend].points+' pts!';document.getElementById('dec').className='dec';curr=(curr+1)%players.length;render();pend=-1;
+function deductPoints(){
+if(pendingIdx<0)return;
+players[pendingIdx].points+=-5;
+let name=players[pendingIdx].name;
+document.getElementById('qMain').innerHTML=`<div style="color:#FF3333;font-weight:900;font-size:24px">🔴 ${name} DEDUCTED -5!</div><div>Total: ${players[pendingIdx].points} pts penalty!</div>`;
+document.getElementById('decisionArea').classList.remove('show');
+addSys(`🔴 ${name} DEDUCTED -5 pts! Now ${players[pendingIdx].points} pts!`,'SYSTEM');
+curr=(curr+1)%players.length;
+drawWheel();renderPlayersList();
+pendingIdx=-1;pendingType='';
 }
-function showRank(){
-if(players.length==0)return;
-var sorted=players.slice().sort(function(a,b){return b.points-a.points;});
-var html='';for(var i=0;i<sorted.length;i++){html+='<div style="padding:6px;background:'+(i==0?'#FFCC00;color:#000':'#222')+';border-radius:6px;margin:3px 0;display:flex;justify-content:space-between"><span>'+(i+1)+'. '+sorted[i].name+'</span><span>'+sorted[i].points+' pts</span></div>';}
-document.getElementById('rc').innerHTML=html;document.getElementById('rm').className='modal show';
+function showRanking(){
+if(players.length==0){alert('Add players!');return;}
+let sorted=[...players].sort((a,b)=>b.points-a.points);
+let html='';
+sorted.forEach((p,i)=>{let label=i==0?`🥇 WINNER ${p.name}`:i==1?`🥈 ${p.name}`:i==2?`🥉 ${p.name}`:`#${i+1} ${p.name}`;let bg=i==0?'background:#FFCC00;color:#000;':'background:#222;';html+=`<div style="${bg}padding:12px;border-radius:10px;margin:6px 0;display:flex;justify-content:space-between;font-weight:900"><span>${label}</span><span>${p.points} pts</span></div>`;});
+document.getElementById('rankingContent').innerHTML=html;
+document.getElementById('rankingModal').classList.add('show');
 }
-function closeR(){document.getElementById('rm').className='modal';}
-function resetG(){for(var i=0;i<players.length;i++)players[i].points=0;render();document.getElementById('qm').textContent='New game! Points reset!';}
-function shareW(){
-if(players.length==0)return;
-var txt='🏆 TRUTH OR DARE!%0A';for(var i=0;i<players.length;i++){txt+=(i+1)+'. '+players[i].name+' '+players[i].points+' pts%0A';}
-window.open('https://wa.me/?text='+txt,'_blank');
+function closeRanking(){document.getElementById('rankingModal').classList.remove('show');}
+function resetGame(){if(!confirm('Reset points?'))return;players.forEach(p=>p.points=0);drawWheel();renderPlayersList();document.getElementById('qMain').innerHTML='🔄 New game! Points reset!';document.getElementById('decisionArea').classList.remove('show');pendingIdx=-1;}
+function addCustomQ(){
+let type=document.getElementById('customType').value;
+let q=document.getElementById('customQ').value.trim();if(!q){alert('Type question!');return;}
+if(type=='truth')customTruths.push(q);else customDares.push(q);
+document.getElementById('customQ').value='';renderCustomList();
+addSys(`Custom ${type} added: "${q}"`,'SYSTEM');
 }
-renderLv();render();
+function renderCustomList(){
+let el=document.getElementById('customList');let all=[...customTruths.map(q=>`💎 ${q}`),...customDares.map(q=>`🔥 ${q}`)];if(all.length==0){el.innerHTML='No custom yet';return;}el.innerHTML=`Custom (${all.length}):<br>`+all.slice(-5).join('<br>');
+}
+function doReact(e){addSys(`Reacted ${e}`,'SYSTEM');}
+function sendChat(){let v=document.getElementById('ci').value.trim();if(!v)return;addSys(v,'SYSTEM');document.getElementById('ci').value='';}
+function addSys(t,sender){let c=document.getElementById('chat');let d=document.createElement('div');d.className='m';d.innerHTML=`<span class="sender">${sender} • ${new Date().toLocaleTimeString()}</span>${t}`;c.appendChild(d);c.scrollTop=c.scrollHeight;}
+renderLevels();renderPlayersList();drawWheel();renderCustomList();
+document.getElementById('pn').addEventListener('keydown',e=>{if(e.key=='Enter')addP()});
+document.getElementById('ci').addEventListener('keydown',e=>{if(e.key=='Enter')sendChat()});
+document.getElementById('customQ').addEventListener('keydown',e=>{if(e.key=='Enter')addCustomQ()});
 </script>
 </body></html>
