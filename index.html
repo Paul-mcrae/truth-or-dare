@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-<title>Paul's Truth or Dare - SIMPLE STABLE</title>
+<title>Paul's Truth or Dare - REAL BOTTLE SPIN</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a14;color:#fff;font-family:system-ui;padding:10px}
@@ -9,10 +9,10 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 .bar{background:#1a1a3e;border:1px solid #FFCC00;border-radius:12px;padding:10px;display:flex;justify-content:space-between;font-size:12px;font-weight:800}
 .live{background:#FF0055;border-radius:99px;padding:8px 14px;display:flex;justify-content:space-between;font-weight:900;font-size:12px}
 .online{background:#111;border:2px solid #FFCC00;border-radius:12px;padding:12px;text-align:center}
-.wheel{width:280px;height:280px;margin:10px auto;border-radius:50%;background:#1a1a3e;border:8px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center}
-.bottle{font-size:70px;cursor:pointer}
-.p-dot{position:absolute;font-size:12px;font-weight:900;background:#333;padding:6px 12px;border-radius:99px;transform:translate(-50%,-50%)}
-.p-dot.on{background:#FFCC00;color:#000;border:2px solid #fff}
+.wheel{width:280px;height:280px;margin:10px auto;border-radius:50%;background:radial-gradient(circle,#1e1e40,#0a0a14);border:8px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px #FF005533}
+.bottle{font-size:70px;cursor:pointer;display:inline-block;transform-origin:center center;will-change:transform}
+.p-dot{position:absolute;font-size:12px;font-weight:900;background:#333;padding:6px 12px;border-radius:99px;transform:translate(-50%,-50%);border:1px solid #FF0055;transition:all 0.3s}
+.p-dot.on{background:#FFCC00;color:#000;border:2px solid #fff;box-shadow:0 0 15px #FFCC00;transform:translate(-50%,-50%) scale(1.2)}
 .card{background:#1e1e38;border-radius:16px;padding:12px}
 .qbox{background:#0008;border-radius:12px;padding:14px;min-height:80px;text-align:center}
 .btns{display:flex;gap:8px;margin-top:8px}
@@ -26,63 +26,88 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 .m .sender{font-weight:900;font-size:11px;color:#FFCC00;display:block}
 .cin{display:flex;gap:6px;margin-top:8px}
 .cin input{flex:1;background:#222;border:1px solid #444;border-radius:99px;padding:12px 16px;color:#fff;font-size:16px}
-.top{width:100%;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer}
+.top{width:100%;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer;font-size:14px}
 .players-list{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:8px 0}
 .players-list span{background:#FFCC00;color:#000;padding:5px 12px;border-radius:99px;font-size:12px;font-weight:900}
 </style></head><body>
 <div class="app">
 <h1>PAUL'S<br>TRUTH <span>OR DARE</span></h1>
-<div style="text-align:center;font-size:11px;opacity:.7">✅ SIMPLE STABLE - WILL NEVER CRUSH</div>
+<div style="text-align:center;font-size:11px;opacity:.7">🍾 REAL BOTTLE - FAST THEN SLOW! BY PAUL McRAE</div>
 <div class="bar"><span id="liveTime">🕐 Loading</span><span id="liveDate">--</span><span>EAT</span></div>
 <div class="live"><span>🔴 LIVE</span><span id="watchCount">👁️ 1 watching</span><span id="liveNames">Waiting</span></div>
 <div class="online">
-<div id="status" style="font-weight:800">📴 OFFLINE PARTY - ALL ACTIVE!</div>
+<div id="status" style="font-weight:800">📴 OFFLINE PARTY - REAL SPIN!</div>
 <div id="playersList" class="players-list"></div>
 <div id="viewersList" style="font-size:11px;background:#000a;border-radius:8px;padding:6px;margin-top:6px">👥 ONE WHEEL: Add name!</div>
 </div>
 <div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
-<button class="top" onclick="spin()">🎡 SPIN BOTTLE - ALWAYS ACTIVE!</button>
+<button class="top" onclick="spin()">🎡 SPIN BOTTLE - REAL PHYSICS - FAST THEN SLOW!</button>
 <div class="lv" id="lv"></div>
 <div class="card">
 <div style="display:flex;gap:6px;margin-bottom:8px">
-<input id="pn" placeholder="Your name - ACTIVE!" style="flex:1;background:#0006;border:1px solid #444;border-radius:10px;padding:12px;color:#fff;font-size:16px">
-<button onclick="addP()" style="background:#fff;color:#000;border:0;border-radius:10px;padding:12px 16px;font-weight:900">ADD ME - ACTIVE!</button>
+<input id="pn" placeholder="Your name" style="flex:1;background:#0006;border:1px solid #444;border-radius:10px;padding:12px;color:#fff;font-size:16px">
+<button onclick="addP()" style="background:#fff;color:#000;border:0;border-radius:10px;padding:12px 16px;font-weight:900">ADD ME</button>
 </div>
-<div class="qbox" id="qb"><div>✅ ALL ACTIVE! This code will NEVER crush!<br>Add names → Spin → Play!<br>Paul, Sarah, John all on ONE wheel!</div></div>
+<div class="qbox" id="qb"><div>🍾 REAL BOTTLE PHYSICS!<br>Spins 5-7 times FAST then slows down slowly!<br>Add Paul, John → Spin to see!</div></div>
 <div style="display:flex;gap:6px;justify-content:center;font-size:24px;margin:8px 0"><span onclick="doReact('😂')">😂</span><span onclick="doReact('🔥')">🔥</span><span onclick="doReact('😳')">😳</span><span onclick="doReact('💀')">💀</span><span onclick="doReact('❤️')">❤️</span><span onclick="doReact('👏')">👏</span></div>
-<div class="btns"><button class="t" onclick="play('truth')">TRUTH 💎 - ACTIVE</button><button class="d" onclick="play('dare')">DARE 🔥 - ACTIVE</button></div>
+<div class="btns"><button class="t" onclick="play('truth')">TRUTH 💎</button><button class="d" onclick="play('dare')">DARE 🔥</button></div>
 </div>
-<div class="card"><div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM</span>✅ STABLE! Add Me, Watch, Questions ALL ACTIVE! Will never crush!</div></div><div class="cin"><input id="ci" placeholder="Comment as..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div></div>
+<div class="card"><div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM</span>🍾 Real bottle physics added! Fast start, slow finish! Try spin!</div></div><div class="cin"><input id="ci" placeholder="Comment..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div></div>
 </div>
 <script>
 function updateClock(){try{let n=new Date();document.getElementById('liveTime').textContent='🕐 '+n.toLocaleTimeString();document.getElementById('liveDate').textContent=n.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});}catch(e){}}
 setInterval(updateClock,1000);updateClock();
-let LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'],curL=2,players=[],curr=0,rot=0;
-function renderLevels(){let el=document.getElementById('lv');let h='';LEVELS.forEach((n,i)=>{h+=`<div class="${i==curL?'on':''}" onclick="curL=${i};renderLevels()">${n}</div>`});el.innerHTML=h}
+let LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'],curL=2,players=[],curr=0,rot=0,isSpinning=false;
+function renderLevels(){let h='';LEVELS.forEach((n,i)=>{h+=`<div class="${i==curL?'on':''}" onclick="curL=${i};renderLevels()">${n}</div>`});document.getElementById('lv').innerHTML=h}
 function renderPlayersList(){
 let el=document.getElementById('playersList');el.innerHTML='';players.forEach(p=>{let s=document.createElement('span');s.textContent=p;el.appendChild(s)});
 document.getElementById('watchCount').textContent=`👁️ ${players.length||1} watching`;
 document.getElementById('liveNames').textContent=players.join(', ')||'Waiting';
-document.getElementById('viewersList').textContent=`👥 ONE WHEEL (${players.length||1}): ${players.join(', ')||'Add name!'} • ${new Date().toLocaleTimeString()} • ALL ACTIVE!`;
+document.getElementById('viewersList').textContent=`👥 ONE WHEEL (${players.length||1}): ${players.join(', ')||'Add name!'} • ${new Date().toLocaleTimeString()}`;
 }
 let Q={0:{t:["Most embarrassing text?","Hidden talent?"],d:["15 jumping jacks"]},1:{t:["Who would you kiss now?"],d:["Text crush 'you up?'"]},2:{t:["Drunkest ever?","How many body counts? Honest!"],d:["Water shot"]},3:{t:["Biggest fantasy?"],d:["Lap dance 15s"]},4:{t:["How lose virginity?","Dirtiest secret?","How many body counts? Exact!"],d:["Group writes dirty text","Twerk 30s"]},5:{t:["Who unfriend now?"],d:["Post 'I am liar'"]}};
 function addP(){
-let inp=document.getElementById('pn');let v=inp.value.trim();if(!v){alert('Type your name!');return;}
-if(players.includes(v)){alert('Name taken!');return;}
+let v=document.getElementById('pn').value.trim();if(!v){alert('Type name!');return;}
+if(players.includes(v)){alert('Taken!');return;}
 if(players.length>=8){alert('Max 8!');return;}
-players.push(v);inp.value='';drawWheel();renderPlayersList();addSys(v+' joined ONE WHEEL! Now: '+players.join(', '),'join','SYSTEM');
+players.push(v);document.getElementById('pn').value='';drawWheel();renderPlayersList();addSys(v+' joined! Now: '+players.join(', '),'join','SYSTEM');
 }
 function drawWheel(){
 let w=document.getElementById('wheel');w.querySelectorAll('.p-dot').forEach(e=>e.remove());
-players.forEach((p,i)=>{let d=document.createElement('div');d.className='p-dot'+(i==curr?' on':'');d.textContent=p;let a=(360/players.length)*i;let r=100;let x=Math.cos(a*Math.PI/180)*r;let y=Math.sin(a*Math.PI/180)*r;d.style.left='50%';d.style.top='50%';d.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px)`;w.appendChild(d)});
+if(players.length==0)return;
+players.forEach((p,i)=>{let d=document.createElement('div');d.className='p-dot'+(i==curr?' on':'');d.textContent=p;let a=(360/players.length)*i+90;let r=105;let x=Math.cos(a*Math.PI/180)*r;let y=Math.sin(a*Math.PI/180)*r;d.style.left='50%';d.style.top='50%';d.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px)`;w.appendChild(d)});
 }
 function spin(){
-if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055">Need 2+ players! Add Paul, John, Sarah!</div>';return}
-rot+=Math.floor(Math.random()*900+700);document.getElementById('bot').style.transform=`rotate(${rot}deg)`;
-document.getElementById('qb').innerHTML='🎡 SPINNING ONE WHEEL...';
-addSys('Spinning ONE WHEEL '+players.join(', '),'question','SYSTEM');
+if(isSpinning)return;
+if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055">Need 2+ players! Add Paul, John!</div>';return}
+isSpinning=true;
+let bot=document.getElementById('bot');
+// Pick winner first to land exactly on that person
 let picked=Math.floor(Math.random()*players.length);
-setTimeout(()=>{curr=picked;drawWheel();document.getElementById('qb').innerHTML=`<div style="font-size:24px;font-weight:900">${players[curr]} 🎯 PICKED!</div><div>ONE WHEEL: ${players.join(', ')}</div>`;addSys(`🎯 Picked ${players[curr]} on ONE WHEEL!`,'question','SYSTEM')},2000);
+let anglePerPlayer=360/players.length;
+let targetAngle=(360/players.length)*picked;
+// Calculate rotation: 5-7 full spins FAST + land on target
+let extraSpins=5+Math.floor(Math.random()*3); // 5,6,7 spins
+let finalRot=rot + extraSpins*360 + (360-targetAngle) + Math.random()*20 -10;
+let duration=3800+Math.random()*1000; // 3.8-4.8 sec
+
+// Apply real physics easing: fast start, slow end
+bot.style.transition=`transform ${duration}ms cubic-bezier(0.15, 0.85, 0.25, 1)`;
+bot.style.transform=`rotate(${finalRot}deg)`;
+rot=finalRot;
+
+document.getElementById('qb').innerHTML=`<div style="font-size:18px">🍾 BOTTLE SPINNING FAST! ${extraSpins} rolls!</div><div style="opacity:.7">Slowing down slowly... 🕐 ${new Date().toLocaleTimeString()}</div>`;
+addSys(`🍾 Bottle spinning ${extraSpins} fast rolls then slowing... ONE WHEEL: ${players.join(', ')}`,'question','SYSTEM');
+
+setTimeout(()=>{
+curr=picked;drawWheel();
+document.getElementById('qb').innerHTML=`<div style="font-size:26px;font-weight:900">🎯 ${players[curr]} PICKED!</div><div style="margin-top:6px">Bottle slowed and stopped on ${players[curr]}!<br>ONE WHEEL: ${players.join(', ')}</div>`;
+addSys(`🎯 Bottle stopped! Picked ${players[curr]}!`,'question','SYSTEM');
+isSpinning=false;
+// Small wobble effect
+bot.style.transition='transform 300ms ease';
+setTimeout(()=>{bot.style.transform=`rotate(${finalRot+3}deg)`; setTimeout(()=>{bot.style.transform=`rotate(${finalRot}deg)`;},150);},100);
+},duration);
 }
 function play(t){
 if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055">Add 2+ players first!</div>';return}
@@ -92,16 +117,15 @@ addSys(`${t.toUpperCase()}: ${q}`,'question',player);curr=(curr+1)%players.lengt
 }
 function doReact(e){addSys(`Reacted ${e}`,'comment','Guest');}
 function sendChat(){
-let ci=document.getElementById('ci');let v=ci.value.trim();if(!v)return;
-addSys(v,'comment','Guest');ci.value='';
+let v=document.getElementById('ci').value.trim();if(!v)return;
+addSys(v,'comment','Guest');document.getElementById('ci').value='';
 }
 function addSys(t,cls,sender){
 let c=document.getElementById('chat');let d=document.createElement('div');d.className='m';
-let sName=sender||'Guest';
-d.innerHTML=`<span class="sender">${sName} • ${new Date().toLocaleTimeString()}</span>${t}`;
+d.innerHTML=`<span class="sender">${sender||'Guest'} • ${new Date().toLocaleTimeString()}</span>${t}`;
 c.appendChild(d);c.scrollTop=c.scrollHeight;
 }
-renderLevels();renderPlayersList();
+renderLevels();renderPlayersList();drawWheel();
 document.getElementById('pn').addEventListener('keydown',e=>{if(e.key=='Enter')addP()});
 document.getElementById('ci').addEventListener('keydown',e=>{if(e.key=='Enter')sendChat()});
 </script>
