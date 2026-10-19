@@ -1,105 +1,159 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Paul's TRUTH AND DARE</title>
+<title>Paul - FINAL CLEAN ACTIVE</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a14;color:#fff;font-family:system-ui;padding:10px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#fff;font-family:system-ui;padding:8px}
 .app{max-width:400px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
-h1{text-align:center;font-size:20px}h1 span{color:#FF0055}
-.wheel{width:240px;height:240px;margin:8px auto;border-radius:50%;background:#1a1a3e;border:6px solid #FF0055;display:flex;align-items:center;justify-content:center;position:relative}
-.bottle{font-size:55px;cursor:pointer}
-.p{position:absolute;font-size:9px;background:#333;padding:3px 7px;border-radius:99px;transform:translate(-50%,-50%)}
-.p.on{background:#FFCC00;color:#000}
-.card{background:#1e1e38;border-radius:10px;padding:8px}
-.q{background:#0008;border-radius:8px;padding:10px;min-height:90px;text-align:center;font-size:13px}
-.dec{display:none;margin-top:8px;border:2px solid #FFCC00;border-radius:8px;padding:8px;background:#111}
+h1{text-align:center;font-size:22px;line-height:1.1}h1 span{color:#FF0055}
+.bar{background:#1a1a3e;border:1px solid #FFCC00;border-radius:10px;padding:8px;display:flex;justify-content:space-between;font-size:11px;font-weight:800}
+.online{background:#111;border:2px solid #FFCC00;border-radius:10px;padding:8px;text-align:center}
+.wheel{width:240px;height:240px;margin:8px auto;border-radius:50%;background:radial-gradient(circle,#1e1e40,#0a0a14);border:6px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center}
+.bottle{font-size:55px;cursor:pointer;z-index:2;transition:transform 0.3s}
+.p{position:absolute;font-size:10px;font-weight:800;background:#333;padding:4px 8px;border-radius:99px;transform:translate(-50%,-50%);text-align:center;border:1px solid #555;line-height:1.1}
+.p.on{background:#FFCC00;color:#000;border:2px solid #fff;z-index:3}
+.p small{display:block;font-size:8px;color:#FFCC00}.p.on small{color:#000}
+.p b{position:absolute;top:-7px;right:-7px;background:#FF3333;color:#fff;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;cursor:pointer}
+.card{background:#1e1e38;border-radius:12px;padding:8px}
+.q{background:#0009;border-radius:10px;padding:10px;min-height:90px;text-align:center;font-size:13px}
+.dec{display:none;margin-top:8px;background:#111;border:2px solid #FFCC00;border-radius:10px;padding:8px}
 .dec.show{display:block}
-.db{display:flex;gap:4px;margin-top:6px}
-.db button{flex:1;border:0;border-radius:8px;padding:12px 4px;font-weight:900;cursor:pointer;font-size:11px}
-.g{background:#00FF88;color:#000}.r{background:#FF3333;color:#fff}.s{background:#888;color:#fff}.bl{background:#00D4FF;color:#000}
-.btns{display:flex;gap:4px;margin-top:6px}
-.btns button{flex:1;border:0;border-radius:8px;padding:10px;font-weight:900;cursor:pointer;font-size:11px}
+.db{display:flex;gap:6px;margin-top:6px}
+.db button{flex:1;border:0;border-radius:10px;padding:12px 4px;font-weight:900;cursor:pointer;font-size:12px}
+.g{background:#00FF88;color:#000}.r{background:#FF3333;color:#fff}.s{background:#666;color:#fff}.bl{background:#00D4FF;color:#000}
+.btns{display:flex;gap:6px;margin-top:6px}
+.btns button{flex:1;border:0;border-radius:10px;padding:11px;font-weight:900;cursor:pointer;font-size:12px}
 .t{background:#00D4FF;color:#000}.d{background:#FF0055;color:#fff}
-.rb{background:#FFCC00;color:#000;width:100%;border:0;border-radius:8px;padding:8px;font-weight:900;margin-top:4px;cursor:pointer;font-size:11px}
-.list{display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
-.list span{background:#1a1a3e;padding:4px 8px;border-radius:99px;font-size:10px;border:1px solid #FFCC00}
-.lead{background:#FFCC0022;border:2px solid #FFCC00;border-radius:8px;padding:4px;font-size:10px}
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000c;align-items:center;justify-content:center;padding:10px;z-index:20}
+.rb{background:#FFCC00;color:#000;width:100%;border:0;border-radius:8px;padding:9px;font-weight:900;margin-top:4px;cursor:pointer;font-size:11px}
+.list{display:flex;gap:4px;flex-wrap:wrap;justify-content:center;margin:4px 0}
+.list span{background:#1a1a3e;padding:4px 8px;border-radius:99px;font-size:11px;border:1px solid #FFCC00}
+.lead{background:#FFCC0022;border:2px solid #FFCC00;border-radius:8px;padding:6px;font-size:11px}
+.lead div{display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #3333}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000d;align-items:center;justify-content:center;padding:12px;z-index:20}
 .modal.show{display:flex}
-.mcard{background:#1a1a3e;border:3px solid #FFCC00;border-radius:14px;padding:12px;width:100%;max-width:320px;text-align:center}
+.mcard{background:#1a1a3e;border:3px solid #FFCC00;border-radius:14px;padding:12px;width:100%;max-width:340px;text-align:center}
+.chat{height:60px;overflow-y:auto;background:#0008;border-radius:6px;padding:6px;display:flex;flex-direction:column;gap:3px;font-size:11px}
+.m2{background:#222;padding:5px 8px;border-radius:6px}
+.top{width:100%;background:#FFCC00;color:#000;border:0;border-radius:8px;padding:9px;font-weight:900;cursor:pointer;font-size:12px}
+.skins{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin:4px 0}
+.skins span{padding:4px 8px;background:#222;border-radius:6px;cursor:pointer;border:2px solid transparent;font-size:16px}
+.skins span.on{border-color:#FFCC00;background:#FFCC0022}
+.lv{display:flex;gap:3px;overflow-x:auto;padding:3px 0}
+.lv div{flex:0 0 auto;padding:5px 9px;border-radius:99px;background:#222;font-size:10px;font-weight:800;cursor:pointer}
+.lv div.on{background:#fff;color:#000}
+.timer{font-size:20px;font-weight:900;color:#FFCC00;margin:4px 0;display:none}.timer.show{display:block}.timer.bad{color:#FF3333}
 </style></head><body>
 <div class="app">
-<h1>PAUL'S TRUTH <span>OR DARE - FINAL ACTIVE</span></h1>
-<div style="text-align:center;font-size:9px">If you see this = NEW CODE LOADED! All buttons ACTIVE!</div>
+<h1>PAUL'S<br>TRUTH <span>OR DARE</span></h1>
+<div style="text-align:center;font-size:9px;opacity:.6">✅ CLEAN FIXED - NO CRUSH - ALL ACTIVE</div>
+<div class="bar"><span id="clock">🕐 --:--</span><span>🏆 <span id="tpts">0 pts</span></span></div>
+<div class="online">
 <div class="list" id="plist"></div>
-<div id="board" class="lead">Add players!</div>
-<button class="rb" onclick="alert('🏆 RANKING BUTTON IS ACTIVE!');showRank()">🏆 RANKING BUTTON - TAP ME - I AM ACTIVE!</button>
-<div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="alert('🍾 BOTTLE IS ACTIVE!');spin()">🍾 TAP ME - BOTTLE ACTIVE!</div></div>
-<button class="rb" style="background:#fff;color:#000" onclick="alert('🎡 SPIN BUTTON ACTIVE!');spin()">🎡 SPIN BUTTON - ACTIVE - TAP ME!</button>
+<div id="board" class="lead"><div><span>🏆 LEADERBOARD</span><span>PTS</span></div><div>Add players!</div></div>
+<button class="rb" onclick="showRank()">🏆 RANKING - SHOW WINNER + LOSER PUNISHMENT</button>
+</div>
+<div class="skins" id="skins"></div>
+<div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
+<button class="top" onclick="spin()">🎡 SPIN BOTTLE - FAST THEN SLOW</button>
+<div class="lv" id="levels"></div>
 <div class="card">
 <div style="display:flex;gap:4px">
-<input id="pn" placeholder="Name" style="flex:1;padding:8px;border-radius:6px;border:1px solid #444;background:#0006;color:#fff">
-<button onclick="alert('ADD ME BUTTON ACTIVE!');addP()" style="padding:8px 10px;border-radius:6px;border:0;background:#fff;color:#000;font-weight:900;cursor:pointer">ADD ME ACTIVE</button>
+<input id="pn" placeholder="Your name" style="flex:1;padding:8px;border-radius:6px;border:1px solid #444;background:#0006;color:#fff;font-size:14px">
+<button onclick="addP()" style="padding:8px 12px;border-radius:6px;border:0;background:#fff;color:#000;font-weight:900;cursor:pointer">ADD ME</button>
 </div>
 <div class="q" id="qb">
-<div id="qm">ADD 2 PLAYERS → SPIN → TRUTH/DARE → GREEN/RED BUTTONS APPEAR!</div>
-<div id="tm" style="font-size:20px;font-weight:900;color:#FFCC00;display:none"></div>
+<div id="qm">✅ Fixed! No crush! Add 2+ players → Spin → Truth/Dare → Award/Deduct!</div>
+<div class="timer" id="tm">⏱️ 30s</div>
 <div class="dec" id="dec">
-<div id="dt" style="font-weight:900;font-size:11px">Did player answer?</div>
-<div id="dq" style="font-size:10px;margin:4px 0;background:#0006;padding:4px;border-radius:4px"></div>
+<div id="dt" style="font-weight:900;font-size:11px">Did player answer well?</div>
+<div id="dq" style="font-size:10px;opacity:.8;margin:4px 0;background:#0006;padding:5px;border-radius:5px"></div>
+<div id="dp" style="font-size:10px;font-weight:900;margin:3px 0"></div>
 <div class="db">
-<button class="g" onclick="alert('🟢 AWARD ACTIVE!');award()">🟢 AWARD +10 ACTIVE</button>
-<button class="r" onclick="alert('🔴 DEDUCT ACTIVE!');deduct()">🔴 DEDUCT -5 ACTIVE</button>
+<button class="g" onclick="award()">🟢 AWARD<br><span id="al">+10</span></button>
+<button class="r" onclick="deduct()">🔴 DEDUCT<br>-5</button>
 </div>
 <div class="db">
-<button class="s" onclick="alert('⏭️ SKIP ACTIVE!');skip()">⏭️ SKIP -3 ACTIVE</button>
-<button class="bl" onclick="alert('📸 PHOTO ACTIVE!');photo()">📸 PROOF ACTIVE</button>
+<button class="s" onclick="skip()">⏭️ SKIP<br>-3</button>
+<button class="bl" onclick="photo()">📸 PROOF</button>
 </div>
 </div>
 </div>
 <div class="btns">
-<button class="t" onclick="alert('TRUTH ACTIVE!');play('truth')">TRUTH +10 ACTIVE</button>
-<button class="d" onclick="alert('DARE ACTIVE!');play('dare')">DARE +5 ACTIVE</button>
+<button class="t" onclick="play('truth')">TRUTH 💎 +10</button>
+<button class="d" onclick="play('dare')">DARE 🔥 +5</button>
 </div>
 <div style="display:flex;gap:4px;margin-top:4px">
-<button class="rb" style="background:#fff;color:#000;flex:1" onclick="alert('RANKING ACTIVE!');showRank()">🏆 RANKING ACTIVE</button>
-<button class="rb" style="background:#FF0055;color:#fff;flex:1" onclick="alert('RESET ACTIVE!');resetG()">🔄 RESET ACTIVE</button>
-<button class="rb" style="background:#25D366;color:#fff;flex:1" onclick="alert('SHARE ACTIVE!');shareW()">📲 SHARE ACTIVE</button>
+<button class="rb" style="background:#fff;color:#000;flex:1" onclick="showRank()">🏆 RANKING</button>
+<button class="rb" style="background:#FF0055;color:#fff;flex:1" onclick="resetG()">🔄 RESET</button>
+<button class="rb" style="background:#25D366;color:#fff;flex:1" onclick="shareW()">📲 SHARE WA</button>
 </div>
 </div>
-<div class="card"><div id="chat" style="height:60px;overflow-y:auto;background:#0008;border-radius:6px;padding:6px;font-size:11px">SYSTEM: All buttons have alert - so you know they are ACTIVE!</div></div>
+<div class="card"><div class="chat" id="chat"><div class="m2">SYSTEM: Clean fixed! All buttons active!</div></div></div>
 <input type="file" id="f" accept="image/*" style="display:none">
 </div>
-<div class="modal" id="rm"><div class="mcard">
-<div style="font-size:30px">🏆</div>
-<h3 style="color:#FFCC00">RANKING ACTIVE!</h3>
-<div id="rc" style="margin-top:8px;text-align:left;font-size:12px"></div>
-<div id="pun" style="margin-top:8px;background:#FF333322;border:1px solid #FF3333;border-radius:6px;padding:6px;font-size:11px"></div>
-<button onclick="closeR()" style="margin-top:8px;width:100%;padding:8px;border-radius:6px;border:0;background:#333;color:#fff;font-weight:900;cursor:pointer">CLOSE ACTIVE BUTTON</button>
-</div></div>
-<script>
-var players=[],curr=0,pend=-1,pendT='',askList=[],tmr=null,tl=0;
-var LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'];var curL=2;
-var Q={0:{t:["Embarrassing text?"],d:["15 jacks"]},1:{t:["Who kiss?"],d:["Text crush"]},2:{t:["Drunkest?","Body count?"],d:["Water shot"]},3:{t:["Fantasy?"],d:["Lap dance"]},4:{t:["Secret?"],d:["Twerk 30s"]},5:{t:["Who unfriend?"],d:["Post liar"]}};
 
-function addP(){
-var v=document.getElementById('pn').value.trim();if(!v){alert('ADD ME BUTTON IS 100% ACTIVE - Type name first!');return;}
-players.push({name:v,points:0});document.getElementById('pn').value='';drawW();render();addChat(v+' joined! ADD ME WORKS 100% ACTIVE!');
-}
+<div class="modal" id="rm" onclick="if(event.target==this)closeR()"><div class="mcard">
+<div style="font-size:40px">🏆</div>
+<h3 style="color:#FFCC00">FINAL RANKING</h3>
+<div id="rc" style="margin-top:8px;text-align:left;font-size:12px"></div>
+<div id="pun" style="margin-top:8px;background:#FF333322;border:2px solid #FF3333;border-radius:8px;padding:8px;font-size:11px"></div>
+<div style="display:flex;gap:4px;margin-top:8px">
+<button onclick="closeR()" style="flex:1;padding:8px;border-radius:6px;border:0;background:#333;color:#fff;font-weight:900;cursor:pointer">CLOSE</button>
+<button onclick="shareW()" style="flex:1;padding:8px;border-radius:6px;border:0;background:#25D366;color:#fff;font-weight:900;cursor:pointer">SHARE WA</button>
+<button onclick="resetG();closeR()" style="flex:1;padding:8px;border-radius:6px;border:0;background:#FFCC00;color:#000;font-weight:900;cursor:pointer">NEW GAME</button>
+</div>
+</div></div>
+
+<script>
+var LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'];var curL=2;
+var players=[],curr=0,rot=0,pend=-1,pendT='',askList=[],tmr=null,tl=0;
+var bottles=['🍾','🍺','🥂','🧃','🍶','🥤'];var bottle='🍾';
+var Q={
+0:{t:["Most embarrassing text?","Hidden talent?"],d:["15 jumping jacks","Dance 10s"]},
+1:{t:["Who would you kiss now?","Crush in room?"],d:["Text crush 'you up?'","Group writes status"]},
+2:{t:["Drunkest ever?","How many body counts? Honest!"],d:["Water shot","Do dare chosen by group"]},
+3:{t:["Biggest fantasy?","Who here you find hot?"],d:["Lap dance 15s","Twerk 20s"]},
+4:{t:["Dirtiest secret?","How lose virginity?"],d:["Group writes dirty text","Twerk 30s"]},
+5:{t:["Who would you unfriend now?"],d:["Post 'I am liar'","Give phone 2 min"]}
+};
+var punList=["Buys Rolex for all! 🌯","20 pushups shouting winner!","Post 'I lost Posi Posi!' on Status!","Dance Azonto 30s!","Call crush say 'I love you'!","Drink 3 glasses water!"];
+
+function clock(){try{var n=new Date();var el=document.getElementById('clock');if(el)el.textContent='🕐 '+n.toLocaleTimeString();}catch(e){}}
+setInterval(clock,1000);clock();
+
+function renderLevels(){var el=document.getElementById('levels');var h='';for(var i=0;i<LEVELS.length;i++){h+='<div class="'+(i==curL?'on':'')+'" onclick="curL='+i+';renderLevels()">'+LEVELS[i]+'</div>';}el.innerHTML=h;}
 function render(){
-var el=document.getElementById('plist');el.innerHTML='';for(var i=0;i<players.length;i++){var s=document.createElement('span');s.innerHTML=players[i].name+' '+players[i].points+'pts <span onclick="players.splice('+i+',1);drawW();render()" style="background:#F33;padding:0 4px;border-radius:50%;cursor:pointer">x</span>';el.appendChild(s);}
-var board=document.getElementById('board');if(players.length==0){board.innerHTML='Add players! LEADERBOARD ACTIVE!';return;}
+var el=document.getElementById('plist');el.innerHTML='';var total=0;
+for(var i=0;i<players.length;i++){total+=players[i].points;var s=document.createElement('span');s.innerHTML=players[i].name+' <b style="color:#FFCC00">'+players[i].points+'pts</b> <span style="background:#FF3333;color:#fff;border-radius:50%;padding:0 5px;cursor:pointer;margin-left:4px" onclick="kick('+i+')">x</span>';if(i==curr)s.style.background='#FFCC00',s.style.color='#000';el.appendChild(s);}
+document.getElementById('tpts').textContent=total+' pts';
+var board=document.getElementById('board');if(players.length==0){board.innerHTML='<div><span>🏆 LEADERBOARD</span><span>PTS</span></div><div style="opacity:.5">Add players!</div>';return;}
 var sorted=players.slice().sort(function(a,b){return b.points-a.points;});
-var h='LEADERBOARD ACTIVE<br>';for(var i=0;i<sorted.length;i++){h+='<div style="display:flex;justify-content:space-between"><span>'+(i+1)+'. '+sorted[i].name+'</span><span>'+sorted[i].points+' pts</span></div>';}
+var h='<div><span>🏆 LEADERBOARD</span><span>PTS</span></div>';for(var i=0;i<sorted.length;i++){var med=i==0?'🥇':i==1?'🥈':i==2?'🥉':'👤';h+='<div><span>'+med+' '+sorted[i].name+'</span><span style="color:'+(sorted[i].points<0?'#FF3333':'#FFCC00')+'">'+sorted[i].points+' pts</span></div>';}
 board.innerHTML=h;
+}
+function renderSkins(){var el=document.getElementById('skins');el.innerHTML='Bottle: ';for(var i=0;i<bottles.length;i++){var b=bottles[i];var sp=document.createElement('span');sp.textContent=b;sp.className=b==bottle?'on':'';sp.setAttribute('data-b',b);sp.onclick=function(){bottle=this.getAttribute('data-b');document.getElementById('bot').textContent=bottle;renderSkins();};el.appendChild(sp);}}
+function kick(i){players.splice(i,1);if(curr>=players.length)curr=0;if(pend==i){pend=-1;hideDec();stopT();}drawW();render();}
+function addP(){
+var v=document.getElementById('pn').value.trim();if(!v){alert('Type name!');return;}
+for(var i=0;i<players.length;i++){if(players[i].name.toLowerCase()==v.toLowerCase()){alert('Name taken!');return;}}
+if(players.length>=8){alert('Max 8!');return;}
+players.push({name:v,points:0});document.getElementById('pn').value='';drawW();render();addChat(v+' joined! 0 pts');
 }
 function drawW(){
 var w=document.getElementById('wheel');var ps=w.querySelectorAll('.p');for(var i=0;i<ps.length;i++)ps[i].remove();
 if(players.length==0)return;
-for(var i=0;i<players.length;i++){var d=document.createElement('div');d.className='p'+(i==curr?' on':'');d.textContent=players[i].name+' '+players[i].points;var a=(360/players.length)*i+90;var r=85;var x=Math.cos(a*Math.PI/180)*r;var y=Math.sin(a*Math.PI/180)*r;d.style.left='50%';d.style.top='50%';d.style.transform='translate(-50%,-50%) translate('+x+'px,'+y+'px)';w.appendChild(d);}
+for(var i=0;i<players.length;i++){var d=document.createElement('div');d.className='p'+(i==curr?' on':'');d.innerHTML=players[i].name+'<small>'+players[i].points+'pts</small>';var a=(360/players.length)*i+90;var r=90;var x=Math.cos(a*Math.PI/180)*r;var y=Math.sin(a*Math.PI/180)*r;d.style.left='50%';d.style.top='50%';d.style.transform='translate(-50%,-50%) translate('+x+'px,'+y+'px)';w.appendChild(d);}
 }
 function spin(){
-if(players.length<2){document.getElementById('qm').textContent='Need 2+ players! SPIN BUTTON IS ACTIVE - Add players first!';return;}
-var picked=Math.floor(Math.random()*players.length);curr=picked;drawW();document.getElementById('qm').innerHTML='🎯 '+players[curr].name+' PICKED! SPIN BUTTON 100% ACTIVE WORKS! Choose TRUTH or DARE!';addChat('SPIN WORKS! Picked '+players[curr].name);
+if(players.length<2){document.getElementById('qm').textContent='Need 2+ players! Add Paul, John!';return;}
+var bot=document.getElementById('bot');
+var picked=Math.floor(Math.random()*players.length);
+var finalRot=rot+5*360+Math.random()*360;
+bot.style.transition='transform 3500ms cubic-bezier(0.15, 0.85, 0.25, 1)';
+bot.style.transform='rotate('+finalRot+'deg)';rot=finalRot;
+document.getElementById('qm').textContent='🍾 SPINNING... fast then slow...';
+hideDec();stopT();
+setTimeout(function(){curr=picked;drawW();document.getElementById('qm').innerHTML='<div style="font-size:20px;font-weight:900">🎯 '+players[curr].name+' PICKED!</div><div>Choose TRUTH (+10) or DARE (+5)!</div>';},3500);
 }
 function getQ(list){
 var avail=[];for(var i=0;i<list.length;i++){if(askList.indexOf(list[i])==-1)avail.push(list[i]);}
@@ -107,66 +161,74 @@ if(avail.length==0){askList=[];avail=list.slice();}
 var q=avail[Math.floor(Math.random()*avail.length)];askList.push(q);return q;
 }
 function play(type){
-if(players.length<0)return;
+if(players.length<2)return;
 var base=Q[curL][type];
 var q=getQ(base);
 pend=curr;pendT=type;
 var pts=type=='truth'?10:5;
-document.getElementById('qm').innerHTML=LEVELS[curL]+' '+type.toUpperCase()+' '+pts+'pts<br><b>'+q+'</b><br>'+players[pend].name+' must answer! PLAY BUTTON ACTIVE WORKS!';
-document.getElementById('dt').textContent='Did '+players[pend].name+' answer? TRUTH/DARE ACTIVE!';
+document.getElementById('qm').innerHTML='<div>'+LEVELS[curL]+' '+type.toUpperCase()+' • '+pts+'pts if award</div><div style="font-weight:800;font-size:14px;margin-top:4px">'+q+'</div><div style="margin-top:4px">👉 '+players[pend].name+' must answer!</div>';
+document.getElementById('dt').textContent='Did '+players[pend].name+' answer well?';
 document.getElementById('dq').textContent=q;
+document.getElementById('dp').innerHTML='🟢 AWARD +'+pts+' | 🔴 DEDUCT -5 | ⏭️ SKIP -3';
+document.getElementById('al').textContent='+'+pts;
 document.getElementById('dec').className='dec show';
-addChat(type+' ACTIVE WORKS! '+q);
+addChat(type.toUpperCase()+' ('+pts+'): '+q+' - '+players[pend].name);
 startT(type=='dare'?30:45);
 }
-function startT(s){stopT();tl=s;var el=document.getElementById('tm');el.style.display='block';el.textContent='⏱️ '+tl+'s TIMER ACTIVE!';tmr=setInterval(function(){tl--;el.textContent='⏱️ '+tl+'s TIMER ACTIVE!';if(tl<=0){stopT();el.textContent='⏱️ TIME UP! TIMER ACTIVE!';}},1000);}
-function stopT(){if(tmr){clearInterval(tmr);tmr=null;}document.getElementById('tm').style.display='none';}
+function hideDec(){document.getElementById('dec').className='dec';}
+function startT(sec){stopT();tl=sec;var el=document.getElementById('tm');el.className='timer show';el.textContent='⏱️ '+tl+'s';tmr=setInterval(function(){tl--;el.textContent='⏱️ '+tl+'s';if(tl<=10)el.className='timer show bad';if(tl<=0){stopT();el.textContent='⏱️ TIME UP!';}},1000);}
+function stopT(){if(tmr){clearInterval(tmr);tmr=null;}document.getElementById('tm').className='timer';}
 function award(){
-if(pend<0){alert('Pick truth/dare first! AWARD BUTTON ACTIVE!');return;}
-stopT();var pts=pendT=='truth'?10:5;players[pend].points+=pts;
-document.getElementById('qm').innerHTML='🟢 AWARD WORKS! '+players[pend].name+' +'+pts+' = '+players[pend].points+' pts! AWARD BUTTON 100% ACTIVE!';
-document.getElementById('dec').className='dec';addChat('🟢 AWARD ACTIVE WORKS! +'+pts);curr=(curr+1)%players.length;drawW();render();pend=-1;
+if(pend<0)return;stopT();
+var pts=pendT=='truth'?10:5;
+players[pend].points+=pts;
+var name=players[pend].name;
+document.getElementById('qm').innerHTML='<div style="color:#00FF88;font-weight:900;font-size:18px">🟢 '+name+' AWARDED +'+pts+'! 🎉</div><div>Total: '+players[pend].points+' pts!</div>';
+hideDec();addChat('🟢 '+name+' AWARDED +'+pts+'! Now '+players[pend].points);curr=(curr+1)%players.length;drawW();render();pend=-1;
 }
 function deduct(){
-if(pend<0){alert('Pick truth/dare first! DEDUCT BUTTON ACTIVE!');return;}
-stopT();players[pend].points+=-5;
-document.getElementById('qm').innerHTML='🔴 DEDUCT WORKS! '+players[pend].name+' -5 = '+players[pend].points+' pts! DEDUCT BUTTON 100% ACTIVE!';
-document.getElementById('dec').className='dec';addChat('🔴 DEDUCT ACTIVE WORKS! -5');curr=(curr+1)%players.length;drawW();render();pend=-1;
+if(pend<0)return;stopT();
+players[pend].points+=-5;
+var name=players[pend].name;
+document.getElementById('qm').innerHTML='<div style="color:#FF3333;font-weight:900;font-size:18px">🔴 '+name+' DEDUCTED -5!</div><div>Total: '+players[pend].points+' pts penalty!</div>';
+hideDec();addChat('🔴 '+name+' DEDUCTED -5! Now '+players[pend].points);curr=(curr+1)%players.length;drawW();render();pend=-1;
 }
 function skip(){
-if(pend<0){alert('Pick truth/dare first! SKIP ACTIVE!');return;}
-stopT();players[pend].points+=-3;
-document.getElementById('qm').innerHTML='⏭️ SKIP WORKS! -3 pts! SKIP BUTTON 100% ACTIVE!';
-document.getElementById('dec').className='dec';addChat('⏭️ SKIP ACTIVE WORKS!');curr=(curr+1)%players.length;drawW();render();pend=-1;
+if(pend<0)return;stopT();
+players[pend].points+=-3;
+var name=players[pend].name;
+document.getElementById('qm').innerHTML='<div style="color:#888;font-weight:900">⏭️ '+name+' SKIPPED -3!</div><div>Total: '+players[pend].points+' pts</div>';
+hideDec();addChat('⏭️ '+name+' SKIPPED -3!');curr=(curr+1)%players.length;drawW();render();pend=-1;
 }
 function photo(){
 var inp=document.getElementById('f');
 inp.onchange=function(e){
 var file=e.target.files[0];if(!file)return;
 var r=new FileReader();
-r.onload=function(ev){addChat('📸 PHOTO PROOF ACTIVE WORKS! <img src="'+ev.target.result+'" style="max-width:100%;border-radius:6px">');};
-r.readAsDataURL(file);
+r.onload=function(ev){addChat('📸 PROOF: <img src="'+ev.target.result+'" style="max-width:100%;border-radius:6px;margin-top:4px">');};
+r.readAsDataURL(file);e.target.value='';
 };
-inp.click();alert('📸 PHOTO BUTTON IS ACTIVE! Camera will open!');
+inp.click();
 }
 function showRank(){
-if(players.length==0){alert('🏆 RANKING BUTTON IS 100% ACTIVE! Add players first!');return;}
+if(players.length==0){alert('Add players!');return;}
 var sorted=players.slice().sort(function(a,b){return b.points-a.points;});
-var html='';for(var i=0;i<sorted.length;i++){html+='<div style="padding:6px;background:'+(i==0?'#FFCC00;color:#000':'#222')+';border-radius:6px;margin:3px 0;display:flex;justify-content:space-between"><span>'+(i+1)+'. '+sorted[i].name+'</span><span>'+sorted[i].points+' pts</span></div>';}
+var html='';for(var i=0;i<sorted.length;i++){var label=i==0?'🥇 WINNER '+sorted[i].name:i==1?'🥈 '+sorted[i].name:i==2?'🥉 '+sorted[i].name:'#'+(i+1)+' '+sorted[i].name;var bg=i==0?'background:#FFCC00;color:#000;border:2px solid #fff;':'background:#222;';html+='<div style="'+bg+'padding:8px;border-radius:8px;margin:4px 0;display:flex;justify-content:space-between;font-weight:900"><span>'+label+'</span><span>'+sorted[i].points+' pts</span></div>';}
 document.getElementById('rc').innerHTML=html;
-document.getElementById('pun').innerHTML='😈 LOSER: '+sorted[sorted.length-1].name+' - Must buy Rolex! LOSER PUNISHMENT ACTIVE!';
+var loser=sorted[sorted.length-1];
+var p=punList[Math.floor(Math.random()*punList.length)];
+document.getElementById('pun').innerHTML='<div style="font-weight:900;color:#FF3333">😈 LOSER: '+loser.name+' ('+loser.points+' pts)</div><div style="margin-top:4px;font-weight:800">'+p+'</div>';
 document.getElementById('rm').className='modal show';
-addChat('🏆 RANKING ACTIVE WORKS!');
 }
 function closeR(){document.getElementById('rm').className='modal';}
-function resetG(){if(!confirm('Reset? RESET ACTIVE!'))return;for(var i=0;i<players.length;i++)players[i].points=0;drawW();render();document.getElementById('qm').textContent='Reset! RESET BUTTON 100% ACTIVE WORKS!';addChat('Reset ACTIVE WORKS!');}
+function resetG(){if(!confirm('Reset points?'))return;for(var i=0;i<players.length;i++)players[i].points=0;askList=[];drawW();render();document.getElementById('qm').textContent='🔄 New game! Points reset!';hideDec();stopT();pend=-1;addChat('🔄 Reset! New game!');}
 function shareW(){
-if(players.length==0){alert('SHARE BUTTON ACTIVE! Add players!');return;}
+if(players.length==0){alert('Add players!');return;}
 var sorted=players.slice().sort(function(a,b){return b.points-a.points;});
-var txt='🏆 TRUTH OR DARE KAMPALA!%0A';for(var i=0;i<sorted.length;i++){txt+=(i+1)+'. '+sorted[i].name+' '+sorted[i].points+' pts%0A';}
-window.open('https://wa.me/?text='+txt,'_blank');alert('📲 SHARE BUTTON IS ACTIVE! WhatsApp opened!');addChat('SHARE ACTIVE WORKS!');
+var txt='🏆 TRUTH OR DARE - KAMPALA!%0A';for(var i=0;i<sorted.length;i++){txt+=(i+1)+'. '+sorted[i].name+' - '+sorted[i].points+' pts%0A';}
+txt+='%0APlay: https://paul-mcrae.github.io/truth-or-dare/';window.open('https://wa.me/?text='+txt,'_blank');
 }
-function addChat(t){var c=document.getElementById('chat');var d=document.createElement('div');d.innerHTML=t;c.appendChild(d);c.scrollTop=c.scrollHeight;}
-render();
+function addChat(t){var c=document.getElementById('chat');var d=document.createElement('div');d.className='m2';d.textContent=t;c.appendChild(d);c.scrollTop=c.scrollHeight;}
+renderLevels();render();drawW();renderSkins();
 </script>
 </body></html>
