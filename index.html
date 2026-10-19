@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-<title>Paul's Truth or Dare - AWARD & DEDUCT</title>
+<title>Paul's Truth or Dare - WITH RANKING BUTTON</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a14;color:#fff;font-family:system-ui;padding:10px}
@@ -17,19 +17,19 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 .card{background:#1e1e38;border-radius:16px;padding:12px}
 .qbox{background:#0008;border-radius:12px;padding:14px;min-height:90px;text-align:center}
 .approve-box{display:none;margin-top:12px;background:#111;border:3px solid #FFCC00;border-radius:14px;padding:14px}
-.approve-box.show{display:block;animation:pop 0.3s}
-@keyframes pop{0%{transform:scale(0.8)}100%{transform:scale(1)}}
+.approve-box.show{display:block}
 .approve-btns{display:flex;gap:10px;margin-top:12px}
 .approve-btns button{flex:1;border:0;border-radius:12px;padding:18px 10px;font-weight:900;cursor:pointer;font-size:14px;line-height:1.2}
-.award{background:#00FF88;color:#000;box-shadow:0 0 20px #00FF8855;border:2px solid #00FF88}
-.deduct{background:#FF3333;color:#fff;box-shadow:0 0 20px #FF333355;border:2px solid #FF3333}
+.award{background:#00FF88;color:#000;border:2px solid #00FF88}
+.deduct{background:#FF3333;color:#fff;border:2px solid #FF3333}
 .btns{display:flex;gap:8px;margin-top:8px}
 .btns button{flex:1;border:0;border-radius:12px;padding:13px;font-weight:900;cursor:pointer}
 .t{background:#00D4FF;color:#000}.d{background:#FF0055;color:#fff}
+.ranking-btn{background:#FFCC00;color:#000;width:100%;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer;margin-top:8px;font-size:13px}
 .lv{display:flex;gap:5px;overflow-x:auto;padding:5px 0}
 .lv div{flex:0 0 auto;padding:7px 13px;border-radius:99px;background:#222;font-size:11px;font-weight:800;cursor:pointer}
 .lv div.on{background:#fff;color:#000}
-.chat{height:100px;overflow-y:auto;background:#0008;border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:6px}
+.chat{height:90px;overflow-y:auto;background:#0008;border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:6px}
 .m{background:#222;padding:8px 12px;border-radius:12px;font-size:13px}
 .m .sender{font-weight:900;font-size:11px;color:#FFCC00;display:block}
 .cin{display:flex;gap:6px;margin-top:8px}
@@ -38,22 +38,26 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 .players-list{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:8px 0}
 .players-list span{background:#1a1a3e;color:#fff;padding:6px 12px;border-radius:99px;font-size:12px;font-weight:900;border:1px solid #FFCC00;display:flex;flex-direction:column;align-items:center;min-width:70px}
 .players-list span b{color:#FFCC00;font-size:14px}
-.players-list span.negative b{color:#FF3333}
 .leader{background:#FFCC0022;border:2px solid #FFCC00;border-radius:12px;padding:8px;margin-top:8px}
-.leader div{display:flex;justify-content:space-between;padding:4px 0;font-size:12px;font-weight:800;border-bottom:1px solid #333}
+.leader div{display:flex;justify-content:space-between;padding:5px 0;font-size:12px;font-weight:800;border-bottom:1px solid #333}
+.ranking-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000e;z-index:99;align-items:center;justify-content:center;padding:20px}
+.ranking-modal.show{display:flex}
+.ranking-card{background:#1a1a3e;border:3px solid #FFCC00;border-radius:20px;padding:20px;max-width:380px;width:100%;text-align:center}
+.trophy{font-size:60px}
 .custom-box{background:#00D4FF11;border:1px solid #00D4FF;border-radius:10px;padding:10px;margin-top:8px}
 .custom-box input,.custom-box select{width:100%;background:#000a;border:1px solid #444;border-radius:8px;padding:10px;color:#fff;margin-top:6px;font-size:14px}
 .custom-box button{width:100%;margin-top:6px;background:#00D4FF;color:#000;border:0;border-radius:8px;padding:10px;font-weight:900;cursor:pointer}
 </style></head><body>
 <div class="app">
 <h1>PAUL'S<br>TRUTH <span>OR DARE</span></h1>
-<div style="text-align:center;font-size:11px;opacity:.7">🏆 TRUTH +10 | DARE +5 | FAIL -5 PENALTY!</div>
+<div style="text-align:center;font-size:11px;opacity:.7">🏆 WITH RANKING BUTTON - FINAL WINNER!</div>
 <div class="bar"><span id="liveTime">🕐 Loading</span><span id="liveDate">--</span><span>🏆 <span id="totalPoints">0 pts</span></span></div>
 <div class="live"><span>🔴 OFFLINE FUN</span><span id="watchCount">👁️ 1 watching</span><span id="liveNames">Waiting</span></div>
 <div class="online">
-<div id="status" style="font-weight:800">📴 OFFLINE - AWARD & DEDUCT!</div>
+<div id="status" style="font-weight:800">📴 OFFLINE - RANKING READY!</div>
 <div id="playersList" class="players-list"></div>
-<div class="leader" id="leaderboard"><div><span>🏆 LEADERBOARD</span><span>PTS</span></div><div style="opacity:.5">Add players!</div></div>
+<div class="leader" id="leaderboard"><div><span>🏆 LIVE LEADERBOARD</span><span>PTS</span></div><div style="opacity:.5">Add players!</div></div>
+<button class="ranking-btn" onclick="showRanking()">🏆 RANKING BUTTON - SHOW FINAL RANKING / WINNER!</button>
 <div id="viewersList" style="font-size:11px;background:#000a;border-radius:8px;padding:6px;margin-top:6px">👥 ONE WHEEL: Add name!</div>
 </div>
 <div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
@@ -64,19 +68,23 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 <input id="pn" placeholder="Your name" style="flex:1;background:#0006;border:1px solid #444;border-radius:10px;padding:12px;color:#fff;font-size:16px">
 <button onclick="addP()" style="background:#fff;color:#000;border:0;border-radius:10px;padding:12px 16px;font-weight:900">ADD ME</button>
 </div>
-<div class="qbox" id="qb"><div>🏆 TRUTH +10 | DARE +5 | FAIL -5 PENALTY!<br>Spin → Answer → GREEN award or RED deduct!</div>
+<div class="qbox" id="qb"><div>🏆 TRUTH +10pts | DARE +5pts | FAIL -5pts<br>Tap RANKING BUTTON to see winner anytime!</div>
 <div class="approve-box" id="approveBox">
-<div style="font-weight:900;font-size:14px">👉 Did <span id="approveName">Player</span> answer well?</div>
+<div style="font-weight:900;font-size:14px">👉 Did <span id="approveName">Player</span> answer?</div>
 <div id="approveQ" style="font-size:11px;opacity:.7;margin:6px 0;background:#0005;padding:6px;border-radius:6px"></div>
 <div id="approvePoints" style="font-size:12px;font-weight:900"></div>
 <div class="approve-btns">
-<button class="award" onclick="decide(true)">🟢 AWARD<br><span id="awardText">+10 pts</span><br><small style="font-size:10px">Answered!</small></button>
-<button class="deduct" onclick="decide(false)">🔴 DEDUCT<br>-5 pts<br><small style="font-size:10px">Failed!</small></button>
+<button class="award" onclick="decide(true)">🟢 AWARD<br><span id="awardText">+10 pts</span></button>
+<button class="deduct" onclick="decide(false)">🔴 DEDUCT<br>-5 pts</button>
 </div>
 </div>
 </div>
 <div style="display:flex;gap:6px;justify-content:center;font-size:24px;margin:8px 0"><span onclick="doReact('😂')">😂</span><span onclick="doReact('🔥')">🔥</span><span onclick="doReact('😳')">😳</span><span onclick="doReact('💀')">💀</span><span onclick="doReact('❤️')">❤️</span><span onclick="doReact('👏')">👏</span></div>
 <div class="btns"><button class="t" onclick="play('truth')">TRUTH 💎 +10pts</button><button class="d" onclick="play('dare')">DARE 🔥 +5pts</button></div>
+<div style="display:flex;gap:6px;margin-top:8px">
+<button class="ranking-btn" style="background:#fff;color:#000;flex:1" onclick="showRanking()">🏆 RANKING</button>
+<button class="ranking-btn" style="background:#FF0055;color:#fff;flex:1" onclick="resetGame()">🔄 RESET POINTS</button>
+</div>
 <div class="custom-box">
 <div style="font-weight:900;font-size:12px">➕ ADD YOUR OWN QUESTIONS</div>
 <select id="customType"><option value="truth">Truth (Award +10 / Deduct -5)</option><option value="dare">Dare (Award +5 / Deduct -5)</option></select>
@@ -85,8 +93,22 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 <div id="customList" style="font-size:11px;margin-top:6px;opacity:.8"></div>
 </div>
 </div>
-<div class="card"><div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM</span>🏆 Award +10/+5, Deduct -5 penalty ready!</div></div><div class="cin"><input id="ci" placeholder="Comment..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div></div>
+<div class="card"><div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM</span>🏆 Ranking button added!</div></div><div class="cin"><input id="ci" placeholder="Comment..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div></div>
 </div>
+
+<div class="ranking-modal" id="rankingModal" onclick="if(event.target==this)closeRanking()">
+<div class="ranking-card">
+<div class="trophy">🏆</div>
+<h2 style="color:#FFCC00">FINAL RANKING</h2>
+<div style="font-size:11px;opacity:.7;margin:6px 0" id="rankingTime"></div>
+<div id="rankingContent" style="margin-top:12px;text-align:left"></div>
+<div style="margin-top:14px;display:flex;gap:8px">
+<button onclick="closeRanking()" style="flex:1;background:#333;color:#fff;border:0;border-radius:10px;padding:12px;font-weight:900">CLOSE</button>
+<button onclick="resetGame();closeRanking()" style="flex:1;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900">🔄 NEW GAME</button>
+</div>
+</div>
+</div>
+
 <script>
 function updateClock(){try{let n=new Date();document.getElementById('liveTime').textContent='🕐 '+n.toLocaleTimeString();document.getElementById('liveDate').textContent=n.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});}catch(e){}}
 setInterval(updateClock,1000);updateClock();
@@ -95,15 +117,7 @@ let customTruths=[],customDares=[];
 function renderLevels(){let h='';LEVELS.forEach((n,i)=>{h+=`<div class="${i==curL?'on':''}" onclick="curL=${i};renderLevels()">${n}</div>`});document.getElementById('lv').innerHTML=h}
 function renderPlayersList(){
 let el=document.getElementById('playersList');el.innerHTML='';let total=0;
-players.forEach(p=>{
-total+=p.points;
-let s=document.createElement('span');
-let isNeg=p.points<0;
-s.className=isNeg?'negative':'';
-s.innerHTML=`${p.name}<b class="${isNeg?'negative':''}">${p.points} pts</b>`;
-if(players.indexOf(p)==curr){s.style.border='2px solid #FFCC00';s.style.background='#FFCC00';s.style.color='#000';}
-el.appendChild(s);
-});
+players.forEach(p=>{total+=p.points;let s=document.createElement('span');s.innerHTML=`${p.name}<b>${p.points} pts</b>`;if(players.indexOf(p)==curr){s.style.border='2px solid #FFCC00';s.style.background='#FFCC00';s.style.color='#000';}el.appendChild(s);});
 document.getElementById('watchCount').textContent=`👁️ ${players.length||1} watching`;
 document.getElementById('liveNames').textContent=players.map(p=>p.name).join(', ')||'Waiting';
 document.getElementById('viewersList').textContent=`👥 ONE WHEEL (${players.length||1}): ${players.map(p=>p.name).join(', ')||'Add name!'} • Total: ${total} pts`;
@@ -112,10 +126,10 @@ renderLeaderboard();
 }
 function renderLeaderboard(){
 let el=document.getElementById('leaderboard');
-if(players.length==0){el.innerHTML='<div><span>🏆 LEADERBOARD</span><span>PTS</span></div><div style="opacity:.5">Add players!</div>';return;}
+if(players.length==0){el.innerHTML='<div><span>🏆 LIVE LEADERBOARD</span><span>PTS</span></div><div style="opacity:.5">Add players!</div>';return;}
 let sorted=[...players].sort((a,b)=>b.points-a.points);
-let h='<div><span>🏆 LEADERBOARD</span><span>PTS</span></div>';
-sorted.forEach((p,i)=>{let medal=i==0?'🥇':i==1?'🥈':i==2?'🥉':'👤';let color=p.points<0?'#FF3333':p.points==0?'#999':'#FFCC00';h+=`<div><span>${medal} ${p.name}</span><span style="color:${color}">${p.points} pts</span></div>`});
+let h='<div><span>🏆 LIVE LEADERBOARD</span><span>PTS</span></div>';
+sorted.forEach((p,i)=>{let medal=i==0?'🥇':i==1?'🥈':i==2?'🥉':'👤';let color=p.points<0?'#FF3333':'#FFCC00';h+=`<div><span>${medal} ${p.name}</span><span style="color:${color}">${p.points} pts</span></div>`});
 el.innerHTML=h;
 }
 let Q={0:{t:["Most embarrassing text?","Hidden talent?"],d:["15 jumping jacks"]},1:{t:["Who would you kiss now?"],d:["Text crush 'you up?'"]},2:{t:["Drunkest ever?","How many body counts? Honest!"],d:["Water shot"]},3:{t:["Biggest fantasy?"],d:["Lap dance 15s"]},4:{t:["How lose virginity?","Dirtiest secret?","How many body counts? Exact!"],d:["Group writes dirty text","Twerk 30s"]},5:{t:["Who unfriend now?"],d:["Post 'I am liar'"]}};
@@ -156,34 +170,55 @@ lastQ=allList[Math.floor(Math.random()*allList.length)];
 pendingPlayer=players[curr].name;
 pendingType=t;
 let points=t=='truth'?10:5;
-document.getElementById('qb').innerHTML=`<div>${LEVELS[curL]} ${t.toUpperCase()} • ${points}pts if AWARD / -5 if DEDUCT</div><div style="font-weight:800;font-size:16px;margin-top:6px">${lastQ}</div><div style="margin-top:8px">👉 ${pendingPlayer} must answer! Vote AWARD or DEDUCT!</div>`;
+document.getElementById('qb').innerHTML=`<div>${LEVELS[curL]} ${t.toUpperCase()} • ${points}pts if AWARD / -5 if DEDUCT</div><div style="font-weight:800;font-size:16px;margin-top:6px">${lastQ}</div><div style="margin-top:8px">👉 ${pendingPlayer} must answer! Vote!</div>`;
 let ab=document.getElementById('approveBox');
 ab.classList.add('show');
 document.getElementById('approveName').textContent=pendingPlayer;
 document.getElementById('approveQ').textContent=lastQ;
-document.getElementById('approvePoints').innerHTML=`<span style="color:#00FF88">🟢 AWARD: +${points} pts</span> | <span style="color:#FF3333">🔴 DEDUCT: -5 pts penalty</span>`;
+document.getElementById('approvePoints').innerHTML=`<span style="color:#00FF88">🟢 AWARD: +${points}</span> | <span style="color:#FF3333">🔴 DEDUCT: -5</span>`;
 document.getElementById('awardText').textContent=`+${points} pts`;
-addSys(`${t.toUpperCase()} (${points}pts): ${lastQ} - ${pendingPlayer} must answer! Vote!`,'question',pendingPlayer);
+addSys(`${t.toUpperCase()} (${points}pts): ${lastQ} - ${pendingPlayer} must answer!`,'question',pendingPlayer);
 }
 function decide(awarded){
 if(!pendingPlayer)return;
 let p=players.find(x=>x.name==pendingPlayer);
 if(!p)return;
 let awardPoints=pendingType=='truth'?10:5;
-let deductPoints=-5;
 if(awarded){
 p.points+=awardPoints;
-document.getElementById('qb').innerHTML=`<div style="color:#00FF88;font-weight:900;font-size:22px">🟢 ${p.name} AWARDED!</div><div style="font-size:18px">+${awardPoints} pts for ${pendingType.toUpperCase()}!</div><div>Total: ${p.points} pts! 🎉</div>`;
-addSys(`🟢 ${p.name} AWARDED +${awardPoints} pts for ${pendingType}! Now ${p.points} pts!`,'reply',p.name);
+document.getElementById('qb').innerHTML=`<div style="color:#00FF88;font-weight:900;font-size:22px">🟢 ${p.name} AWARDED +${awardPoints}!</div><div>Total: ${p.points} pts! 🎉</div>`;
+addSys(`🟢 ${p.name} AWARDED +${awardPoints} pts! Now ${p.points} pts!`,'reply',p.name);
 }else{
-p.points+=deductPoints;
-document.getElementById('qb').innerHTML=`<div style="color:#FF3333;font-weight:900;font-size:22px">🔴 ${p.name} FAILED!</div><div style="font-size:18px">-5 pts DEDUCTED! Penalty!</div><div>Total: ${p.points} pts 😔</div>`;
-addSys(`🔴 ${p.name} FAILED! -5 pts deducted! Now ${p.points} pts penalty!`,'reply',p.name);
+p.points+=-5;
+document.getElementById('qb').innerHTML=`<div style="color:#FF3333;font-weight:900;font-size:22px">🔴 ${p.name} DEDUCTED -5!</div><div>Total: ${p.points} pts penalty!</div>`;
+addSys(`🔴 ${p.name} DEDUCTED -5 pts! Now ${p.points} pts!`,'reply',p.name);
 }
 document.getElementById('approveBox').classList.remove('show');
 curr=(curr+1)%players.length;
 setTimeout(()=>{drawWheel();renderPlayersList();},400);
 pendingPlayer='';pendingType='';
+}
+function showRanking(){
+if(players.length==0){alert('Add players first!');return;}
+let sorted=[...players].sort((a,b)=>b.points-a.points);
+let html='';
+sorted.forEach((p,i)=>{
+let medal=i==0?'🥇 WINNER!':i==1?'🥈 2nd Place':i==2?'🥉 3rd Place':`#${i+1} ${p.name}`;
+let bg=i==0?'background:#FFCC00;color:#000;border:2px solid #fff;':'background:#222;color:#fff;';
+html+=`<div style="${bg}padding:12px;border-radius:10px;margin:6px 0;display:flex;justify-content:space-between;font-weight:900"><span>${medal} ${i>0?p.name:sorted[0].name}</span><span>${p.points} pts</span></div>`;
+if(i==0){html+=`<div style="text-align:center;margin:10px 0;font-size:12px;opacity:.8">👑 ${p.name} is winning Posi Posi with ${p.points} pts! 🎉</div>`}
+});
+document.getElementById('rankingContent').innerHTML=html;
+document.getElementById('rankingTime').textContent=new Date().toLocaleString()+' • EAT • Total Players: '+players.length+' • ONE WHEEL: '+players.map(p=>p.name).join(', ');
+document.getElementById('rankingModal').classList.add('show');
+}
+function closeRanking(){document.getElementById('rankingModal').classList.remove('show');}
+function resetGame(){
+if(!confirm('Reset all points to 0? Start new game?'))return;
+players.forEach(p=>p.points=0);
+drawWheel();renderPlayersList();
+document.getElementById('qb').innerHTML='<div>🔄 New game! Points reset to 0!<br>Spin again!</div>';
+addSys('🔄 Game reset! All points 0! New Posi Posi!','join','SYSTEM');
 }
 function addCustomQ(){
 let type=document.getElementById('customType').value;
