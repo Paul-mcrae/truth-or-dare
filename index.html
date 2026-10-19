@@ -1,150 +1,98 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TRUTH OR DARE - PHONE ONLINE</title>
-<script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+<title>PAUL'S TRUTH OR DARE - ULTRA FIXED</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a14;color:#fff;font-family:system-ui;padding:10px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#fff;font-family:system-ui;padding:10px}
 .app{max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
-h1{text-align:center;font-size:24px}h1 span{color:#FF0055}
-.online{padding:8px;background:#111;border-radius:10px;text-align:center;font-size:12px}
-.online button{padding:8px 12px;border-radius:8px;border:0;font-weight:800;margin:4px;cursor:pointer}
-.wheel{width:250px;height:250px;margin:8px auto;border-radius:50%;background:#1a1a2e;border:6px solid #FF005533;position:relative;display:flex;align-items:center;justify-content:center}
-.bottle{font-size:60px;cursor:pointer;transition:transform 2s ease}
-.p-dot{position:absolute;font-size:11px;font-weight:800;background:#333;padding:4px 8px;border-radius:99px}
-.p-dot.on{background:#FFCC00;color:#000}
-.card{background:#1e1e38;border-radius:16px;padding:12px}
-.qbox{background:#0006;border-radius:12px;padding:12px;min-height:80px;text-align:center}
-.reply-box{background:linear-gradient(135deg,#FF005522,#FFCC0022);border:2px solid #FF0055;border-radius:12px;padding:10px;margin-top:8px;display:none}
-.reply-box.show{display:block}
-.reply-box input{width:100%;background:#0008;border:1px solid #FF0055aa;border-radius:8px;padding:10px;color:#fff;margin:6px 0}
-.btns{display:flex;gap:6px}
-.btns button{flex:1;border:0;border-radius:10px;padding:11px;font-weight:900;cursor:pointer}
-.t{background:#00D4FF}.d{background:#FF0055;color:#fff}
-.send-reply{background:linear-gradient(135deg,#FF0055,#FFCC00);color:#000}
-.lv{display:flex;gap:5px;overflow-x:auto}
-.lv div{flex:0 0 auto;padding:6px 12px;border-radius:99px;background:#222;font-size:11px;font-weight:700;cursor:pointer}
+h1{text-align:center;font-size:26px;line-height:.9}h1 span{color:#FF0055}
+.wheel{width:260px;height:260px;margin:10px auto;border-radius:50%;background:radial-gradient(circle,#1a1a3e,#0a0a14);border:8px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px #FF005544}
+.bottle{font-size:70px;cursor:pointer;user-select:none;transition:transform 2.2s cubic-bezier(.2,.8,.2,1);z-index:5}
+.p-dot{position:absolute;font-size:11px;font-weight:900;background:#333;padding:5px 10px;border-radius:99px;transform:translate(-50%,-50%)}
+.p-dot.on{background:#FFCC00;color:#000;box-shadow:0 0 10px #FFCC00}
+.card{background:#1e1e38;border-radius:16px;padding:12px;border:1px solid #ffffff15}
+.qbox{background:#0008;border-radius:12px;padding:14px;min-height:100px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.reply-box{background:linear-gradient(135deg,#FF005533,#FFCC0033);border:2px solid #FF0055;border-radius:12px;padding:12px;margin-top:10px;display:none}
+.reply-box.show{display:block;animation:pop .3s ease}
+@keyframes pop{0%{transform:scale(.8)}100%{transform:scale(1)}}
+.reply-box input{width:100%;background:#000a;border:1px solid #FF0055;border-radius:8px;padding:12px;color:#fff;margin:8px 0;font-size:14px}
+.btns{display:flex;gap:8px;margin-top:8px}
+.btns button{flex:1;border:0;border-radius:12px;padding:13px;font-weight:900;cursor:pointer;font-size:14px}
+.t{background:linear-gradient(135deg,#00D4FF,#5B5BFF);color:#fff}
+.d{background:linear-gradient(135deg,#FF0055,#FF3D00);color:#fff}
+.lv{display:flex;gap:5px;overflow-x:auto;padding:5px 0}
+.lv div{flex:0 0 auto;padding:7px 13px;border-radius:99px;background:#222;font-size:11px;font-weight:800;cursor:pointer}
 .lv div.on{background:#fff;color:#000}
-.chat{height:120px;overflow-y:auto;background:#0004;border-radius:10px;padding:6px;display:flex;flex-direction:column;gap:4px}
-.m{background:#222;padding:6px 10px;border-radius:10px;font-size:12px;max-width:90%}
-.m.me{align-self:flex-end;background:#fff;color:#000}
-.m.reply{border-left:3px solid #00D4FF}
-.m.question{border-left:3px solid #FF0055}
-.react{display:flex;gap:6px;justify-content:center;font-size:20px;margin:6px 0}
+.chat{height:130px;overflow-y:auto;background:#0005;border-radius:10px;padding:6px;display:flex;flex-direction:column;gap:5px}
+.m{background:#222;padding:7px 10px;border-radius:10px;font-size:12px;max-width:90%}
+.m.me{align-self:flex-end;background:#fff;color:#000;font-weight:700}
+.m.reply{background:#00D4FF22;border-left:3px solid #00D4FF}
+.m.question{background:#FF005522;border-left:3px solid #FF0055}
+.react{display:flex;gap:8px;justify-content:center;font-size:24px;margin:8px 0}
 .react span{cursor:pointer}
-.cin{display:flex;gap:4px}
-.cin input{flex:1;background:#222;border:1px solid #444;border-radius:99px;padding:8px 12px;color:#fff}
+.cin{display:flex;gap:6px;margin-top:6px}
+.cin input{flex:1;background:#222;border:1px solid #444;border-radius:99px;padding:10px 14px;color:#fff}
+.top{width:100%;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;font-size:16px;cursor:pointer;margin:5px 0}
 </style></head><body>
 <div class="app">
-<h1>TRUTH <span>OR DARE</span></h1>
-<div style="text-align:center;font-size:9px;opacity:.6">PHONE-ONLY • NO PC NEEDED • REPLY SYSTEM</div>
+<h1>PAUL'S<br>TRUTH <span>OR DARE</span></h1>
+<div style="text-align:center;font-size:11px;letter-spacing:3px;opacity:.7">BY PAUL McRAE • KAMPALA</div>
+<div style="text-align:center;font-size:9px;opacity:.5;letter-spacing:2px;margin-top:4px">BOTTLE ACTIVE • CLEAR QUESTIONS • REPLY SYSTEM</div>
 
-<div class="online" id="onlineBox">
-<div id="status">📴 OFFLINE PARTY MODE - Pass phone around</div>
-<div style="margin-top:6px">
-<button onclick="hostRoom()" style="background:#00D4FF">📱 HOST ROOM</button>
-<button onclick="joinRoom()" style="background:#FFCC00;color:#000">👥 JOIN ROOM</button>
-<button onclick="offlineMode()" style="background:#333;color:#fff">OFFLINE</button>
-</div>
-<div id="roomInfo" style="margin-top:6px;font-size:11px;opacity:.8"></div>
-</div>
+<div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
+<button class="top" onclick="spin()">🎡 TAP BOTTLE OR HERE TO SPIN!</button>
 
 <div class="lv" id="lv"></div>
-<div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
 
 <div class="card">
-<div style="display:flex;gap:6px"><input id="pn" placeholder="Add player" style="flex:1;background:#0005;border:1px solid #444;border-radius:8px;padding:10px;color:#fff"><button onclick="addP()" style="background:#fff;color:#000;border:0;border-radius:8px;padding:8px 12px;font-weight:800">ADD</button></div>
-<div class="qbox" id="qb">1. Add players<br>2. Tap bottle<br>3. Truth/Dare<br>4. REPLY in box below!</div>
+<div style="display:flex;gap:6px;margin-bottom:8px">
+<input id="pn" placeholder="Add player name" style="flex:1;background:#0006;border:1px solid #444;border-radius:10px;padding:12px;color:#fff">
+<button onclick="addP()" style="background:#fff;color:#000;border:0;border-radius:10px;padding:12px 16px;font-weight:900">ADD</button>
+</div>
+<div class="qbox" id="qb"><div style="opacity:.6;font-size:11px">READY?</div><div style="font-weight:800;margin-top:6px;font-size:14px">1. Add 2+ players<br>2. Tap bottle to spin<br>3. Truth/Dare<br>4. Player replies!</div></div>
+
 <div class="reply-box" id="replyBox">
-<div style="font-size:12px;font-weight:800">💬 <span id="replyName">Player</span> MUST REPLY:</div>
-<div style="font-size:11px;opacity:.7" id="replyQuestion"></div>
+<div style="font-weight:900;font-size:13px">💬 <span id="replyName">Player</span> MUST REPLY:</div>
+<div style="font-size:12px;opacity:.8;margin-top:4px;background:#0005;padding:6px;border-radius:6px" id="replyQuestion"></div>
 <input id="replyInput" placeholder="Type honest answer...">
-<div class="btns"><button class="send-reply" onclick="submitReply()">SEND ANSWER ✅</button></div>
+<button onclick="submitReply()" style="width:100%;background:linear-gradient(135deg,#FFCC00,#FF0055);color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;margin-top:6px">SEND ANSWER ✅</button>
 </div>
-<div class="react"><span onclick="react('😂')">😂</span><span onclick="react('🔥')">🔥</span><span onclick="react('😳')">😳</span><span onclick="react('💀')">💀</span><span onclick="react('❤️')">❤️</span><span onclick="react('👏')">👏</span></div>
-<div class="btns"><button class="t" onclick="play('truth')">TRUTH</button><button class="d" onclick="play('dare')">DARE</button></div>
+
+<div class="react"><span onclick="doReact('😂')">😂</span><span onclick="doReact('🔥')">🔥</span><span onclick="doReact('😳')">😳</span><span onclick="doReact('💀')">💀</span><span onclick="doReact('❤️')">❤️</span><span onclick="doReact('👏')">👏</span></div>
+<div class="btns"><button class="t" onclick="play('truth')">TRUTH 💎</button><button class="d" onclick="play('dare')">DARE 🔥</button></div>
 </div>
 
 <div class="card">
-<div style="font-weight:800;font-size:11px">💬 CHAT + ANSWERS</div>
-<div class="chat" id="chat"><div class="m">Crystal clear questions edition!</div></div>
-<div class="cin"><input id="ci" placeholder="Chat..."><button onclick="send()" style="background:#FF0055;border:0;border-radius:99px;width:36px;height:36px;color:#fff">➤</button></div>
+<div style="font-weight:800;font-size:12px;margin-bottom:6px">💬 CHAT + ANSWERS</div>
+<div class="chat" id="chat"><div class="m">Welcome to Paul's Game! Spin bottle - ACTIVE!</div></div>
+<div class="cin"><input id="ci" placeholder="Chat here..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:40px;height:40px;color:#fff">➤</button></div>
 </div>
 </div>
 
 <script>
-let L=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'],cur=2,players=[],curr=0,rot=0,lastQ='',lastPlayer='';
+let LEVELS=['😇 SOFT','😏 TEEN','🥳 PARTY','🌶️ SPICY','🔞 ADULT','💀 SAVAGE'],curL=2,players=[],curr=0,rot=0,lastQ='',lastPlayer='';
 let Q={
-0:{t:["When was the most embarrassing text you ever sent and to who?","What is your hidden talent that nobody knows?","Who is your celebrity crush and why?"],d:["Do 15 jumping jacks shouting loudly","Do TikTok dance 10 seconds"]},
-1:{t:["Who in this group would you kiss right now?","Have you ever stalked your crush online? Who?","Who is most attractive here and why?"],d:["Text your crush 'you up?' now","Stare into eyes 20 seconds"]},
-2:{t:["When was the drunkest you have ever been and what happened?","Honestly, how many body counts have you got? Tell total number!","Who would be best in bed here and why?"],d:["Take dramatic water shot","Dance on chair 20 seconds"]},
-3:{t:["What is your biggest sexual fantasy? Describe in detail!","Who have you ever sexted and what did you say?","What is wildest place you hooked up?"],d:["Lap dance 15 seconds clothed","Whisper dirty in ear"]},
-4:{t:["How and when did you lose your virginity? Full story!","What is your dirtiest secret nobody knows?","How many body counts have you got? Be honest total number!","What is your favorite sex position and why?","What is nastiest thing you ever did?"],d:["Let group write dirty text to your ex","Twerk 30 seconds","Moan name loudly"]},
-5:{t:["Who would you unfriend now and why?","What is most illegal thing you ever did?"],d:["Post 'I am liar' 10min","Show bank balance"]}
+0:{t:["When was the most embarrassing text you ever sent and who did you send it to?","What is your hidden talent nobody knows?","Who is your celebrity crush and why?","How long have you gone without shower? Truth!"],d:["Do 15 jumping jacks shouting","TikTok dance 10 seconds"]},
+1:{t:["Who in this group would you kiss right now?","Have you stalked crush online? Who?","Who is most attractive here and why?"],d:["Text crush 'you up?' now","Stare eyes 20 seconds"]},
+2:{t:["When was drunkest you ever been? What happened?","Honestly, how many body counts have you got? Total number!","Who would be best in bed here and why?"],d:["Dramatic water shot","Dance chair 20 seconds"]},
+3:{t:["What is your biggest sexual fantasy? Describe detail!","Who have you sexted and what did you say?","Wildest place you hooked up?"],d:["Lap dance 15s clothed","Whisper dirty in ear"]},
+4:{t:["How and when did you lose virginity? Full story!","What is dirtiest secret nobody knows?","How many body counts have you got? Be honest total number!","Favorite sex position and why?","Nastiest thing you ever did?"],d:["Group writes dirty text to ex","Twerk 30 seconds","Moan name loudly"]},
+5:{t:["Who would you unfriend now and why?","Most illegal thing you ever did?"],d:["Post 'I am liar' 10min","Show bank balance"]}
 };
-
-let peer=null,connList=[],isHost=false,roomId='';
-
-function renderLv(){let h='';L.forEach((n,i)=>{h+=`<div class="${i==cur?'on':''}" onclick="cur=${i};renderLv()">${n}</div>`});document.getElementById('lv').innerHTML=h}
-function addP(){let v=document.getElementById('pn').value.trim();if(!v||players.length>=8)return;players.push(v);document.getElementById('pn').value='';drawWheel();addMsg(v+' joined','question');syncAll()}
+function renderLevels(){let h='';LEVELS.forEach((n,i)=>{h+=`<div class="${i==curL?'on':''}" onclick="curL=${i};renderLevels()">${n}</div>`});document.getElementById('lv').innerHTML=h}
+function addP(){let v=document.getElementById('pn').value.trim();if(!v||players.length>=8)return;players.push(v);document.getElementById('pn').value='';drawWheel();addSys(v+' joined!')}
 function drawWheel(){let w=document.getElementById('wheel');w.querySelectorAll('.p-dot').forEach(e=>e.remove());players.forEach((p,i)=>{let d=document.createElement('div');d.className='p-dot'+(i==curr?' on':'');d.textContent=p;let a=(360/players.length)*i;let r=95;let x=Math.cos(a*Math.PI/180)*r;let y=Math.sin(a*Math.PI/180)*r;d.style.left='50%';d.style.top='50%';d.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px)`;w.appendChild(d)})}
-function spin(){if(players.length<2){document.getElementById('qb').innerText='Need 2 players!';return}rot+=Math.floor(Math.random()*1000)+800;document.getElementById('bot').style.transform=`rotate(${rot}deg)`;document.getElementById('replyBox').classList.remove('show');setTimeout(()=>{curr=Math.floor(Math.random()*players.length);drawWheel();document.getElementById('qb').innerHTML=`<b>${players[curr]} 🎯 PICKED!</b><br>Choose Truth or Dare`;addMsg('Wheel picked '+players[curr],'question');syncAll()},2000)}
-function play(t){if(players.length<2)return;let list=t=='truth'?Q[cur].t:Q[cur].d;lastQ=list[Math.floor(Math.random()*list.length)];lastPlayer=players[curr];document.getElementById('qb').innerHTML=`<div style="opacity:.6;font-size:10px">${L[cur]} ${t}</div><div style="font-weight:800;margin-top:6px">${lastQ}</div><div style="margin-top:6px">👉 ${lastPlayer} must reply!</div>`;addMsg(`${lastPlayer} - ${t.toUpperCase()}: ${lastQ}`,'question');showReplyBox();curr=(curr+1)%players.length;setTimeout(drawWheel,300);syncAll()}
+function spin(){if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055;font-weight:800">Need 2+ players!</div>';return}rot+=Math.floor(Math.random()*900+700);document.getElementById('bot').style.transform=`rotate(${rot}deg)`;document.getElementById('replyBox').classList.remove('show');document.getElementById('qb').innerHTML='🎡 SPINNING...';addSys('Spinning...');setTimeout(()=>{curr=Math.floor(Math.random()*players.length);drawWheel();document.getElementById('qb').innerHTML=`<div style="font-size:22px;font-weight:900">${players[curr]} 🎯 PICKED!</div><div>Now Truth or Dare!</div>`;addSys('Picked '+players[curr]+'!')},2200)}
+function play(t){if(players.length<2)return;let list=t=='truth'?Q[curL].t:Q[curL].d;lastQ=list[Math.floor(Math.random()*list.length)];lastPlayer=players[curr];document.getElementById('qb').innerHTML=`<div style="opacity:.6;font-size:10px">${LEVELS[curL]} ${t}</div><div style="font-weight:800;margin-top:6px">${lastQ}</div><div style="margin-top:6px">👉 ${lastPlayer} must answer!</div>`;addSys(`${lastPlayer} - ${t}: ${lastQ}`,'question');showReplyBox();curr=(curr+1)%players.length;setTimeout(drawWheel,400)}
 function showReplyBox(){document.getElementById('replyBox').classList.add('show');document.getElementById('replyName').textContent=lastPlayer;document.getElementById('replyQuestion').textContent=lastQ}
-function submitReply(){let inp=document.getElementById('replyInput');let ans=inp.value.trim();if(!ans)return alert('Type answer!');addMsg(`${lastPlayer} ANSWERED: "${ans}" to "${lastQ}"`,'reply');document.getElementById('qb').innerHTML=`<div style="color:#00D4FF;font-weight:800">✅ ${lastPlayer} REPLIED!</div><div style="margin-top:6px">"${ans}"</div><div style="margin-top:6px;font-size:11px;opacity:.6">Spin again!</div>`;document.getElementById('replyBox').classList.remove('show');inp.value='';syncAll()}
-function react(e){addMsg('Reacted '+e,'');syncAll()}
-function send(){let i=document.getElementById('ci');let v=i.value.trim();if(!v)return;addMsg(v,'me');i.value='';syncAll()}
-function addMsg(t,cls){let c=document.getElementById('chat');let d=document.createElement('div');d.className='m '+(cls||'');d.textContent=t;c.appendChild(d);c.scrollTop=c.scrollHeight}
-
-// PEERJS - NO SERVER SETUP NEEDED, WORKS ON PHONE!
-function hostRoom(){
- roomId = 'TRUTH-'+Math.floor(Math.random()*9000+1000);
- peer = new Peer(roomId);
- peer.on('open', id=>{
-   document.getElementById('status').textContent='✅ HOSTING ROOM: '+id;
-   document.getElementById('roomInfo').innerHTML='Share this code to friends: <b style="color:#00D4FF;font-size:14px">'+id+'</b><br>They tap JOIN and enter code';
-   isHost=true;
- });
- peer.on('connection', c=>{
-   connList.push(c);
-   c.on('data', data=>{handleData(data)});
-   c.on('open', ()=>{c.send({type:'sync',players,chat:document.getElementById('chat').innerHTML})});
- });
-}
-function joinRoom(){
- let code = prompt('Enter HOST room code (e.g. TRUTH-1234):');
- if(!code)return;
- peer = new Peer();
- peer.on('open', ()=>{
-   let conn = peer.connect(code);
-   conn.on('open', ()=>{
-     document.getElementById('status').textContent='✅ JOINED ROOM: '+code;
-     document.getElementById('roomInfo').textContent='Connected! You will see fellows live!';
-     connList=[conn];
-   });
-   conn.on('data', data=>{handleData(data)});
- });
-}
-function offlineMode(){
- if(peer)peer.destroy();
- document.getElementById('status').textContent='📴 OFFLINE PARTY MODE - Pass phone around';
- document.getElementById('roomInfo').textContent='';
-}
-function syncAll(){
- let data={type:'sync',players,curr,qb:document.getElementById('qb').innerHTML,chat:document.getElementById('chat').innerHTML,lastQ,lastPlayer};
- connList.forEach(c=>{try{c.send(data)}catch(e){}});
-}
-function handleData(d){
- if(d.type=='sync'){
-   if(d.players){players=d.players;drawWheel()}
-   if(d.qb){document.getElementById('qb').innerHTML=d.qb}
-   if(d.chat){document.getElementById('chat').innerHTML=d.chat}
-   if(d.curr!==undefined)curr=d.curr;
-   if(d.lastQ)lastQ=d.lastQ;
- }
-}
-
-renderLv();
+function submitReply(){let inp=document.getElementById('replyInput');let ans=inp.value.trim();if(!ans)return alert('Type answer!');addSys(`${lastPlayer} ANSWERED: "${ans}"`,'reply');document.getElementById('qb').innerHTML=`<div style="color:#00FF88;font-weight:900">✅ ${lastPlayer} REPLIED!</div><div style="margin-top:6px">"${ans}"</div><div style="margin-top:6px;font-size:11px;opacity:.6">Spin again!</div>`;document.getElementById('replyBox').classList.remove('show');inp.value='';doReact('👏')}
+function doReact(e){addSys('Reacted '+e);let f=document.createElement('div');f.textContent=e;f.style.position='fixed';f.style.left='50%';f.style.top='50%';f.style.fontSize='50px';f.style.zIndex='999';f.style.pointerEvents='none';f.style.animation='up 1.2s forwards';document.body.appendChild(f);setTimeout(()=>f.remove(),1200)}
+function sendChat(){let i=document.getElementById('ci');let v=i.value.trim();if(!v)return;addSys(v,'me');i.value=''}
+function addSys(t,cls){let c=document.getElementById('chat');let d=document.createElement('div');d.className='m '+(cls||'');d.textContent=t;c.appendChild(d);c.scrollTop=c.scrollHeight}
 document.getElementById('pn').addEventListener('keydown',e=>{if(e.key=='Enter')addP()});
-document.getElementById('ci').addEventListener('keydown',e=>{if(e.key=='Enter')send()});
+document.getElementById('ci').addEventListener('keydown',e=>{if(e.key=='Enter')sendChat()});
 document.getElementById('replyInput').addEventListener('keydown',e=>{if(e.key=='Enter')submitReply()});
-</script></body></html>
+renderLevels();
+</script>
+<style>@keyframes up{0%{transform:translate(-50%,-50%) scale(1);opacity:1}100%{transform:translate(-50%,-200px) scale(1.5);opacity:0}}</style>
+</body></html>
