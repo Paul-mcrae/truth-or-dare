@@ -1,50 +1,38 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TRUTH OR DARE ULTIMATE BOTTLE</title>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TRUTH OR DARE SOCIAL ULTRA</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}body{background:#08080f;color:#fff;font-family:system-ui;min-height:100vh}
-.app{max-width:480px;margin:0 auto;padding:16px;display:flex;flex-direction:column;min-height:100vh}
-.header{text-align:center;padding:12px 0}.logo{font-size:36px;font-weight:900}.logo span{background:linear-gradient(90deg,#FF0055,#FFCC00);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.levels{display:flex;gap:6px;overflow-x:auto;padding:10px 0}.level{flex:0 0 auto;padding:8px 14px;border-radius:100px;background:#ffffff0a;border:1px solid #ffffff15;font-size:12px;font-weight:700;cursor:pointer}.level.active{background:#fff;color:#000}
-.card{background:linear-gradient(180deg,#1c1c32,#141428);border-radius:28px;padding:20px;border:1px solid #ffffff12}
-.bottle-wrap{position:relative;height:140px;display:flex;align-items:center;justify-content:center;margin:12px 0}
-.bottle{font-size:80px;transition:transform 3s cubic-bezier(.15,.8,.3,1);cursor:pointer;filter:drop-shadow(0 0 20px #FF005588)}
-.bottle.spin{transform:rotate(1800deg)}
-.players{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:10px 0}.chip{background:#ffffff14;padding:6px 12px;border-radius:100px;font-size:12px}.chip.active{background:linear-gradient(135deg,#FF0055,#FFCC00);color:#000;font-weight:800}
-.input{display:flex;gap:8px;margin:10px 0}.input input{flex:1;background:#0005;border:1px solid #ffffff18;border-radius:12px;padding:12px;color:#fff}
-.btn{border:0;border-radius:14px;padding:14px;font-weight:900;cursor:pointer}.btn-add{background:#fff;color:#000}
-.btn-row{display:flex;gap:10px;margin-top:14px}.btn-t{flex:1;background:linear-gradient(135deg,#00D4FF,#5B5BFF);color:#fff}.btn-d{flex:1;background:linear-gradient(135deg,#FF0055,#FF3D00);color:#fff}
-.qbox{background:#0006;border-radius:18px;padding:18px;min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;margin-top:12px;border:1px dashed #ffffff18}
-.music{position:fixed;top:12px;right:12px;background:#ffffff14;border-radius:100px;padding:8px 12px;font-size:12px;cursor:pointer;z-index:5}
+.app{max-width:500px;margin:0 auto;padding:14px;display:flex;flex-direction:column;min-height:100vh;gap:12px}
+.header{text-align:center}.logo{font-size:34px;font-weight:900}.logo span{background:linear-gradient(90deg,#FF0055,#FFCC00);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.levels{display:flex;gap:6px;overflow-x:auto}.level{flex:0 0 auto;padding:8px 12px;border-radius:99px;background:#ffffff0a;border:1px solid #ffffff15;font-size:11px;font-weight:700;cursor:pointer}.level.active{background:#fff;color:#000}
+.wheel-box{position:relative;width:280px;height:280px;margin:10px auto;border-radius:50%;background:conic-gradient(#FF0055,#FFCC00,#00D4FF,#7C3AED,#FF0055);padding:6px;transition:transform 4s cubic-bezier(.15,.8,.2,1)}
+.wheel-inner{width:100%;height:100%;background:#141428;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.player-on-wheel{position:absolute;font-size:11px;font-weight:800;background:#ffffff18;padding:3px 7px;border-radius:99px;transform-origin:center}
+.bottle-center{font-size:64px;z-index:2;cursor:pointer;filter:drop-shadow(0 0 15px #FF0055)}
+.card{background:linear-gradient(180deg,#1c1c32,#141428);border-radius:22px;padding:16px;border:1px solid #ffffff12}
+.qbox{background:#0006;border-radius:16px;padding:14px;min-height:90px;text-align:center}
+.btn-row{display:flex;gap:8px;margin-top:10px}.btn{flex:1;border:0;border-radius:12px;padding:12px;font-weight:900;cursor:pointer}.btn-t{background:linear-gradient(135deg,#00D4FF,#5B5BFF);color:#fff}.btn-d{background:linear-gradient(135deg,#FF0055,#FF3D00);color:#fff}
+.input{display:flex;gap:6px}.input input{flex:1;background:#0005;border:1px solid #ffffff18;border-radius:10px;padding:10px;color:#fff}
+.reactions{display:flex;gap:6px;justify-content:center;margin:8px 0}.react{font-size:22px;cursor:pointer;transition:.2s}.react:hover{transform:scale(1.4)}
+.chat{max-height:180px;overflow-y:auto;background:#00000055;border-radius:14px;padding:8px;display:flex;flex-direction:column;gap:6px}
+.msg{background:#ffffff10;padding:6px 10px;border-radius:12px;font-size:13px;max-width:80%}.msg.me{align-self:flex-end;background:linear-gradient(135deg,#FF0055,#FFCC00);color:#000;font-weight:600}
+.chat-input{display:flex;gap:6px}.chat-input input{flex:1;background:#ffffff0f;border:1px solid #ffffff15;border-radius:99px;padding:10px 14px;color:#fff}
+.icon-btn{background:#ffffff14;border:0;border-radius:99px;width:40px;height:40px;cursor:pointer;font-size:18px}
+.float{position:fixed;pointer-events:none;animation:floatUp 2s ease forwards;font-size:24px}
+@keyframes floatUp{0%{transform:translateY(0) scale(1);opacity:1}100%{transform:translateY(-120px) scale(1.5);opacity:0}}
 </style></head><body>
-<div class="music" id="musicBtn" onclick="toggleMusic()">🎵 MUSIC OFF</div>
 <div class="app">
-<div class="header"><div class="logo">TRUTH<br><span>OR DARE</span></div><div style="font-size:10px;letter-spacing:3px;opacity:.5">BOTTLE EDITION • PRO MAX</div></div>
+<div class="header"><div class="logo">TRUTH <span>OR DARE</span></div><div style="font-size:9px;letter-spacing:3px;opacity:.5">WHEEL • CHAT • VOICE • REACTIONS</div></div>
 <div class="levels" id="levels"></div>
+<div class="wheel-box" id="wheelBox"><div class="wheel-inner" id="wheelInner"><div class="bottle-center" id="bottle" onclick="spinWheel()">🍾</div></div></div>
+<div style="text-align:center;font-size:11px;opacity:.6">TAP BOTTLE TO SPIN WHEEL</div>
 <div class="card">
-<div class="bottle-wrap"><div class="bottle" id="bottle" onclick="spinBottle()">🍾</div></div>
-<div style="text-align:center;font-size:11px;opacity:.5">TAP BOTTLE TO SPIN • WHO IT POINTS TO PLAYS</div>
-<div class="players" id="players"></div>
-<div class="input"><input id="pname" placeholder="Player name"><button class="btn btn-add" onclick="addPlayer()">ADD</button></div>
-<div class="qbox" id="qbox"><div style="font-size:10px;opacity:.5">READY?</div><div style="font-weight:700;margin-top:6px">Add 2+ players, spin bottle!</div></div>
+<div class="input"><input id="pname" placeholder="Add player"><button class="btn" style="background:#fff;color:#000;padding:8px 14px" onclick="addPlayer()">ADD</button></div>
+<div class="qbox" id="qbox"><div style="opacity:.6;font-size:11px">READY?</div><div style="font-weight:700;margin-top:4px">Add players, spin wheel!</div></div>
+<div class="reactions" id="reacts"><div class="react" onclick="react('😂')">😂</div><div class="react" onclick="react('🔥')">🔥</div><div class="react" onclick="react('😳')">😳</div><div class="react" onclick="react('💀')">💀</div><div class="react" onclick="react('😍')">😍</div><div class="react" onclick="react('🤮')">🤮</div></div>
 <div class="btn-row"><button class="btn btn-t" onclick="play('truth')">TRUTH 💎</button><button class="btn btn-d" onclick="play('dare')">DARE 🔥</button></div>
-</div></div>
-<audio id="bg" loop><source src="https://cdn.pixabay.com/download/audio/2022/03/24/audio_2a0d0a2c38.mp3?filename=hip-hop-rock-beats-118000.mp3" type="audio/mpeg"></audio>
-<script>
-const LEVELS=['😇 SOFT','😏 TEEN','🥳 PARTY','🌶️ SPICY','🔞 ADULT','💀 SAVAGE'];let curL=0,players=[],current=0,musicOn=false;
-const DATA={
-0:{truth:["Most embarrassing text?","Hidden talent?","Celeb crush?","Guilty song?"],dare:["15 jumping jacks","TikTok dance","Plank 40s","Evil laugh"]},
-1:{truth:["Who kiss here?","Stalked crush?","Most attractive here?"],dare:["Text crush 'you up?'","Stare eyes 20s","Pickup line"]},
-2:{truth:["Drunkest ever?","Body count?","Best in bed here?"],dare:["Water shot dramatic","Dance chair","Chug water"]},
-3:{truth:["Fantasy?","Sexted who?","Kinkiest tried?"],dare:["Lap dance 15s","Whisper dirty","Grind chair"]},
-4:{truth:["Lose virginity how?","Dirtiest secret?","Threesome?","Fav position?","Body count honest?"],dare:["Dirty text group writes","Leave lip mark","Twerk 30s","Moan name loudly","Call crush sexy voice"]},
-5:{truth:["Who unfriend?","Most illegal?","Steal partner for $1M?"],dare:["Post 'I am liar' 10min","Show bank","Roast 1 min"]}
-};
-function renderLevels(){let h='';LEVELS.forEach((l,i)=>{h+=`<div class="level ${i==curL?'active':''}" onclick="curL=${i};renderLevels()">${l}</div>`});document.getElementById('levels').innerHTML=h}
-function addPlayer(){let v=document.getElementById('pname').value.trim();if(!v)return;players.push(v);document.getElementById('pname').value='';renderP();playSound(440)}
-function renderP(){let h='';players.forEach((p,i)=>{h+=`<div class="chip ${i==current?'active':''}">${p}</div>`});document.getElementById('players').innerHTML=h}
-function spinBottle(){if(players.length<2)return;let b=document.getElementById('bottle');let rot=Math.floor(Math.random()*1440)+720;b.style.transform=`rotate(${rot}deg)`;playSound(200,0.8);current=Math.floor(Math.random()*players.length);setTimeout(()=>{renderP();document.getElementById('qbox').innerHTML=`<div style="font-size:12px;opacity:.6">BOTTLE POINTS TO</div><div style="font-size:22px;font-weight:900;margin-top:6px">${players[current]} 👉</div>`;playSound(660,0.5)},2100);if(navigator.vibrate)navigator.vibrate([30,20,30])}
-function play(t){if(players.length<2){document.getElementById('qbox').innerHTML='Need 2 players!';return}let list=DATA[curL][t];let q=list[Math.floor(Math.random()*list.length)];document.getElementById('qbox').innerHTML=`<div style="font-size:10px;opacity:.6">${LEVELS[curL]} • ${t.toUpperCase()}</div><div style="font-size:18px;font-weight:700;margin-top:8px">${q}</div><div style="margin-top:10px;background:#ffffff14;padding:4px 10px;border-radius:99px;font-size:12px">👉 ${players[current]}</div>`;current=(current+1)%players.length;renderP();playSound(t=='truth'?523:110,0.6)}
-function toggleMusic(){let a=document.getElementById('bg');musicOn=!musicOn;if(musicOn){a.play().catch(()=>{});document.getElementById('musicBtn').innerHTML='🔊 MUSIC ON';}else{a.pause();document.getElementById('musicBtn').innerHTML='🎵 MUSIC OFF';}}
-let ctx;function playSound(freq,dur=0.2){try{if(!ctx)ctx=new (window.AudioContext||window.webkitAudioContext)();let o=ctx.createOscillator();let g=ctx.createGain();o.frequency.value=freq;o.connect(g);g.connect(ctx.destination);g.gain.setValueAtTime(0.3,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+dur);o.start();o.stop(ctx.currentTime+dur)}catch(e){}}
-renderLevels();
-</script></body></html>
+</div>
+<div class="card">
+<div style="font-size:12px;font-weight:700;margin-bottom:6px">💬 GROUP CHAT + VOICE</div>
+<div class="chat" id="chat"></div>
+<div class="chat-input"><input id="chatIn" placeholder="Type message..."><button class="icon-btn" onclick="sendChat()">
