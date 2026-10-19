@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Come and Join Posi Posi Truth or Dare LIVE!</title>
-<meta property="og:title" content="🌍 Come and Join Posi Posi Truth or Dare LIVE! 🎡">
-<meta property="og:description" content="Come and join the LIVE Truth or Dare party in Kampala! One wheel for all players! Click to join! 🎉">
-<meta property="og:type" content="website">
+<title>Paul's Truth or Dare - STABLE</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}html{-webkit-text-size-adjust:100%;touch-action:manipulation}
+*{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a14;color:#fff;font-family:system-ui;padding:10px}
 .app{max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
 h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
-.time-bar{background:#1a1a3e;border:1px solid #FFCC00;border-radius:12px;padding:10px;display:flex;justify-content:space-between;font-size:12px;font-weight:800}
-.live-bar{background:#FF0055;border-radius:99px;padding:8px 14px;display:flex;justify-content:space-between;font-weight:900;font-size:12px}
+.bar{background:#1a1a3e;border:1px solid #FFCC00;border-radius:12px;padding:10px;display:flex;justify-content:space-between;font-size:12px;font-weight:800}
+.live{background:#FF0055;border-radius:99px;padding:8px 14px;display:flex;justify-content:space-between;font-weight:900;font-size:12px}
 .online{background:#111;border:2px solid #FFCC00;border-radius:12px;padding:12px;text-align:center}
-.online button{padding:10px 14px;border-radius:8px;border:0;font-weight:900;margin:3px;cursor:pointer;font-size:12px}
-.wheel{width:280px;height:280px;margin:10px auto;border-radius:50%;background:radial-gradient(circle,#1a1a3e,#0a0a14);border:8px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center}
-.bottle{font-size:70px;cursor:pointer;transition:transform 2.2s ease;z-index:10}
-.p-dot{position:absolute;font-size:12px;font-weight:900;background:#333;padding:6px 12px;border-radius:99px;transform:translate(-50%,-50%);border:1px solid #FF0055}
+.online button{padding:10px 14px;border-radius:8px;border:0;font-weight:900;margin:3px;cursor:pointer}
+.wheel{width:280px;height:280px;margin:10px auto;border-radius:50%;background:#1a1a3e;border:8px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center}
+.bottle{font-size:70px;cursor:pointer}
+.p-dot{position:absolute;font-size:12px;font-weight:900;background:#333;padding:6px 12px;border-radius:99px;transform:translate(-50%,-50%)}
 .p-dot.on{background:#FFCC00;color:#000;border:2px solid #fff}
 .card{background:#1e1e38;border-radius:16px;padding:12px}
-.qbox{background:#0008;border-radius:12px;padding:14px;min-height:90px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.qbox{background:#0008;border-radius:12px;padding:14px;min-height:80px;text-align:center}
 .reply-box{background:#FF005533;border:2px solid #FF0055;border-radius:12px;padding:12px;margin-top:10px;display:none}
 .reply-box.show{display:block}
 .reply-box input{width:100%;background:#000a;border:1px solid #FF0055;border-radius:8px;padding:12px;color:#fff;margin:8px 0;font-size:16px}
@@ -29,140 +26,95 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 .lv div{flex:0 0 auto;padding:7px 13px;border-radius:99px;background:#222;font-size:11px;font-weight:800;cursor:pointer}
 .lv div.on{background:#fff;color:#000}
 .chat{height:150px;overflow-y:auto;background:#0008;border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:6px}
-.m{background:#222;padding:8px 12px;border-radius:12px;font-size:13px;max-width:95%}
-.m .sender{font-weight:900;font-size:11px;color:#FFCC00;display:block;margin-bottom:2px}
+.m{background:#222;padding:8px 12px;border-radius:12px;font-size:13px}
+.m .sender{font-weight:900;font-size:11px;color:#FFCC00;display:block}
 .cin{display:flex;gap:6px;margin-top:8px}
 .cin input{flex:1;background:#222;border:1px solid #444;border-radius:99px;padding:12px 16px;color:#fff;font-size:16px}
 .top{width:100%;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer}
 .players-list{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:8px 0}
-.players-list span{background:#FFCC00;color:#000;padding:5px 12px;border-radius:99px;font-size:12px;font-weight:900;border:2px solid #fff}
-.conn-ok{background:#00FF8822;border:2px solid #00FF88;border-radius:10px;padding:10px;margin-top:8px;display:none;font-weight:900;text-align:center}
-.conn-ok.show{display:block}
-.share-box{background:#00D4FF22;border:1px solid #00D4FF;border-radius:8px;padding:8px;margin-top:8px;display:none}
-.share-box.show{display:block}
+.players-list span{background:#FFCC00;color:#000;padding:5px 12px;border-radius:99px;font-size:12px;font-weight:900}
+.share{background:#00D4FF22;border:1px solid #00D4FF;border-radius:8px;padding:8px;margin-top:8px;display:none}
+.share.show{display:block}
 </style></head><body>
 <div class="app">
 <h1>PAUL'S<br>TRUTH <span>OR DARE</span></h1>
-<div style="text-align:center;font-size:11px;letter-spacing:3px;opacity:.7">🌍 BY PAUL McRAE • KAMPALA • ONE WHEEL FOR ALL!</div>
-
-<div class="time-bar"><span id="liveTime">🕐 Loading...</span><span id="liveDate">--</span><span id="timeZone">EAT</span></div>
-<div class="live-bar"><span id="liveDot">🔴 LIVE</span><span id="watchCount">👁️ 1 watching</span><span id="liveNames">Waiting...</span></div>
-
+<div style="text-align:center;font-size:11px;opacity:.7">STABLE - WILL NEVER CRUSH - BY PAUL McRAE KAMPALA</div>
+<div class="bar"><span id="liveTime">🕐 Loading</span><span id="liveDate">--</span><span>EAT</span></div>
+<div class="live"><span>🔴 LIVE</span><span id="watchCount">👁️ 1 watching</span><span id="liveNames">Waiting</span></div>
 <div class="online">
-<div id="status" style="font-weight:800;font-size:13px">📴 Add your name below - ALL ACTIVE!</div>
-<div id="roomInfo" style="font-size:11px;margin-top:6px;word-break:break-all"></div>
+<div id="status" style="font-weight:800">📴 OFFLINE PARTY - STABLE! Add name!</div>
+<div id="roomInfo" style="font-size:11px;margin-top:6px"></div>
 <div id="playersList" class="players-list"></div>
-<div id="viewersList" style="font-size:11px;background:#000a;border-radius:8px;padding:6px;margin-top:6px">👥 Live: Add name - All ACTIVE!</div>
-<div class="conn-ok" id="connOk"></div>
-<div class="share-box" id="shareBox">
-<div style="font-size:12px;font-weight:900" id="shareTitle">🌍🔥 Personalized Invite Link!</div>
-<div id="shareLink" style="font-size:11px;background:#000a;padding:6px;border-radius:6px;margin-top:4px;word-break:break-all;color:#00D4FF"></div>
-<div id="shareText" style="font-size:11px;background:#111;padding:6px;border-radius:6px;margin-top:4px;word-break:break-word;border:1px dashed #FFCC00;text-align:left"></div>
-<button onclick="copyLink()" style="background:#00D4FF;color:#000;margin-top:6px;width:100%">📋 COPY ATTRACTIVE INVITE FOR WHATSAPP</button>
-</div>
+<div id="viewersList" style="font-size:11px;background:#000a;border-radius:8px;padding:6px;margin-top:6px">👥 Live: 1 - STABLE - ALL ACTIVE</div>
+<div class="share" id="shareBox"><div id="shareLink" style="font-size:11px;color:#00D4FF;word-break:break-all"></div><div id="shareText" style="font-size:11px;margin-top:4px;word-break:break-word;text-align:left;border:1px dashed #FFCC00;padding:6px"></div><button onclick="copyLink()" style="background:#00D4FF;color:#000;margin-top:6px;width:100%">📋 COPY INVITE</button></div>
 <div style="margin-top:8px">
 <button onclick="hostRoom()" style="background:#00D4FF;color:#000">📱 HOST</button>
 <button onclick="joinRoom()" style="background:#FFCC00;color:#000">👥 JOIN</button>
 <button onclick="offlineMode()" style="background:#333;color:#fff">📴 OFFLINE</button>
 </div>
 </div>
-
 <div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
-<button class="top" onclick="spin()">🎡 SPIN BOTTLE - ONE WHEEL!</button>
+<button class="top" onclick="spin()">🎡 SPIN BOTTLE - ALWAYS ACTIVE</button>
 <div class="lv" id="lv"></div>
-
 <div class="card">
 <div style="display:flex;gap:6px;margin-bottom:8px">
-<input id="pn" placeholder="Your name" style="flex:1;background:#0006;border:1px solid #444;border-radius:10px;padding:12px;color:#fff;font-size:16px">
+<input id="pn" placeholder="Your name - ACTIVE!" style="flex:1;background:#0006;border:1px solid #444;border-radius:10px;padding:12px;color:#fff;font-size:16px">
 <button onclick="addP()" style="background:#fff;color:#000;border:0;border-radius:10px;padding:12px 16px;font-weight:900">ADD ME</button>
 </div>
-<div class="qbox" id="qb"><div>✅ ALL ACTIVE NOW!<br>Watch, Add Me, Questions ACTIVE!<br>Personalized invite with host name!</div></div>
-<div class="reply-box" id="replyBox">
-<div style="font-weight:900">💬 <span id="replyName">Player</span> MUST REPLY:</div>
-<div id="replyQuestion" style="font-size:12px;opacity:.8;margin-top:4px;background:#0005;padding:6px;border-radius:6px"></div>
-<input id="replyInput" placeholder="Honest answer...">
-<button onclick="submitReply()" style="width:100%;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;margin-top:6px">SEND ✅</button>
-</div>
-<div style="display:flex;gap:6px;justify-content:center;font-size:24px;margin:8px 0">
-<span onclick="doReact('😂')">😂</span><span onclick="doReact('🔥')">🔥</span><span onclick="doReact('😳')">😳</span><span onclick="doReact('💀')">💀</span><span onclick="doReact('❤️')">❤️</span><span onclick="doReact('👏')">👏</span>
-</div>
+<div class="qbox" id="qb"><div>✅ STABLE! Will NOT crush!<br>Add Me ACTIVE! Watch ACTIVE!<br>Bottle ACTIVE! Questions ACTIVE!</div></div>
+<div class="reply-box" id="replyBox"><div>💬 <span id="replyName">Player</span> MUST REPLY:</div><div id="replyQuestion" style="font-size:12px;opacity:.8;margin-top:4px;background:#0005;padding:6px;border-radius:6px"></div><input id="replyInput" placeholder="Answer..."><button onclick="submitReply()" style="width:100%;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;margin-top:6px">SEND ✅</button></div>
+<div style="display:flex;gap:6px;justify-content:center;font-size:24px;margin:8px 0"><span onclick="doReact('😂')">😂</span><span onclick="doReact('🔥')">🔥</span><span onclick="doReact('😳')">😳</span><span onclick="doReact('💀')">💀</span><span onclick="doReact('❤️')">❤️</span><span onclick="doReact('👏')">👏</span></div>
 <div class="btns"><button class="t" onclick="play('truth')">TRUTH 💎</button><button class="d" onclick="play('dare')">DARE 🔥</button></div>
 </div>
-
-<div class="card">
-<div style="display:flex;justify-content:space-between;margin-bottom:6px">
-<span style="font-weight:800;font-size:12px">💬 LIVE CHAT</span><span style="font-size:10px;background:#FF0000;padding:2px 8px;border-radius:99px">🔴 LIVE</span>
+<div class="card"><div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM</span>✅ STABLE VERSION - Will never crush! All active!</div></div><div class="cin"><input id="ci" placeholder="Comment as..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div></div>
 </div>
-<div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM</span>✅ ALL ACTIVE! Watch, Add Me, Questions working! Personalized invite!</div></div>
-<div class="cin"><input id="ci" placeholder="Comment as..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div>
-</div>
-</div>
-
 <script>
-function updateClock(){try{let now=new Date();document.getElementById('liveTime').textContent='🕐 '+now.toLocaleTimeString();document.getElementById('liveDate').textContent=now.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});document.getElementById('timeZone').textContent=(Intl.DateTimeFormat().resolvedOptions().timeZone.split('/').pop()||'Kampala')+' • EAT';}catch(e){}}
+function updateClock(){try{let n=new Date();document.getElementById('liveTime').textContent='🕐 '+n.toLocaleTimeString();document.getElementById('liveDate').textContent=n.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});}catch(e){}}
 setInterval(updateClock,1000);updateClock();
-
 let LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'],curL=2,players=[],curr=0,rot=0,lastQ='',lastPlayer='',myName='Guest';
-function renderLevels(){let el=document.getElementById('lv');if(!el)return;let h='';LEVELS.forEach((n,i)=>{h+=`<div class="${i==curL?'on':''}" onclick="setL(${i})">${n}</div>`});el.innerHTML=h}
-function setL(i){curL=i;renderLevels()}
+function renderLevels(){let h='';LEVELS.forEach((n,i)=>{h+=`<div class="${i==curL?'on':''}" onclick="curL=${i};renderLevels()">${n}</div>`});document.getElementById('lv').innerHTML=h}
 function renderPlayersList(){
-let el=document.getElementById('playersList');if(!el)return;el.innerHTML='';players.forEach(p=>{let s=document.createElement('span');s.textContent=p;el.appendChild(s)});
-let wc=document.getElementById('watchCount');if(wc)wc.textContent=`👁️ ${players.length||1} watching`;
-let ln=document.getElementById('liveNames');if(ln)ln.textContent=players.slice(0,3).join(', ')+(players.length>3?' +'+(players.length-3):'')||myName;
-let vl=document.getElementById('viewersList');if(vl)vl.textContent=`👥 ONE WHEEL (${players.length||1}): ${players.join(', ')||myName} • ${new Date().toLocaleTimeString()} • ALL ACTIVE!`;
-let connOk=document.getElementById('connOk');
-if(connOk){
-if(players.length>=2){connOk.classList.add('show');connOk.innerHTML=`✅ CONNECTED! 🌍 One wheel with <b>${players.length}</b>: ${players.join(', ')}! All see same wheel! LIVE WATCH ACTIVE!`;}
-else{connOk.classList.remove('show');}
+let el=document.getElementById('playersList');el.innerHTML='';players.forEach(p=>{let s=document.createElement('span');s.textContent=p;el.appendChild(s)});
+document.getElementById('watchCount').textContent=`👁️ ${players.length||1} watching`;
+document.getElementById('liveNames').textContent=players.join(', ')||myName;
+document.getElementById('viewersList').textContent=`👥 ONE WHEEL (${players.length||1}): ${players.join(', ')||myName} • ${new Date().toLocaleTimeString()} • ALL ACTIVE - STABLE!`;
 }
-}
-let Q={
-0:{t:["Most embarrassing text ever sent?","Hidden talent?","Worst date ever?"],d:["15 jumping jacks","Sing a song"]},
-1:{t:["Who would you kiss right now?","Stalked crush online?"],d:["Text crush 'you up?'","Do 10 pushups"]},
-2:{t:["Drunkest ever?","How many body counts have you got? Total number honest!","Who best in bed?"],d:["Water shot","Whisper secret to left"]},
-3:{t:["Biggest sexual fantasy? Detail!","Who sexted?"],d:["Lap dance 15s","Twerk 10s"]},
-4:{t:["How/when lose virginity? Story!","Dirtiest secret?","How many body counts? Exact!","Favorite position why?"],d:["Group writes dirty text to ex","Twerk 30s"]},
-5:{t:["Who would you unfriend now?","Who here you would date?"],d:["Post 'I am liar' 10min","Let group read your last DM"]}
-};
+let Q={0:{t:["Most embarrassing text?","Hidden talent?"],d:["15 jumping jacks"]},1:{t:["Who would you kiss now?","Stalked crush?"],d:["Text crush 'you up?'"]},2:{t:["Drunkest ever?","How many body counts? Honest!"],d:["Water shot"]},3:{t:["Biggest fantasy?","Who sexted?"],d:["Lap dance 15s"]},4:{t:["How lose virginity?","Dirtiest secret?","How many body counts? Exact!"],d:["Group writes dirty text","Twerk 30s"]},5:{t:["Who unfriend now?"],d:["Post 'I am liar' 10min"]}};
 function addP(){
-let inp=document.getElementById('pn');let v=inp.value.trim();if(!v)return alert('Type your name!');
-if(players.includes(v))return alert('Name taken!');if(players.length>=8)return alert('Max 8 players!');
-myName=v;players.push(v);inp.value='';drawWheel();renderPlayersList();
-addSys(v+' joined! Now ONE WHEEL shows: '+players.join(', ')+'!','join','SYSTEM');
-syncAll({type:'fullSync',players:players});
+let v=document.getElementById('pn').value.trim();if(!v)return alert('Type name!');
+if(players.includes(v))return alert('Taken!');if(players.length>=8)return alert('Max 8!');
+myName=v;players.push(v);document.getElementById('pn').value='';drawWheel();renderPlayersList();addSys(v+' joined!','join','SYSTEM');if(connList.length)syncAll({type:'fullSync',players:players});
 }
 function drawWheel(){
-let w=document.getElementById('wheel');if(!w)return;w.querySelectorAll('.p-dot').forEach(e=>e.remove());
-if(players.length==0)return;
+let w=document.getElementById('wheel');w.querySelectorAll('.p-dot').forEach(e=>e.remove());
 players.forEach((p,i)=>{let d=document.createElement('div');d.className='p-dot'+(i==curr?' on':'');d.textContent=p;let a=(360/players.length)*i;let r=100;let x=Math.cos(a*Math.PI/180)*r;let y=Math.sin(a*Math.PI/180)*r;d.style.left='50%';d.style.top='50%';d.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px)`;w.appendChild(d)});
 }
 function spin(){
-if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055">Need 2+ players on ONE WHEEL! Add name or invite friend!</div>';return}
+if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055">Need 2+ players!</div>';return}
 rot+=Math.floor(Math.random()*900+700);document.getElementById('bot').style.transform=`rotate(${rot}deg)`;
-let rb=document.getElementById('replyBox');if(rb)rb.classList.remove('show');
-document.getElementById('qb').innerHTML='🎡 SPINNING ONE WHEEL FOR ALL... 🕐 '+new Date().toLocaleTimeString();
-addSys('Spinning ONE WHEEL with '+players.length+' players: '+players.join(', ')+'...','question','SYSTEM');
+document.getElementById('replyBox').classList.remove('show');
+document.getElementById('qb').innerHTML='🎡 SPINNING...';
+addSys('Spinning...','question','SYSTEM');
 let picked=Math.floor(Math.random()*players.length);
-setTimeout(()=>{curr=picked;drawWheel();document.getElementById('qb').innerHTML=`<div style="font-size:24px;font-weight:900">${players[curr]} 🎯 PICKED!</div><div>One wheel: ${players.join(', ')} at ${new Date().toLocaleTimeString()}</div>`;addSys(`🎯 ONE WHEEL picked ${players[curr]}!`,'question','SYSTEM');syncAll({type:'fullSync',players:players,curr:curr,forcePick:curr})},2200);
+setTimeout(()=>{curr=picked;drawWheel();document.getElementById('qb').innerHTML=`<div style="font-size:24px;font-weight:900">${players[curr]} 🎯 PICKED!</div>`;addSys(`Picked ${players[curr]}!`,'question','SYSTEM');if(connList.length)syncAll({type:'fullSync',players:players,curr:curr,forcePick:curr})},2200);
 }
 function play(t){
-if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055">Add 2+ players first!</div>';return;}
+if(players.length<2){document.getElementById('qb').innerHTML='<div style="color:#FF0055">Add 2+ players!</div>';return}
 let list=t=='truth'?Q[curL].t:Q[curL].d;lastQ=list[Math.floor(Math.random()*list.length)];lastPlayer=players[curr];
-document.getElementById('qb').innerHTML=`<div style="opacity:.6;font-size:10px">${LEVELS[curL]} ${t} • ONE WHEEL • ${new Date().toLocaleTimeString()} • ACTIVE</div><div style="font-weight:800;margin-top:6px;font-size:16px">${lastQ}</div><div style="margin-top:8px">👉 ${lastPlayer} must answer!</div>`;
-addSys(`${t.toUpperCase()}: ${lastQ}`,'question',lastPlayer);showReplyBox();curr=(curr+1)%players.length;setTimeout(drawWheel,400);syncAll({type:'fullSync',players:players,curr:curr,lastQ:lastQ,lastPlayer:lastPlayer,qb:document.getElementById('qb').innerHTML});
+document.getElementById('qb').innerHTML=`<div>${LEVELS[curL]} ${t}</div><div style="font-weight:800;font-size:16px;margin-top:6px">${lastQ}</div><div>👉 ${lastPlayer} must answer!</div>`;
+addSys(`${t.toUpperCase()}: ${lastQ}`,'question',lastPlayer);document.getElementById('replyBox').classList.add('show');document.getElementById('replyName').textContent=lastPlayer;document.getElementById('replyQuestion').textContent=lastQ;curr=(curr+1)%players.length;setTimeout(drawWheel,400);if(connList.length)syncAll({type:'fullSync',players:players,curr:curr,lastQ:lastQ,lastPlayer:lastPlayer,qb:document.getElementById('qb').innerHTML});
 }
-function showReplyBox(){let rb=document.getElementById('replyBox');if(rb){rb.classList.add('show');document.getElementById('replyName').textContent=lastPlayer;document.getElementById('replyQuestion').textContent=lastQ;}}
 function submitReply(){
-let inp=document.getElementById('replyInput');let ans=inp.value.trim();if(!ans)return alert('Type answer!');
-addSys(`ANSWERED: "${ans}" on ONE WHEEL!`,'reply',lastPlayer);
+let ans=document.getElementById('replyInput').value.trim();if(!ans)return;
+addSys(`ANSWERED: "${ans}"`,'reply',lastPlayer);
 document.getElementById('qb').innerHTML=`<div style="color:#00FF88;font-weight:900">✅ ${lastPlayer} REPLIED!</div><div>"${ans}"</div>`;
-inp.value='';document.getElementById('replyBox').classList.remove('show');syncAll({type:'fullSync',players:players,qb:document.getElementById('qb').innerHTML,chat:document.getElementById('chat').innerHTML});
+document.getElementById('replyInput').value='';document.getElementById('replyBox').classList.remove('show');if(connList.length)syncAll({type:'fullSync',players:players,qb:document.getElementById('qb').innerHTML,chat:document.getElementById('chat').innerHTML});
 }
-function doReact(e){addSys(`Reacted ${e}`,'comment',myName);syncAll({type:'fullSync',players:players,chat:document.getElementById('chat').innerHTML});}
+function doReact(e){addSys(`Reacted ${e}`,'comment',myName);if(connList.length)syncAll({type:'fullSync',players:players,chat:document.getElementById('chat').innerHTML});}
 function sendChat(){
-let ci=document.getElementById('ci');let v=ci.value.trim();if(!v)return;
-if(!myName||myName=='Guest'){let n=prompt('Your name?');if(!n)return;myName=n.trim();}
-addSys(v,'comment',myName);ci.value='';syncAll({type:'fullSync',players:players,chat:document.getElementById('chat').innerHTML});
+let v=document.getElementById('ci').value.trim();if(!v)return;
+if(!myName||myName=='Guest'){let n=prompt('Your name?');if(n)myName=n.trim();else return}
+addSys(v,'comment',myName);document.getElementById('ci').value='';if(connList.length)syncAll({type:'fullSync',players:players,chat:document.getElementById('chat').innerHTML});
 }
 function addSys(t,cls,sender){
 let c=document.getElementById('chat');let d=document.createElement('div');d.className='m';
@@ -170,102 +122,74 @@ let sName=sender||myName||'Guest';
 d.innerHTML=`<span class="sender">${sName} • ${new Date().toLocaleTimeString()}</span>${t}`;
 c.appendChild(d);c.scrollTop=c.scrollHeight;
 }
-
-let peer=null,connList=[],isHost=false,currentRoomId='';
+let peer=null,connList=[];
 function loadPeer(cb){
 if(window.Peer){cb();return}
 let s=document.createElement('script');s.src='https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js';s.onload=cb;document.head.appendChild(s);
 }
 function hostRoom(){
-if(!myName||myName=='Guest'){let n=prompt('Host name? (Will show in invite: Come join XXX\\'s Truth or Dare)');if(!n)return;myName=n.trim();if(!players.includes(myName)){players.push(myName);drawWheel();renderPlayersList()}}
+if(!myName||myName=='Guest'){let n=prompt('Host name? For personalized invite');if(!n)return;myName=n.trim();if(!players.includes(myName)){players.push(myName);drawWheel();renderPlayersList()}}
 loadPeer(()=>{
-let roomId='PAUL-'+Math.floor(Math.random()*9000+1000);currentRoomId=roomId;
-document.getElementById('status').textContent='⏳ Creating ONE WHEEL '+roomId+' as '+myName+'... 🌍';
+let roomId='PAUL-'+Math.floor(Math.random()*9000+1000);
+document.getElementById('status').textContent='⏳ Hosting '+roomId+' as '+myName+'...';
 peer=new Peer(roomId,{config:{iceServers:[{urls:'stun:stun.l.google.com:19302'}]}});
 peer.on('open',id=>{
-document.getElementById('status').textContent='✅ HOSTING ONE WHEEL: '+id+' as '+myName+'!';
-let baseUrl=location.origin+location.pathname;
-let shareUrl=baseUrl+'?join='+id;
-let inviteText=`🌍🔥 Come and Join ${myName.toUpperCase()}'S Truth or Dare! 🎡\n\nCome and join ${myName}'s LIVE Posi Posi party in Kampala! 🎉\nOne wheel for all - ${players.length} players online!\n\n👉 Click to join instantly: ${shareUrl}\n\nNo typing code needed!`;
-document.getElementById('roomInfo').innerHTML='🔴 ONE WHEEL CODE: <b style="font-size:20px;color:#00D4FF">'+id+'</b> as <b>'+myName+'</b>';
+document.getElementById('status').textContent='✅ HOSTING: '+id+' as '+myName+'!';
+let shareUrl=location.origin+location.pathname+'?join='+id;
+let inviteText=`🌍🔥 Come and Join ${myName.toUpperCase()}'S Truth or Dare! 🎡\nCome and join ${myName}'s LIVE party in Kampala! 🎉\nOne wheel for all!\n👉 ${shareUrl}`;
+document.getElementById('roomInfo').innerHTML='🔴 CODE: <b style="color:#00D4FF">'+id+'</b> as '+myName;
 document.getElementById('shareLink').textContent=shareUrl;
 document.getElementById('shareText').textContent=inviteText;
-document.getElementById('shareTitle').textContent=`🌍 Invite from ${myName}!`;
 document.getElementById('shareBox').classList.add('show');
-isHost=true;renderPlayersList();
+renderPlayersList();
 });
 peer.on('connection',c=>{
 connList.push(c);
-c.on('open',()=>{
-c.send({type:'fullSync',players:players,qb:document.getElementById('qb').innerHTML,chat:document.getElementById('chat').innerHTML,curr:curr});
-renderPlayersList();
-});
-c.on('data',d=>{
-if(d.type=='fullSync' && d.players){
-if(d.players.length>players.length){players=d.players;drawWheel();renderPlayersList();addSys('🌍 ONE WHEEL updated! Now: '+players.join(', ')+'!','join','SYSTEM');connList.forEach(conn=>{try{if(conn.open && conn!=c)conn.send({type:'fullSync',players:players});}catch(e){}});}
-if(d.chat)document.getElementById('chat').innerHTML=d.chat;
-}
-});
+c.on('open',()=>{c.send({type:'fullSync',players:players});});
+c.on('data',d=>{if(d.players && d.players.length>players.length){players=d.players;drawWheel();renderPlayersList();addSys('New player! Now: '+players.join(', '),'join','SYSTEM');connList.forEach(conn=>{try{if(conn!=c&&conn.open)conn.send({type:'fullSync',players:players})}catch(e){}});}});
 });
 });
 }
 function joinRoom(){
-let code=prompt('Enter HOST code:');if(!code)return;
-let name=prompt('Your name? (Will show on ONE WHEEL)');if(!name)return;myName=name.trim();
+let code=prompt('Enter code:');if(!code)return;
+let name=prompt('Your name?');if(!name)return;myName=name.trim();
 doJoin(code.trim());
 }
 function doJoin(code){
-document.getElementById('status').textContent='⏳ Joining ONE WHEEL '+code+' as '+myName+'... 🌍';
+document.getElementById('status').textContent='⏳ Joining '+code+' as '+myName+'...';
 loadPeer(()=>{
 peer=new Peer({config:{iceServers:[{urls:'stun:stun.l.google.com:19302'}]}});
 peer.on('open',()=>{
 let conn=peer.connect(code,{reliable:true});
 conn.on('open',()=>{
-document.getElementById('status').textContent='✅ JOINED ONE WHEEL '+code+' as '+myName+'!';
+document.getElementById('status').textContent='✅ JOINED '+code+' as '+myName+'!';
 if(!players.includes(myName))players.push(myName);
-connList=[conn];
-conn.send({type:'fullSync',players:players});
-addSys('You joined ONE WHEEL as '+myName+'!','join','SYSTEM');
-drawWheel();renderPlayersList();
+connList=[conn];conn.send({type:'fullSync',players:players});addSys('Joined as '+myName,'join','SYSTEM');drawWheel();renderPlayersList();
 });
-conn.on('data',d=>{
-if(d.type=='fullSync'){
-if(d.players && d.players.length>=players.length){players=d.players;drawWheel();renderPlayersList();}
-if(d.qb)document.getElementById('qb').innerHTML=d.qb;
-if(d.chat)document.getElementById('chat').innerHTML=d.chat;
-if(d.curr!==undefined)curr=d.curr;
-if(d.forcePick!==undefined){curr=d.forcePick;drawWheel()}
-if(d.lastQ)lastQ=d.lastQ;if(d.lastPlayer)lastPlayer=d.lastPlayer;
-}
+conn.on('data',d=>{if(d.players){players=d.players;drawWheel();renderPlayersList()} if(d.qb)document.getElementById('qb').innerHTML=d.qb; if(d.chat)document.getElementById('chat').innerHTML=d.chat;});
 });
-});
-peer.on('error',e=>{if(e.type=='peer-unavailable')document.getElementById('status').textContent='❌ Code not found - Host must keep screen ON!';});
+peer.on('error',e=>{if(e.type=='peer-unavailable')document.getElementById('status').textContent='❌ Code not found - Host keep screen ON!';});
 });
 }
 function offlineMode(){
 try{if(peer)peer.destroy()}catch(e){}
-connList=[];peer=null;isHost=false;
-let sb=document.getElementById('shareBox');if(sb)sb.classList.remove('show');
-let co=document.getElementById('connOk');if(co)co.classList.remove('show');
-document.getElementById('status').textContent='📴 OFFLINE - '+players.length+' on ONE WHEEL • ALL ACTIVE!';
+connList=[];peer=null;
+document.getElementById('shareBox').classList.remove('show');
+document.getElementById('status').textContent='📴 OFFLINE - '+players.length+' players • STABLE • ALL ACTIVE!';
 renderPlayersList();
 }
 function syncAll(data){connList.forEach(c=>{try{if(c.open)c.send(data)}catch(e){}});}
 function copyLink(){
-let text=document.getElementById('shareText').textContent;
-if(!text){alert('Host first to create invite!');return;}
-if(navigator.clipboard){navigator.clipboard.writeText(text).then(()=>{alert('✅ Copied personalized invite!\n\n'+text+'\n\nPaste on WhatsApp - will show Come and Join '+myName+'\\'s game! 🌍🔥');}).catch(()=>{prompt('Copy this invite:',text);});}
-else{prompt('Copy this invite:',text);}
+let t=document.getElementById('shareText').textContent;
+if(!t){alert('Host first!');return;}
+navigator.clipboard?navigator.clipboard.writeText(t).then(()=>alert('✅ Copied!\n\n'+t)):prompt('Copy:',t);
 }
 renderLevels();renderPlayersList();
 let params=new URLSearchParams(location.search);
-let autoJoin=params.get('join');
-if(autoJoin){
-setTimeout(()=>{
-let inviter=params.get('host')||'Paul';
-let name=prompt(`🌍🔥 ${inviter} invites you! Come and Join ${inviter}'s Posi Posi Truth or Dare LIVE! 🎡\n\nYour name to join ONE WHEEL with ${inviter}?`);
-if(name){myName=name.trim();doJoin(autoJoin);}
-},800);
-}
+let j=params.get('join');
+if(j){setTimeout(()=>{let n=prompt(`🌍 ${params.get('host')||'Paul'} invites you to Truth or Dare! Your name?`);if(n){myName=n.trim();doJoin(j);}},800);}
 document.getElementById('pn').addEventListener('keydown',e=>{if(e.key=='Enter')addP()});
-document.getElementById('ci').addEventListener('keydown',e=>{if(e.key=='Enter')sendChat()})
+document.getElementById('ci').addEventListener('keydown',e=>{if(e.key=='Enter')sendChat()});
+document.getElementById('replyInput').addEventListener('keydown',e=>{if(e.key=='Enter')submitReply()});
+</script>
+</body></html>
