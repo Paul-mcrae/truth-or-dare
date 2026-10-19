@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>PAUL'S TRUTH OR DARE - SPEED CONNECT</title>
+<title>PAUL'S TRUTH OR DARE - 3 MIN CODE</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}html{-webkit-text-size-adjust:100%;touch-action:manipulation}
 body{background:#0a0a14;color:#fff;font-family:system-ui;padding:10px;overflow-x:hidden}
@@ -9,17 +9,21 @@ h1{text-align:center;font-size:26px;line-height:.9}h1 span{color:#FF0055}
 .time-bar{background:linear-gradient(90deg,#1a1a3e,#2a2a5e);border:1px solid #FFCC00;border-radius:12px;padding:10px;display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:800}
 .live-bar{background:#FF0055;border-radius:99px;padding:8px 14px;display:flex;justify-content:space-between;align-items:center;font-weight:900;font-size:12px}
 .online{background:#111;border:2px solid #FFCC00;border-radius:12px;padding:12px;text-align:center}
+.timer-bar{background:#000a;border-radius:8px;padding:8px;margin-top:8px;display:none;font-weight:900;font-size:14px}
+.timer-bar.show{display:block}
+.timer-bar.good{border:2px solid #00FF88;color:#00FF88}
+.timer-bar.warn{border:2px solid #FFCC00;color:#FFCC00}
+.timer-bar.bad{border:2px solid #FF0055;color:#FF0055}
 .connecting{background:#000a;border-radius:10px;padding:10px;margin-top:8px;display:none;text-align:left}
 .connecting.show{display:block}
-.step{font-size:12px;padding:4px 0;opacity:.4;transition:all .3s}
+.step{font-size:12px;padding:4px 0;opacity:.4}
 .step.active{opacity:1;color:#00FF88;font-weight:800}
 .step.done{opacity:.7;color:#FFCC00}
-.step .dot{display:inline-block;width:16px}
 .progress{height:6px;background:#222;border-radius:99px;margin-top:6px;overflow:hidden}
 .progress-bar{height:100%;background:linear-gradient(90deg,#00D4FF,#FFCC00);width:0%;transition:width .5s ease}
 .online button{padding:10px 14px;border-radius:8px;border:0;font-weight:900;margin:3px;cursor:pointer;font-size:12px}
 .wheel{width:280px;height:280px;margin:10px auto;border-radius:50%;background:radial-gradient(circle,#1a1a3e,#0a0a14);border:8px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center}
-.bottle{font-size:70px;cursor:pointer;transition:transform 2.2s cubic-bezier(.2,.8,.2,1);z-index:10}
+.bottle{font-size:70px;cursor:pointer;transition:transform 2.2s ease;z-index:10}
 .p-dot{position:absolute;font-size:12px;font-weight:900;background:#333;padding:6px 12px;border-radius:99px;transform:translate(-50%,-50%)}
 .p-dot.on{background:#FFCC00;color:#000;border:2px solid #fff}
 .card{background:#1e1e38;border-radius:16px;padding:12px}
@@ -48,7 +52,7 @@ h1{text-align:center;font-size:26px;line-height:.9}h1 span{color:#FF0055}
 </style></head><body>
 <div class="app">
 <h1>PAUL'S<br>TRUTH <span>OR DARE</span></h1>
-<div style="text-align:center;font-size:11px;letter-spacing:3px;opacity:.7">BY PAUL McRAE • KAMPALA • SPEED CONNECT</div>
+<div style="text-align:center;font-size:11px;letter-spacing:3px;opacity:.7">BY PAUL McRAE • KAMPALA • 3 MIN CODE</div>
 
 <div class="time-bar">
 <span id="liveTime">🕐 00:00:00</span>
@@ -68,24 +72,26 @@ h1{text-align:center;font-size:26px;line-height:.9}h1 span{color:#FF0055}
 <div id="playersList" class="players-list"></div>
 <div id="viewersList" style="font-size:11px;background:#000a;border-radius:8px;padding:6px;margin-top:6px">Viewers: Waiting...</div>
 
+<div class="timer-bar" id="timerBar">⏳ Code valid: <span id="timerText">3:00</span> • Keep screen ON! Auto renews!</div>
+
 <div class="connecting" id="connectBox">
 <div style="font-weight:900;font-size:12px;margin-bottom:6px" id="connectTitle">🔗 CONNECTING...</div>
-<div class="step" id="s1"><span class="dot">◯</span> Searching for room code...</div>
-<div class="step" id="s2"><span class="dot">◯</span> Found host! Handshaking...</div>
-<div class="step" id="s3"><span class="dot">◯</span> ⚡ Adding you to wheel super fast...</div>
-<div class="step" id="s4"><span class="dot">◯</span> 🎉 Syncing LIVE chat & comments...</div>
+<div class="step" id="s1">◯ Searching for room...</div>
+<div class="step" id="s2">◯ Found host! Handshaking...</div>
+<div class="step" id="s3">◯ ⚡ Adding to wheel...</div>
+<div class="step" id="s4">◯ 🎉 Syncing LIVE...</div>
 <div class="progress"><div class="progress-bar" id="pbar"></div></div>
 </div>
 
 <div style="margin-top:8px">
-<button onclick="hostRoom()" style="background:#00D4FF;color:#000">📱 HOST</button>
-<button onclick="joinRoom()" style="background:#FFCC00;color:#000">👥 JOIN</button>
+<button onclick="hostRoom()" style="background:#00D4FF;color:#000">📱 HOST (3 MIN)</button>
+<button onclick="joinRoom()" style="background:#FFCC00;color:#000">👥 JOIN (3 MIN)</button>
 <button onclick="offlineMode()" style="background:#333;color:#fff">📴 OFFLINE</button>
 </div>
 </div>
 
 <div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
-<button class="top" onclick="spin()">🎡 SPIN BOTTLE - NO ZOOM - SPEED!</button>
+<button class="top" onclick="spin()">🎡 SPIN BOTTLE - 3 MIN CODE!</button>
 
 <div class="lv" id="lv"></div>
 
@@ -94,12 +100,12 @@ h1{text-align:center;font-size:26px;line-height:.9}h1 span{color:#FF0055}
 <input id="pn" placeholder="Your name" style="flex:1;background:#0006;border:1px solid #444;border-radius:10px;padding:12px;color:#fff">
 <button onclick="addP()" style="background:#fff;color:#000;border:0;border-radius:10px;padding:12px 16px;font-weight:900">ADD ME</button>
 </div>
-<div class="qbox" id="qb"><div>✅ SPEED CONNECT!<br>Shows initiating live!<br>All wheels show all players!<br>Comments with name + time!</div></div>
+<div class="qbox" id="qb"><div>✅ CODE LASTS 3 MINUTES!<br>No more fast lapse!<br>Slow typers can join!<br>Timer shows countdown!</div></div>
 <div class="reply-box" id="replyBox">
 <div style="font-weight:900">💬 <span id="replyName">Player</span> MUST REPLY:</div>
 <div id="replyQuestion" style="font-size:12px;opacity:.8;margin-top:4px;background:#0005;padding:6px;border-radius:6px"></div>
 <input id="replyInput" placeholder="Honest answer...">
-<button onclick="submitReply()" style="width:100%;background:linear-gradient(135deg,#FFCC00,#FF0055);color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;margin-top:6px">SEND ANSWER ✅</button>
+<button onclick="submitReply()" style="width:100%;background:linear-gradient(135deg,#FFCC00,#FF0055);color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;margin-top:6px">SEND ✅</button>
 </div>
 <div style="display:flex;gap:6px;justify-content:center;font-size:24px;margin:8px 0">
 <span onclick="doReact('😂')">😂</span><span onclick="doReact('🔥')">🔥</span><span onclick="doReact('😳')">😳</span><span onclick="doReact('💀')">💀</span><span onclick="doReact('❤️')">❤️</span><span onclick="doReact('👏')">👏</span>
@@ -112,7 +118,7 @@ h1{text-align:center;font-size:26px;line-height:.9}h1 span{color:#FF0055}
 <span style="font-weight:800;font-size:12px">💬 LIVE CHAT - Name + Time</span>
 <span style="font-size:10px;background:#FF0000;padding:2px 8px;border-radius:99px">🔴 LIVE</span>
 </div>
-<div class="chat" id="chat"><div class="m join"><span class="sender">SYSTEM</span>Speed Connect Ready! Shows initiating steps!</div></div>
+<div class="chat" id="chat"><div class="m join"><span class="sender">SYSTEM</span>3 Minute Code Edition - Slow typers welcome!</div></div>
 <div class="cin"><input id="ci" placeholder="Comment as..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div>
 </div>
 </div>
@@ -126,20 +132,43 @@ document.getElementById('timeZone').textContent=Intl.DateTimeFormat().resolvedOp
 }
 setInterval(updateClock,1000);updateClock();
 
+let codeTimer=null,codeTimeLeft=180;
+function startCodeTimer(){
+codeTimeLeft=180;
+let bar=document.getElementById('timerBar');bar.classList.add('show');bar.className='timer-bar show good';
+if(codeTimer)clearInterval(codeTimer);
+codeTimer=setInterval(()=>{
+codeTimeLeft--;
+let m=Math.floor(codeTimeLeft/60);let s=codeTimeLeft%60;
+document.getElementById('timerText').textContent=m+':'+String(s).padStart(2,'0');
+if(codeTimeLeft>60){bar.className='timer-bar show good';bar.innerHTML='✅ Code valid: <span id="timerText">'+m+':'+String(s).padStart(2,'0')+'</span> • Keep screen ON! Slow typers OK!'}
+else if(codeTimeLeft>20){bar.className='timer-bar show warn';bar.innerHTML='⚠️ Code valid: <span id="timerText">'+m+':'+String(s).padStart(2,'0')+'</span> • Tell friends FAST!'}
+else{bar.className='timer-bar show bad';bar.innerHTML='🔴 Code expiring: <span id="timerText">'+m+':'+String(s).padStart(2,'0')+'</span> • Renewing...'}
+if(codeTimeLeft<=0){
+clearInterval(codeTimer);
+// Auto renew code - keep alive
+if(peer&&isHost){
+codeTimeLeft=180;
+startCodeTimer();
+document.getElementById('status').textContent='✅ HOSTING (Renewed): '+peer.id;
+addSys('Code auto-renewed! Still valid 3 more minutes!','join','SYSTEM');
+}
+}
+},1000);
+}
+
 function showConnect(title){
 let box=document.getElementById('connectBox');box.classList.add('show');
 document.getElementById('connectTitle').textContent=title;
-for(let i=1;i<=4;i++){document.getElementById('s'+i).className='step';document.getElementById('s'+i).querySelector('.dot').textContent='◯'}
+for(let i=1;i<=4;i++){document.getElementById('s'+i).className='step'}
 document.getElementById('pbar').style.width='0%';
 }
-function stepActive(n,txt){
-let el=document.getElementById('s'+n);el.classList.add('active');el.querySelector('.dot').innerHTML='<span class="spinner"></span>';
+function stepActive(n){
+let el=document.getElementById('s'+n);el.classList.add('active');
 document.getElementById('pbar').style.width=(n*25)+'%';
-if(txt)el.innerHTML='<span class="dot"><span class="spinner"></span></span> '+txt;
 }
-function stepDone(n,txt){
-let el=document.getElementById('s'+n);el.className='step done';el.querySelector('.dot').textContent='✅';
-if(txt)el.innerHTML='<span class="dot">✅</span> '+txt;
+function stepDone(n){
+let el=document.getElementById('s'+n);el.className='step done';
 }
 function hideConnect(){setTimeout(()=>{document.getElementById('connectBox').classList.remove('show')},3000)}
 
@@ -157,7 +186,7 @@ let Q={
 1:{t:["Who would you kiss now?","Stalked crush?"],d:["Text crush 'you up?'"]},
 2:{t:["Drunkest ever?","How many body counts have you got? Total number honest!","Who best in bed?"],d:["Water shot"]},
 3:{t:["Biggest sexual fantasy? Detail!","Who sexted?"],d:["Lap dance 15s"]},
-4:{t:["How/when lose virginity? Story!","Dirtiest secret?","How many body counts? Exact!","Favorite position why?"],d:["Group writes dirty text to ex","Twerk 30s"]},
+4:{t:["How/when lose virginity? Story!","Dirtiest secret?","How many body counts? Exact number honest!","Favorite position why?"],d:["Group writes dirty text to ex","Twerk 30s"]},
 5:{t:["Who unfriend now?"],d:["Post 'I am liar' 10min"]}
 };
 function addP(){
@@ -203,7 +232,7 @@ let sName=sender||myName||'Guest';
 d.innerHTML=`<span class="sender">${sName} • ${new Date().toLocaleTimeString()}</span>${t}`;
 c.appendChild(d);c.scrollTop=c.scrollHeight;
 }
-let peer=null,connList=[],isHost=false;
+let peer=null,connList=[],isHost=false,keepAlive=null;
 function loadPeer(cb){
 if(window.Peer){cb();return}
 let s=document.createElement('script');s.src='https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js';s.onload=cb;s.onerror=()=>{document.getElementById('status').textContent='❌ Online fail';};document.head.appendChild(s);
@@ -212,98 +241,71 @@ function hostRoom(){
 if(!myName||myName=='Guest'){let n=prompt('Host name?');if(!n)return;myName=n.trim();if(!players.includes(myName))players.push(myName);drawWheel();renderPlayersList()}
 loadPeer(()=>{
 let roomId='PAUL-'+Math.floor(Math.random()*9000+1000);
-showConnect('🔗 HOSTING ROOM - FAST...');
-stepActive(1,'Creating room '+roomId+'...');
-document.getElementById('status').textContent='⏳ Hosting '+roomId+'...';
-peer=new Peer(roomId,{config:{iceServers:[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun1.l.google.com:19302'}]}});
+showConnect('🔗 HOSTING 3 MIN CODE...');
+stepActive(1);
+document.getElementById('status').textContent='⏳ Creating 3-min code '+roomId+'...';
+peer=new Peer(roomId,{config:{iceServers:[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun1.l.google.com:19302'},{urls:'stun:stun2.l.google.com:19302'}]}});
 peer.on('open',id=>{
-stepDone(1,'Room '+id+' created! ⚡');
-stepActive(2,'Waiting for friends super fast...');
-stepActive(3,'Wheel ready for all players...');
-stepDone(4,'HOST LIVE! Share code NOW! 🚀');
+stepDone(1);stepActive(2);stepActive(3);stepDone(4);
 document.getElementById('status').textContent='✅ HOSTING: '+id;
-document.getElementById('roomInfo').innerHTML='🔴 LIVE CODE: <b style="font-size:22px;color:#00D4FF">'+id+'</b><br>Share FAST via WhatsApp! Keep screen ON! ⚡';
+document.getElementById('roomInfo').innerHTML='🔴 LIVE CODE: <b style="font-size:22px;color:#00D4FF">'+id+'</b><br>Valid for 3 MINUTES! Slow typers OK! Share NOW! Keep screen ON!';
 isHost=true;
-setTimeout(hideConnect,4000);
+startCodeTimer();
+// Keep alive every 10 sec to prevent MTN/Airtel killing connection
+if(keepAlive)clearInterval(keepAlive);
+keepAlive=setInterval(()=>{if(peer&&!peer.disconnected){try{peer.socket.send({type:'ping'})}catch(e){} console.log('Keep alive ping - code still valid!')}},10000);
+setTimeout(hideConnect,3000);
 });
 peer.on('connection',c=>{
 connList.push(c);
-stepActive(2,'Fellow connecting... ⚡');
 c.on('open',()=>{
-stepDone(2,'Fellow connected LIVE! 🎉');
-stepDone(3,'Adding '+c.peer+' to all wheels...');
 addSys('Fellow connected LIVE!','join','SYSTEM');
 c.send({type:'fullSync',players,qb:document.getElementById('qb').innerHTML,chat:document.getElementById('chat').innerHTML,curr,lastQ,lastPlayer,myName});
-stepDone(4,'All wheels synced! WOW! 🔥');
-setTimeout(hideConnect,2000);
 });
 c.on('data',d=>handleData(d,c));
+});
+peer.on('disconnected',()=>{
+console.log('Peer disconnected, trying reconnect with same ID for 3 min validity...');
+try{peer.reconnect()}catch(e){}
 });
 peer.on('error',e=>{document.getElementById('status').textContent='❌ Host error '+e.type;});
 });
 }
 function joinRoom(){
-let code=prompt('Enter HOST code (PAUL-1234):');if(!code)return;
-let name=prompt('Your name for LIVE?');if(!name)return;myName=name.trim();
-showConnect('🔗 JOINING LIVE ROOM...');
-stepActive(1,'Searching for '+code+'...');
-document.getElementById('status').textContent='⏳ Joining LIVE '+code+' as '+myName+'...';
+let code=prompt('Enter HOST code (PAUL-1234) - You have 3 MINUTES to type, no rush!');if(!code)return;
+let name=prompt('Your name for LIVE? Take your time, code valid 3 min!');if(!name)return;myName=name.trim();
+showConnect('🔗 JOINING - You have 3 MIN...');
+stepActive(1);
+document.getElementById('status').textContent='⏳ Joining LIVE '+code+' as '+myName+'... No rush, 3 min valid!';
 loadPeer(()=>{
 peer=new Peer({config:{iceServers:[{urls:'stun:stun.l.google.com:19302'}]}});
 peer.on('open',()=>{
-stepDone(1,'Found room '+code+'! ✅');
-stepActive(2,'Handshaking with host... ⚡ Fast!');
-let conn=peer.connect(code.trim(),{reliable:true});
-let to=setTimeout(()=>{stepDone(2,'Timeout - MTN blocked! Try same WiFi! ❌');document.getElementById('status').textContent='❌ Timeout - Try same WiFi!';},15000);
+stepDone(1);stepActive(2);
+let conn=peer.connect(code.trim(),{reliable:true,serialization:'json'});
+let to=setTimeout(()=>{stepDone(2);document.getElementById('status').textContent='❌ Still trying... MTN slow? Keep waiting, code still valid 3 min!';},10000);
+// Extended timeout to 3 minutes (180 sec) not 15 sec!
+let longTo=setTimeout(()=>{
+document.getElementById('status').textContent='❌ 3 min passed - Host may have closed or MTN blocked - Try HOST yourself!';
+},180000);
 conn.on('open',()=>{
-clearTimeout(to);
-stepDone(2,'Connected to host! ⚡ Super fast!');
-stepActive(3,'Adding you '+myName+' to all wheels... 🚀');
+clearTimeout(to);clearTimeout(longTo);
+stepDone(2);stepActive(3);
 document.getElementById('status').textContent='✅ LIVE JOINED '+code+' as '+myName+'!';
-document.getElementById('roomInfo').textContent='🔴 LIVE! Wheels synced! Sending your name...';
+document.getElementById('roomInfo').textContent='🔴 LIVE! Joined within 3 min! Wheels synced!';
 connList=[conn];
 conn.send({type:'addPlayer',name:myName});
 addSys('You joined LIVE as '+myName+'!','join','SYSTEM');
-stepDone(3,myName+' added to ALL wheels! 🎉');
-stepActive(4,'Syncing chat & comments... LIVE!');
-setTimeout(()=>{
-stepDone(4,'LIVE WATCH ACTIVE! 🔴 You see all comments with name!');
-hideConnect();
-},800);
+stepDone(3);stepActive(4);
+setTimeout(()=>{stepDone(4);hideConnect()},1000);
 });
 conn.on('data',d=>handleData(d,conn));
-conn.on('error',()=>{stepDone(2,'Join failed - check code! ❌')});
+conn.on('error',()=>{stepDone(2);});
 });
-peer.on('error',e=>{if(e.type=='peer-unavailable'){stepDone(1,'Code not found! Host must HOST first! ❌');document.getElementById('status').textContent='❌ Code not found - Host must HOST first!';}});
+peer.on('error',e=>{if(e.type=='peer-unavailable'){stepDone(1);document.getElementById('status').textContent='❌ Code not found - Host must keep screen ON! Code valid 3 min only!';}});
 });
 }
 function offlineMode(){
 try{if(peer)peer.destroy()}catch(e){}
-connList=[];peer=null;isHost=false;document.getElementById('connectBox').classList.remove('show');
-document.getElementById('status').textContent='📴 OFFLINE - '+players.length+' players';
-document.getElementById('roomInfo').textContent='Offline party - Live time still shows!';
-}
-function syncAll(extra=null){
-let data={type:'fullSync',players,curr,qb:document.getElementById('qb').innerHTML,chat:document.getElementById('chat').innerHTML,lastQ,lastPlayer,myName};
-if(extra&&extra.type=='addPlayer')data=extra;
-else if(extra&&extra.forcePick!==undefined)data.forcePick=extra.forcePick;
-connList.forEach(c=>{try{if(c.open)c.send(data)}catch(e){}});
-}
-function handleData(d,fromConn){
-if(d.type=='addPlayer'){
-let name=d.name;if(!players.includes(name)){players.push(name);drawWheel();renderPlayersList();addSys(name+' joined LIVE! All wheels show '+name+'! 🎉','join','SYSTEM');syncAll();}
-}else if(d.type=='fullSync'){
-if(d.players){players=d.players;drawWheel();renderPlayersList()}
-if(d.qb)document.getElementById('qb').innerHTML=d.qb;
-if(d.chat)document.getElementById('chat').innerHTML=d.chat;
-if(d.curr!==undefined)curr=d.curr;
-if(d.forcePick!==undefined){curr=d.forcePick;drawWheel()}
-if(d.lastQ)lastQ=d.lastQ;if(d.lastPlayer)lastPlayer=d.lastPlayer;
-}
-}
-renderLevels();renderPlayersList();
-document.getElementById('pn').addEventListener('keydown',e=>{if(e.key=='Enter')addP()});
-document.getElementById('ci').addEventListener('keydown',e=>{if(e.key=='Enter')sendChat()});
-document.getElementById('replyInput').addEventListener('keydown',e=>{if(e.key=='Enter')submitReply()});
-</script>
-</body></html>
+if(codeTimer)clearInterval(codeTimer);if(keepAlive)clearInterval(keepAlive);
+connList=[];peer=null;isHost=false;document.getElementById('connectBox').classList.remove('show');document.getElementById('timerBar').classList.remove('show');
+document.getElementById('status').textContent='📴 OFFLINE - '
