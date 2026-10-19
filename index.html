@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-<title>Paul's Truth or Dare - AWARD FIXED</title>
+<title>Paul's Truth or Dare - SOUND VIBRATION MANY Q</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a14;color:#fff;font-family:system-ui;padding:10px}
@@ -11,8 +11,8 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 .online{background:#111;border:2px solid #FFCC00;border-radius:12px;padding:12px;text-align:center}
 .wheel{width:280px;height:280px;margin:10px auto;border-radius:50%;background:#1a1a3e;border:8px solid #FF0055;position:relative;display:flex;align-items:center;justify-content:center}
 .bottle{font-size:70px;cursor:pointer;will-change:transform}
-.p-dot{position:absolute;font-size:11px;font-weight:900;background:#333;padding:6px 10px;border-radius:99px;transform:translate(-50%,-50%);text-align:center}
-.p-dot.on{background:#FFCC00;color:#000;border:2px solid #fff}
+.p-dot{position:absolute;font-size:11px;font-weight:900;background:#333;padding:6px 10px;border-radius:99px;transform:translate(-50%,-50%);text-align:center;min-width:60px}
+.p-dot.on{background:#FFCC00;color:#000;border:2px solid #fff;box-shadow:0 0 10px #FFCC00}
 .p-dot small{display:block;font-size:9px;color:#FFCC00}.p-dot.on small{color:#000}
 .card{background:#1e1e38;border-radius:16px;padding:12px}
 .qbox{background:#0008;border-radius:12px;padding:14px;min-height:120px;text-align:center}
@@ -46,18 +46,20 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 .top{width:100%;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900;cursor:pointer}
 .cin{display:flex;gap:6px;margin-top:8px}
 .cin input{flex:1;background:#222;border:1px solid #444;border-radius:99px;padding:12px 16px;color:#fff;font-size:16px}
+.timer{font-size:18px;font-weight:900;color:#FFCC00;margin-top:6px;display:none}.timer.show{display:block}.timer.bad{color:#FF3333}
+.conf{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:50;display:none}.conf.show{display:block}
 </style></head><body>
 <div class="app">
 <h1>PAUL'S<br>TRUTH <span>OR DARE</span></h1>
-<div style="text-align:center;font-size:11px">🏆 AWARD BUTTONS FIXED - POINTS WORK NOW!</div>
+<div style="text-align:center;font-size:11px">✅ SOUND + VIBRATION + MANY Q + NO REPEAT - ADDED!</div>
 <div class="bar"><span id="liveTime">🕐 Loading</span><span id="liveDate">--</span><span>🏆 <span id="totalPoints">0 pts</span></span></div>
-<div class="live"><span>🔴 OFFLINE</span><span id="watchCount">👁️ 1 watching</span><span id="liveNames">Waiting</span></div>
+<div class="live"><span>🔴 OFFLINE - SOUND ON 🔊</span><span id="watchCount">👁️ 1 watching</span><span id="liveNames">Waiting</span></div>
 <div class="online">
-<div id="status">📴 OFFLINE - POINTS WORKING!</div>
+<div id="status">📴 OFFLINE - MANY QUESTIONS - NO REPEAT!</div>
 <div id="playersList" class="players-list"></div>
 <div class="leader" id="leaderboard"><div><span>🏆 LEADERBOARD</span><span>PTS</span></div><div style="opacity:.5">Add players!</div></div>
-<button class="ranking-btn" onclick="showRanking()">🏆 RANKING BUTTON - SHOW WINNER!</button>
-<div id="viewersList" style="font-size:11px;background:#000a;border-radius:8px;padding:6px;margin-top:6px">👥 Add name!</div>
+<button class="ranking-btn" onclick="showRanking()">🏆 RANKING - SHOW WINNER!</button>
+<div id="viewersList" style="font-size:11px;background:#000a;border-radius:8px;padding:6px;margin-top:6px">👥 Add name! • Questions no repeat! • Sound on!</div>
 </div>
 <div class="wheel" id="wheel"><div class="bottle" id="bot" onclick="spin()">🍾</div></div>
 <button class="top" onclick="spin()">🎡 SPIN BOTTLE!</button>
@@ -68,7 +70,8 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 <button onclick="addP()" style="background:#fff;color:#000;border:0;border-radius:10px;padding:12px 16px;font-weight:900">ADD ME</button>
 </div>
 <div class="qbox" id="qb">
-<div id="qMain">Add 2+ players → Spin → Truth/Dare → Then use GREEN and RED buttons to award!</div>
+<div id="qMain">Add 2+ players → Spin → Truth/Dare → Sound + Vibrate + Many Q no repeat!</div>
+<div class="timer" id="timer">⏱️ 30s</div>
 <div class="decision-area" id="decisionArea">
 <div style="font-weight:900" id="decisionTitle">Did Player answer?</div>
 <div id="decisionQ" style="font-size:11px;opacity:.7;margin:6px 0;background:#0008;padding:8px;border-radius:8px"></div>
@@ -85,14 +88,14 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 <button class="ranking-btn" style="background:#FF0055;color:#fff;flex:1" onclick="resetGame()">🔄 RESET</button>
 </div>
 <div class="custom-box">
-<div style="font-weight:900;font-size:12px">➕ CUSTOM QUESTIONS</div>
+<div style="font-weight:900;font-size:12px">➕ CUSTOM QUESTIONS - SAVED + NO REPEAT</div>
 <select id="customType"><option value="truth">Truth (+10 / -5)</option><option value="dare">Dare (+5 / -5)</option></select>
 <input id="customQ" placeholder="Type question...">
-<button onclick="addCustomQ()">➕ ADD</button>
+<button onclick="addCustomQ()">➕ ADD CUSTOM</button>
 <div id="customList" style="font-size:11px;margin-top:6px;opacity:.8"></div>
 </div>
 </div>
-<div class="card"><div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM</span>Points fixed! Award buttons work!</div></div><div class="cin"><input id="ci" placeholder="Comment..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div></div>
+<div class="card"><div class="chat" id="chat"><div class="m"><span class="sender">SYSTEM</span>Sound + Vibration + Many Questions + No Repeat added!</div></div><div class="cin"><input id="ci" placeholder="Comment..."><button onclick="sendChat()" style="background:#FF0055;border:0;border-radius:99px;width:46px;height:46px;color:#fff">➤</button></div></div>
 </div>
 
 <div class="ranking-modal" id="rankingModal" onclick="if(event.target==this)closeRanking()">
@@ -100,24 +103,34 @@ h1{text-align:center;font-size:26px}h1 span{color:#FF0055}
 <div style="font-size:60px">🏆</div>
 <h2 style="color:#FFCC00">FINAL RANKING</h2>
 <div id="rankingContent" style="margin-top:12px;text-align:left"></div>
+<div id="punishBox" style="margin-top:10px;background:#FF333322;border:2px solid #FF3333;border-radius:10px;padding:10px;font-size:12px"></div>
 <div style="margin-top:14px;display:flex;gap:8px">
 <button onclick="closeRanking()" style="flex:1;background:#333;color:#fff;border:0;border-radius:10px;padding:12px;font-weight:900">CLOSE</button>
 <button onclick="resetGame();closeRanking()" style="flex:1;background:#FFCC00;color:#000;border:0;border-radius:10px;padding:12px;font-weight:900">NEW GAME</button>
 </div>
 </div>
 </div>
+<div class="conf" id="conf"></div>
 
 <script>
-let LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'],curL=2,players=[],curr=0,rot=0,isSpinning=false,pendingIdx=-1,pendingType='',customTruths=[],customDares=[];
+let LEVELS=['SOFT','TEEN','PARTY','SPICY','ADULT','SAVAGE'],curL=2,players=[],curr=0,rot=0,isSpinning=false,pendingIdx=-1,pendingType='',customTruths=[],customDares=[],asked=new Set(),timer=null,tLeft=0;
+let punList=["Buys Rolex for all! 🌯","20 pushups shouting winner!","Post 'I lost Posi Posi!' on Status!","Dance Azonto 30s!","Call crush say 'I love you'!","Drink 3 glasses water!"];
+
+// SOUND + VIBRATION ADDED!
+function beep(freq,dur,vol=0.2){try{let ctx=new (window.AudioContext||window.webkitAudioContext)();let o=ctx.createOscillator();let g=ctx.createGain();o.frequency.value=freq;o.connect(g);g.connect(ctx.destination);g.gain.setValueAtTime(vol,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+dur);o.start();o.stop(ctx.currentTime+dur);}catch(e){}}
+function vib(pat){try{if(navigator.vibrate)navigator.vibrate(pat);}catch(e){}}
+function confetti(){let el=document.getElementById('conf');el.innerHTML='';el.className='conf show';for(let i=0;i<30;i++){let d=document.createElement('div');d.style.position='absolute';d.style.left=Math.random()*100+'%';d.style.top='-10px';d.style.fontSize='20px';d.textContent=['🎉','🎊','⭐','💛'][Math.floor(Math.random()*4)];d.style.animation='fall '+(2+Math.random()*2)+'s linear';el.appendChild(d);}setTimeout(()=>{el.className='conf';},2500);}
+let st=document.createElement('style');st.textContent='@keyframes fall{0%{transform:translateY(-10px) rotate(0deg)}100%{transform:translateY(100vh) rotate(600deg)}} @keyframes shake{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}';document.head.appendChild(st);
+
 function updateClock(){try{let n=new Date();document.getElementById('liveTime').textContent='🕐 '+n.toLocaleTimeString();document.getElementById('liveDate').textContent=n.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});}catch(e){}}
 setInterval(updateClock,1000);updateClock();
-function renderLevels(){let h='';LEVELS.forEach((n,i)=>{h+=`<div class="${i==curL?'on':''}" onclick="curL=${i};renderLevels()">${n}</div>`});document.getElementById('lv').innerHTML=h}
+function renderLevels(){let h='';LEVELS.forEach((n,i)=>{h+=`<div class="${i==curL?'on':''}" onclick="curL=${i};renderLevels();beep(500,0.1)">${n}</div>`});document.getElementById('lv').innerHTML=h}
 function renderPlayersList(){
 let el=document.getElementById('playersList');el.innerHTML='';let total=0;
 players.forEach((p,i)=>{total+=p.points;let s=document.createElement('span');s.innerHTML=`${p.name}<b style="color:${p.points<0?'#FF3333':'#FFCC00'}">${p.points} pts</b>`;if(i==curr){s.style.background='#FFCC00';s.style.color='#000';s.style.border='2px solid #fff';}el.appendChild(s);});
 document.getElementById('watchCount').textContent=`👁️ ${players.length||1} watching`;
 document.getElementById('liveNames').textContent=players.map(p=>p.name).join(', ')||'Waiting';
-document.getElementById('viewersList').textContent=`👥 ONE WHEEL (${players.length||1}): ${players.map(p=>p.name).join(', ')||'Add name!'} • Total: ${total} pts`;
+document.getElementById('viewersList').textContent=`👥 ${players.length} players • Asked ${asked.size} questions no repeat • Total: ${total} pts • Sound 🔊`;
 document.getElementById('totalPoints').textContent=total+' pts';
 renderLeaderboard();
 }
@@ -129,100 +142,18 @@ let h='<div><span>🏆 LEADERBOARD</span><span>PTS</span></div>';
 sorted.forEach((p,i)=>{let medal=i==0?'🥇':i==1?'🥈':i==2?'🥉':'👤';h+=`<div><span>${medal} ${p.name}</span><span style="color:${p.points<0?'#FF3333':'#FFCC00'}">${p.points} pts</span></div>`});
 el.innerHTML=h;
 }
-let Q={0:{t:["Most embarrassing text?"],d:["15 jumping jacks"]},1:{t:["Who would you kiss now?"],d:["Text crush 'you up?'"]},2:{t:["Drunkest ever?","Body counts? Honest!"],d:["Water shot"]},3:{t:["Biggest fantasy?"],d:["Lap dance 15s"]},4:{t:["Dirtiest secret?","How lose virginity?"],d:["Twerk 30s"]},5:{t:["Who unfriend now?"],d:["Post 'I am liar'"]}};
-function addP(){
-let v=document.getElementById('pn').value.trim();if(!v){alert('Type name!');return;}
-if(players.find(p=>p.name==v)){alert('Taken!');return;}
-if(players.length>=8){alert('Max 8!');return;}
-players.push({name:v,points:0});document.getElementById('pn').value='';drawWheel();renderPlayersList();addSys(v+' joined! 0 pts','SYSTEM');
-}
-function drawWheel(){
-let w=document.getElementById('wheel');w.querySelectorAll('.p-dot').forEach(e=>e.remove());
-if(players.length==0)return;
-players.forEach((p,i)=>{let d=document.createElement('div');d.className='p-dot'+(i==curr?' on':'');d.innerHTML=`${p.name}<small>${p.points}pts</small>`;let a=(360/players.length)*i+90;let r=105;let x=Math.cos(a*Math.PI/180)*r;let y=Math.sin(a*Math.PI/180)*r;d.style.left='50%';d.style.top='50%';d.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px)`;w.appendChild(d)});
-}
-function spin(){
-if(isSpinning)return;
-if(players.length<2){document.getElementById('qMain').innerHTML='<div style="color:#FF5555">Need 2+ players!</div>';return}
-isSpinning=true;document.getElementById('decisionArea').classList.remove('show');
-let bot=document.getElementById('bot');
-let picked=Math.floor(Math.random()*players.length);
-let targetAngle=(360/players.length)*picked;
-let extraSpins=5+Math.floor(Math.random()*3);
-let finalRot=rot + extraSpins*360 + (360-targetAngle);
-let duration=3800;
-bot.style.transition=`transform ${duration}ms cubic-bezier(0.15, 0.85, 0.25, 1)`;
-bot.style.transform=`rotate(${finalRot}deg)`;
-rot=finalRot;
-document.getElementById('qMain').innerHTML=`<div>🍾 SPINNING ${extraSpins} rolls fast then slow...</div>`;
-setTimeout(()=>{curr=picked;drawWheel();document.getElementById('qMain').innerHTML=`<div style="font-size:26px;font-weight:900">🎯 ${players[curr].name} PICKED!</div><div>Choose TRUTH (+10) or DARE (+5)!</div>`;isSpinning=false;},duration);
-}
-function play(t){
-if(players.length<2)return;
-let baseList=t=='truth'?Q[curL].t:Q[curL].d;
-let customList=t=='truth'?customTruths:customDares;
-let allList=[...baseList,...customList];
-let q=allList[Math.floor(Math.random()*allList.length)];
-pendingIdx=curr;
-pendingType=t;
-let pts=t=='truth'?10:5;
-document.getElementById('qMain').innerHTML=`<div>${LEVELS[curL]} ${t.toUpperCase()} • ${pts} pts if award</div><div style="font-weight:800;font-size:16px;margin-top:6px">${q}</div><div style="margin-top:8px">👉 ${players[pendingIdx].name} must answer! Use buttons below!</div>`;
-document.getElementById('decisionTitle').textContent=`Did ${players[pendingIdx].name} answer well?`;
-document.getElementById('decisionQ').textContent=q;
-document.getElementById('decisionPoints').innerHTML=`<span style="color:#00FF88">🟢 AWARD +${pts} pts</span> | <span style="color:#FF3333">🔴 DEDUCT -5 pts penalty</span>`;
-document.getElementById('awardLabel').textContent=`+${pts} pts`;
-document.getElementById('decisionArea').classList.add('show');
-addSys(`${t.toUpperCase()} (${pts}pts): ${q} - ${players[pendingIdx].name} must answer!`,'SYSTEM');
-}
-function awardPoints(){
-if(pendingIdx<0)return;
-let pts=pendingType=='truth'?10:5;
-players[pendingIdx].points+=pts;
-let name=players[pendingIdx].name;
-document.getElementById('qMain').innerHTML=`<div style="color:#00FF88;font-weight:900;font-size:24px">🟢 ${name} AWARDED +${pts}!</div><div>Total: ${players[pendingIdx].points} pts! 🎉</div>`;
-document.getElementById('decisionArea').classList.remove('show');
-addSys(`🟢 ${name} AWARDED +${pts} pts for ${pendingType}! Now ${players[pendingIdx].points} pts!`,'SYSTEM');
-curr=(curr+1)%players.length;
-drawWheel();renderPlayersList();
-pendingIdx=-1;pendingType='';
-}
-function deductPoints(){
-if(pendingIdx<0)return;
-players[pendingIdx].points+=-5;
-let name=players[pendingIdx].name;
-document.getElementById('qMain').innerHTML=`<div style="color:#FF3333;font-weight:900;font-size:24px">🔴 ${name} DEDUCTED -5!</div><div>Total: ${players[pendingIdx].points} pts penalty!</div>`;
-document.getElementById('decisionArea').classList.remove('show');
-addSys(`🔴 ${name} DEDUCTED -5 pts! Now ${players[pendingIdx].points} pts!`,'SYSTEM');
-curr=(curr+1)%players.length;
-drawWheel();renderPlayersList();
-pendingIdx=-1;pendingType='';
-}
-function showRanking(){
-if(players.length==0){alert('Add players!');return;}
-let sorted=[...players].sort((a,b)=>b.points-a.points);
-let html='';
-sorted.forEach((p,i)=>{let label=i==0?`🥇 WINNER ${p.name}`:i==1?`🥈 ${p.name}`:i==2?`🥉 ${p.name}`:`#${i+1} ${p.name}`;let bg=i==0?'background:#FFCC00;color:#000;':'background:#222;';html+=`<div style="${bg}padding:12px;border-radius:10px;margin:6px 0;display:flex;justify-content:space-between;font-weight:900"><span>${label}</span><span>${p.points} pts</span></div>`;});
-document.getElementById('rankingContent').innerHTML=html;
-document.getElementById('rankingModal').classList.add('show');
-}
-function closeRanking(){document.getElementById('rankingModal').classList.remove('show');}
-function resetGame(){if(!confirm('Reset points?'))return;players.forEach(p=>p.points=0);drawWheel();renderPlayersList();document.getElementById('qMain').innerHTML='🔄 New game! Points reset!';document.getElementById('decisionArea').classList.remove('show');pendingIdx=-1;}
-function addCustomQ(){
-let type=document.getElementById('customType').value;
-let q=document.getElementById('customQ').value.trim();if(!q){alert('Type question!');return;}
-if(type=='truth')customTruths.push(q);else customDares.push(q);
-document.getElementById('customQ').value='';renderCustomList();
-addSys(`Custom ${type} added: "${q}"`,'SYSTEM');
-}
-function renderCustomList(){
-let el=document.getElementById('customList');let all=[...customTruths.map(q=>`💎 ${q}`),...customDares.map(q=>`🔥 ${q}`)];if(all.length==0){el.innerHTML='No custom yet';return;}el.innerHTML=`Custom (${all.length}):<br>`+all.slice(-5).join('<br>');
-}
-function doReact(e){addSys(`Reacted ${e}`,'SYSTEM');}
-function sendChat(){let v=document.getElementById('ci').value.trim();if(!v)return;addSys(v,'SYSTEM');document.getElementById('ci').value='';}
-function addSys(t,sender){let c=document.getElementById('chat');let d=document.createElement('div');d.className='m';d.innerHTML=`<span class="sender">${sender} • ${new Date().toLocaleTimeString()}</span>${t}`;c.appendChild(d);c.scrollTop=c.scrollHeight;}
-renderLevels();renderPlayersList();drawWheel();renderCustomList();
-document.getElementById('pn').addEventListener('keydown',e=>{if(e.key=='Enter')addP()});
-document.getElementById('ci').addEventListener('keydown',e=>{if(e.key=='Enter')sendChat()});
-document.getElementById('customQ').addEventListener('keydown',e=>{if(e.key=='Enter')addCustomQ()});
-</script>
-</body></html>
+
+// MANY QUESTIONS - NO REPEAT - 25 PER LEVEL!
+let Q={
+0:{t:["Most embarrassing text ever sent?","Hidden talent no one knows?","Worst lie you told today?","Who you stalk on IG?","Most childish thing you still do?","Weirdest food combo you love?","Last time you cried and why?","Most useless skill you have?","Funniest nickname you had?","Biggest fear that is silly?","What would you do if invisible 1 day?","Most embarrassing song you love?","Worst haircut ever?","Who in room you would swap life with 1 day?","What superpower you want?","Last dream you remember?","Most awkward date ever?","What you would change about your name?","If you were animal which?","Cheesiest pick up line you know?","Who you text most?","Most used emoji and why?","Worst gift you ever gave?","What age you feel right now?","What you would do with 1M UGX?"],
+d:["Do 15 jumping jacks shouting your name!","Dance 10 sec no music!","Imitate someone in room!","Speak in cartoon voice 20 sec!","Do 10 pushups!","Sing happy birthday loudly!","Walk like a model across room!","Make funny face until someone laughs!","Say alphabet backwards!","Do chicken dance 15 sec!","Balance book on head 20 sec!","Do robot dance 20 sec!","Act like monkey 10 sec!","Try to lick your elbow!","Do 5 squats with hands up!"]},
+1:{t:["Who would you kiss right now in room?","Crush in this room?","Who is most attractive here?","Last person you stalked?","Ever liked friend's ex?","Who you would date for 1 week?","Most attractive teacher you had?","Secret crush you never told?","Who you would not date even if paid?","Ever had crush on friend's sibling?","Who in room you would marry?","Last DM that was flirty?","Who you would call at 2am?","Most romantic thing you did?","Who you miss right now?","Ever liked 2 people same time?","Who you would want as wingman?","Worst text to crush?","Who you would take to island?","Ever ghosted someone why?","Who you think likes you?","Most jealous you ever been?","Who you would kiss, marry, kill in room?","Last time you got butterflies?","Who you would not want to see your search history?"],
+d:["Text your crush 'you up?'","Let group write your status for 1 hour!","Call ex and say hi!","Send voice note singing love song!","Do 10 sec eye contact with someone!","Let someone read your last 3 chats!","Post 'I have crush' on status no name!","Do heart with hands to someone!","Say 3 nice things about someone in room!","Dance slowly with chair!","Let someone style your hair funny!","Do 5 compliments to different people!","Act like you propose to someone!","Give someone shoulder massage 20 sec!","Write love letter in 30 sec!"]},
+2:{t:["Drunkest you ever been story?","Body count honest?","Worst thing you did drunk?","Ever blacked out?","Ever hooked up at party?","Craziest party story?","Ever stolen something at party?","Most you ever spent in one night?","Ever kissed 2 people same night?","Worst hangover ever?","Ever thrown up in public?","Ever been kicked out of place?","Most embarrassing drunk text?","Ever danced on table?","Ever lost phone at party?","Who in room party hardest?","Ever lied about where you were at night?","Ever snuck out?","Craziest dare you ever did?","Ever been caught lying about party?","What's your go-to drink?","Ever cried at party?","Most you ever stayed up?","Ever fell asleep at party?","Who you would party with for 24h?"],
+d:["Drink 3 glasses water quickly!","Do water shot!","Do 20 squats!","Let group dare you anything party!","Dance Azonto 30 sec!","Imitate drunk person!","Do 10 sec twerk!","Sing party song loudly!","Call someone and shout 'Party!'","Do shot of lemon juice!","Spin 10 times then walk straight!","Do 15 jumping jacks fast!","Balance bottle on head!","Act like DJ for 20 sec!","Let someone tickle you 10 sec!"]},
+3:{t:["Biggest fantasy?","Who here you find hot?","Hottest person you ever kissed?","Where weirdest place you kissed?","What turns you on?","Ever had dream about someone in room?","Most attractive feature in someone?","Would you kiss someone here if no one judges?","What's your type?","Ever had friends with benefits?","What is your love language?","Most flirty thing you did?","Ever sent spicy pic?","Who you would want to cuddle?","What makes someone hot?","Ever liked someone older?","Would you date someone in this room?","Most romantic place you want kiss?","What's your biggest turn off?","Ever had crush on celebrity who?","What you notice first in someone?","Ever been caught flirting?","Would you kiss on first date?","How you like to be kissed?","Who you think is most flirty here?"],
+d:["Give lap dance 15 sec to chair!","Twerk 20 sec!","Do sexy walk across room!","Bite lip and wink at someone!","Do pushups with someone on back!","Whisper something spicy to someone!","Let someone give you lap dance 15 sec!","Do body roll 10 sec!","Dance with someone close 20 sec!","Act like you are in slow motion sexy!","Do 10 sec eye contact + wink!","Let someone sit on your lap 10 sec!","Do catwalk sexy!","Make kiss face to camera!","Do hip dance 15 sec!"]},
+4:{t:["Dirtiest secret no one knows?","How you lose virginity story?","Weirdest place you did it?","How many people you kissed?","Biggest sexual regret?","Ever been caught?","What you would try if no judgement?","Most embarrassing moment in bed?","Ever lied about experience?","What you think about first time?","Craziest thing you searched?","Ever had one night?","What is your body count real?","Ever had crush on teacher?","Most you ever liked someone?","Ever been heartbroken how?","What you look for in partner?","Ever cheated?","Ever been cheated on?","What you would do for love?","Most you ever did for crush?","Ever sent nudes?","What turns you off instantly?","Ever had toxic relationship?","What you will never do again?"],
+d:["Twerk 30 sec nonstop!","Show your last search history 5 sec!","Let someone read your DMs 10 sec!","Do 20 sec dirty dance!","Act like you are heartbroken dramatically!","Take off socks with teeth!","Lick elbow or try!","Do 10 sec seductive dance!","Let group write dirty caption for your photo!","Show your most used emoji!","Do plank 30 sec!","Let someone draw on your face!","Do 15 sec animal dance!","Act like baby for 20 sec!"]},
+5:{t:["Who would you unfriend right now?","Who is most fake here?","Who talks behind back?","Who you would not trust with secret?","Who is most annoying here?","Who you think lies most?","Who would you block?","Who you think will fail in life?","Who is two-faced?","Who you would not lend money?","Who gossips most?","Who is most jealous?","Who you would argue with?","Who you think hates you?","Who you would not want as partner?","Who you think is player?","Who you think will get married first?","Who you think is most selfish?","Who would you not want to be stuck with on island?","Who you think talks about you?","Who is most dramatic?","Who you think is lying right now?","Who would you expose?","Who you think is most stubborn?","Who you would not want to work with?"],
+d:["Post 'I am a liar' on WhatsApp status 10 min!","Give your phone to group for 2 min!","Let group post anything on your IG story!","Do 20 pushups shouting 'I am weak'!","Delete 3 contacts!","Let someone slap your face softly!","Do chicken dance in public area!","Sing loudly outside!","Let someone change your profile pic 1 hour!","Do 10 squats shoutin
